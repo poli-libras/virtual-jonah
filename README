@@ -1,0 +1,13 @@
+﻿=================================
+Virtual Jonah
+=================================
+
+Code license: GNU GPL v3
+
+----------------------------
+Virtual Jonah lê uma descrição em XML de uma sequência de sinais para que um avatar animado em 3D sintetize os movimentos no espaço virtual para representar estes sinais descritos no XML.
+
+A modelagem dos sinais (estrutura do XML) é baseada na notação SignWriting.
+
+Tecnologias
+A API gráfica utilizada é o Processing (uma API em Java que por baixo utiliza o OpenGL).
