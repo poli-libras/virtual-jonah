@@ -6,9 +6,9 @@ Esta é uma check list baseada nas propriedades da [modelagem dos sinais](http:/
 
 Symbol 
 ------------
- *Contact*: não suportado
- *Hands in Unity*: OK
- *Locations*: suportado parcialmente
+* **Contact**: não suportado
+* **Hands in Unity**: OK
+* **Locations**: suportado parcialmente
 
 Face
 -----
@@ -18,19 +18,19 @@ Não suportado
 Hand
 ------
 
- *Orientation*: suportado
- *Plane*: suportado
- *Rotation*: suportado
- *Shape*: suportado parcialmente
- *Fingers movement*: não 
+* **Orientation**: suportado
+* **Plane**: suportado
+* **Rotation**: suportado
+* **Shape**: suportado parcialmente
+* **Fingers movement**: não 
 
 Hand Movement
 ----------------
 
- *Type + segments*: suportado parcialmente
- *Speed*: suportado
- *Frequency*: suportado
- *Starts in location*: com bug
+* **Type + segments**: suportado parcialmente
+* **Speed**: suportado
+* **Frequency**: suportado
+* **Starts in location**: com bug
 
 
 Locations
@@ -40,25 +40,25 @@ As coordenadas das locações estão *hard-coded* na classe LocationsLoader. Ser
 
 As locações destacadas já estão definidas.
 
- * *ESPACO_NEUTRO*
+ * **ESPACO_NEUTRO**
 
 Grupo cabeça:
- * *TOPO_DA_CABECA*
- * *TESTA*
+ * **TOPO_DA_CABECA**
+ * **TESTA**
  * ROSTO
  * ROSTO_SUPERIOR
  * ROSTO_INFERIOR
  * ORELHA
- * *OLHOS*
- * *NARIZ*
- * *BOCA*
+ * **OLHOS**
+ * **NARIZ**
+ * **BOCA**
  * BOCHECHAS
  * QUEIXO
 
 Grupo corpo:
  * PESCOCO
  * OMBRO
- * *BUSTO*
+ * **BUSTO**
  * ESTOMAGO
  * CINTURA
  * BRACOS
@@ -91,7 +91,7 @@ Para que o Jonah tenha suporte a novas configurações de mão, "basta" fazer no
 
 Confira as configurações já modeladas: https://github.com/poli-libras/virtual-jonah/tree/master/resources/models/dir.
 
-Antes de fazer um modelo novo, considere a frequência das configurações de mão na LIBRAS: https://raw.github.com/poli-libras/sign-model/master/doc/freq_conf.xls
+Antes de fazer um modelo novo, considere a frequência das configurações de mão na LIBRAS: https://raw.github.com/poli-libras/virtual-jonah/master/doc/freq_conf.xls
 
 == Movimento da mão ==
 
