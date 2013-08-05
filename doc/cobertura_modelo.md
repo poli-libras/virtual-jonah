@@ -85,7 +85,8 @@ Para o corpo, nós podemos definir algumas locações (como *busto*), mas outras
 
 O grupo mais complicado é o da mão: a interação entre duas mão é bem complexa e o software (os algoritmos dos movimentos) deve ser melhorado para que isso seja possível.
 
-== Configurações ==
+Configurações
+--------------
 
 Para que o Jonah tenha suporte a novas configurações de mão, "basta" fazer novos modelos OBJ e adicionar estes arquivos no diretório apropriado (junto dos outros arquivos OBJ).
 
@@ -93,7 +94,9 @@ Confira as configurações já modeladas: https://github.com/poli-libras/virtual
 
 Antes de fazer um modelo novo, considere a frequência das configurações de mão na LIBRAS: https://raw.github.com/poli-libras/virtual-jonah/master/doc/freq_conf.xls
 
-== Movimento da mão ==
+
+Movimento da mão
+-----------------
 
 O único tipo de movimento suportado é o RETILINIO.
 
