@@ -1,0 +1,10 @@
+Para designers
+=========
+
+Os modelos editáveis estão disponíveis no formato 3ds, editável no 3DStudioMax.
+
+No OBJ exportado lembre-se de deixar a mão na mesma posição e orientação que o modelo editável. Depois da edição, exporte o modelo no formato OBJ e faça o commit no diretório apropriado. Não altere o arquivo editável no repositório.
+
+Não exclua ou inclua vértices no modelo... cada arquivo OBJ DEVE ter a mesma quantidade de vértices e os vértices correspondentes DEVEM estar na mesma ordem. 
+
+
