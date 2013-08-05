@@ -10,6 +10,8 @@ Tecnologias
 
 A API gráfica utilizada é o Processing (uma API em Java que por baixo utiliza o OpenGL).
 
+Os modelos gráficos foram feitos no 3DStudioMAX e exportados no formato texto OBJ, que é lido pela aplicação. 
+
 Comandos
 --------
 
@@ -20,3 +22,17 @@ Comandos
 * a, d, w, s, q, e: controle de câmera
 
 Comandos devem ser executados com foco no applet.
+
+Captura de tela
+---------------
+
+![Captura de tela do Virtual Jonah](https://raw.github.com/poli-libras/virtual-jonah/master/doc/jonah-small.png)
+
+
+English description
+-------------------
+
+Virtual Jonah software reads a XML description of a sign sequence and the avatar synthesizes the movements to represent such signs.
+
+The sign modeling is defined on the sign-model project. 
+
