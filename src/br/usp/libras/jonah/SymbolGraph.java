@@ -33,7 +33,6 @@ public class SymbolGraph {
      * @param symbol definição do sinal a ser renderizado
      */
     public SymbolGraph(PApplet processing, Symbol symbol) {
-
         this.symbol = symbol;
         this.faceGraph = new FaceGraph(processing, symbol.getFace());
         this.processing = processing;
@@ -60,7 +59,6 @@ public class SymbolGraph {
      * @param nextSymbol definição do próximo sinal a ser renderizado
      */
     public void nextSymbol(Symbol nextSymbol) {
-
         this.rightHandGraph.nextHand(nextSymbol.getRightHand(), nextSymbol.getLocation(), nextSymbol.isHandsInUnity());
         this.leftHandGraph.nextHand(nextSymbol.getLeftHand(), nextSymbol.getLocation(), nextSymbol.isHandsInUnity());
         this.faceGraph.nextSign(nextSymbol.getFace());
@@ -79,11 +77,10 @@ public class SymbolGraph {
         return this.faceGraph;
     }
     
-    public boolean hasEnded() {
-        
-        boolean ok = this.rightHandGraph.hasEnded();
+    public boolean hasTransitionEnded() {
+        boolean ok = this.rightHandGraph.hasTransitionEnded();
         if (this.leftHandGraph != null)
-            return ok && this.leftHandGraph.hasEnded();
+            return ok && this.leftHandGraph.hasTransitionEnded();
         else
             return ok;
     }

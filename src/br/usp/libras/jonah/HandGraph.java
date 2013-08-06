@@ -374,7 +374,7 @@ public class HandGraph {
         return hand;
     }
 
-    public boolean hasEnded() {
+    public boolean hasTransitionEnded() {
         return this.ended;
     }
 }

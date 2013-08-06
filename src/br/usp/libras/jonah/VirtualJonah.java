@@ -16,13 +16,9 @@ import javax.xml.bind.JAXBException;
 import processing.core.PApplet;
 import processing.core.PFont;
 import br.usp.libras.sign.Sign;
-import br.usp.libras.sign.face.Face;
 import br.usp.libras.sign.symbol.Hand;
-import br.usp.libras.sign.symbol.HandOrientation;
-import br.usp.libras.sign.symbol.HandPlane;
 import br.usp.libras.sign.symbol.HandShape;
 import br.usp.libras.sign.symbol.HandSide;
-import br.usp.libras.sign.symbol.Location;
 import br.usp.libras.sign.symbol.Symbol;
 import br.usp.libras.xml.XMLParser;
 
@@ -52,7 +48,7 @@ public class VirtualJonah extends PApplet {
 
 	private boolean playing;
 	private PFont font;
-	private String signName;
+	private String signName = "";
 
 	private boolean initialized = false;
 	private boolean initializing = false;
@@ -124,7 +120,7 @@ public class VirtualJonah extends PApplet {
 		translate(width / 2, 0.6f * height, -300);
 		rotateModel();
 		drawAxis();
-		if (playing && this.symbolGraph.hasEnded()) {
+		if (playing && this.symbolGraph.hasTransitionEnded()) {
 			goToNextSymbol();
 		}
 		// renderiza sinal (composto de modelos obj)
@@ -139,23 +135,24 @@ public class VirtualJonah extends PApplet {
 	 * Loads all models. May take a while.
 	 */
 	private void loadModels() {
+		
 		// carrega objs
 		ModelsLoader.loadModels(this);
 		LocationsLoader.loadLocations();
-
+		
 		// mão inicial deve ser sempre esta:
-		Hand lh = new Hand(HandSide.LEFT, HandShape.INDICADOR,
-				HandOrientation.BLACK, HandPlane.VERTICAL, null, null);
-		Hand rh = new Hand(HandSide.RIGHT, HandShape.MAO_2,
-				HandOrientation.BLACK, HandPlane.VERTICAL, null, null);
-		Symbol initial = new Symbol(new Face(), lh, rh, Location.ESPACO_NEUTRO,
-				null, 0, false);
+		Hand leftHand = new Hand();
+		leftHand.setShape(HandShape.INDICADOR);
+		leftHand.setSide(HandSide.LEFT);
+		Hand rightHand = new Hand();
+		rightHand.setShape(HandShape.MAO_2);
+		rightHand.setSide(HandSide.RIGHT);
+		Symbol initialSymbol = new Symbol();
+		initialSymbol.setLeftHand(leftHand);
+		initialSymbol.setRightHand(rightHand);
+		
 		this.reset();
-		this.symbolGraph = new SymbolGraph(this, initial);
-
-		playing = true;
-		signName = "";
-
+		this.symbolGraph = new SymbolGraph(this, initialSymbol);
 		this.initialized = true;
 		this.initializing = false;
 	}
