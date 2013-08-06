@@ -1,6 +1,10 @@
 package br.usp.libras.jonah;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import processing.core.PApplet;
@@ -18,130 +22,124 @@ import br.usp.libras.sign.symbol.HandSide;
  */
 public class ModelsLoader {
 
-    public static final String MODELS_PATH = "resources/models/";
+	public static final String MODELS_PATH = "resources/models/";
 
-    private static Map<HandModel, AnimObj> map = new HashMap<HandModel, AnimObj>();
+	private static Map<HandModel, AnimObj> map = new HashMap<HandModel, AnimObj>();
 
-    private static OBJModel faceModel, hatModel;
-    
-    private static Map<Others,PImage> faceTextures = new HashMap<Others,PImage>();
+	private static OBJModel faceModel, hatModel;
 
-    /**
-     * Execute este método antes de acessar os modelos!!!
-     * 
-     * @param processing
-     * 
-     */
-    public static void loadModels(PApplet processing) {
+	private static Map<Others, PImage> faceTextures = new HashMap<Others, PImage>();
 
-        System.out.println("Loading models");
+	/**
+	 * Execute este método antes de acessar os modelos!!!
+	 * 
+	 * @param processing
+	 * 
+	 */
+	public static void loadModels(PApplet processing) {
+		loadHandModels(processing);
+		loadHeadModels(processing);
+		loadTextures(processing);
+		System.out.println("Models loaded");
+	}
 
-        map.put(new HandModel(HandShape.INDICADOR, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH
-                + "dir/indicador.obj"));
-        map.put(new HandModel(HandShape.INDICADOR, HandSide.LEFT), new AnimObj(processing, MODELS_PATH
-                + "esq/indicador.obj"));
+	private static void loadHandModels(PApplet processing) {
+		System.out.println("Loading hand models");
+		List<String> fileNames = getExistingHandModelFileNames();
+		for (String fileName : fileNames) {
+			try {
+				HandShape shape = shapeFrom(fileName);
+				HandModel rightHandModel = new HandModel(shape, HandSide.RIGHT);
+				AnimObj rightAnumObj = new AnimObj(processing, MODELS_PATH + "dir/" + fileName);
+				map.put(rightHandModel, rightAnumObj);
+				HandModel leftHandModel = new HandModel(shape, HandSide.LEFT);
+				AnimObj leftAnimObj = new AnimObj(processing, MODELS_PATH + "esq/" + fileName);
+				map.put(leftHandModel, leftAnimObj);
+			} catch (IllegalArgumentException e) {
+				System.out.println(fileName + " does not correspond to a hand shape!");
+			}
+		}
+	}
+	
+	private static List<String> getExistingHandModelFileNames() {
+		File modelsFolder = new File(MODELS_PATH + "dir");
+		FilenameFilter filter = new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				return name.endsWith(".obj");
+			}
+		};
+		File[] files = modelsFolder.listFiles(filter);
+		List<String> fileNames = new ArrayList<String>();
+		for (File f : files)
+			fileNames.add(f.getName());
+		return fileNames;
+	}
 
-        map.put(new HandModel(HandShape.MAO_5, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_5.obj"));
-        map.put(new HandModel(HandShape.MAO_5, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_5.obj"));
+	private static HandShape shapeFrom(String fileName) {
+		String shapeStr = fileName.replace(".obj", "").toUpperCase();
+		HandShape shape = HandShape.valueOf(shapeStr);
+		return shape;
+	}
+	
+	private static void loadHeadModels(PApplet processing) {
+		System.out.println("Loadind head models");
+		faceModel = new OBJModel(processing, MODELS_PATH + "face/cabeca.obj");
+		hatModel = new OBJModel(processing, MODELS_PATH + "face/gorro.obj");
+	}
+	
+	private static void loadTextures(PApplet processing) {
+		System.out.println("Loading Face Textures");
+		faceTextures.put(Others.NADA, processing
+				.loadImage("resources/models/face/texturas/cabeca1.jpg"));
+		faceTextures.put(Others.EXPRESSAO_RADIANTE, processing
+				.loadImage("resources/models/face/texturas/cabeca1.jpg"));
+		faceTextures.put(Others.EXPRESSAO_QUESTAO, processing
+				.loadImage("resources/models/face/texturas/cabeca2.jpg"));
+		faceTextures.put(Others.QUEIXO, processing
+				.loadImage("resources/models/face/texturas/cabeca3.jpg"));
+	}
 
-        map.put(new HandModel(HandShape.MAO_5_COM_POLEGAR_PARA_FRENTE, HandSide.RIGHT), new AnimObj(processing,
-                MODELS_PATH + "dir/mao_5_com_polegar_para_frente.obj"));
-        map.put(new HandModel(HandShape.MAO_5_COM_POLEGAR_PARA_FRENTE, HandSide.LEFT), new AnimObj(processing,
-                MODELS_PATH + "esq/mao_5_com_polegar_para_frente.obj"));
+	/**
+	 * Retorna o modelo de acordo com a configuração e lado especificados. Antes
+	 * de poder usar esta função, loadModels deve ser executado uma vez.
+	 * 
+	 * @param shape
+	 *            configuração de mão
+	 * @param side
+	 *            qual das mãos
+	 * @return modelo carregado a partir de arquivo obj
+	 */
+	public static AnimObj getHandModel(HandShape shape, HandSide side) {
+		return map.get(new HandModel(shape, side));
+	}
 
-        map.put(new HandModel(HandShape.MAO_C, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_c.obj"));
-        map.put(new HandModel(HandShape.MAO_C, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_c.obj"));
+	/**
+	 * 
+	 * @return modelo (obj) do rosto
+	 */
+	public static OBJModel getFaceModel() {
+		return faceModel;
+	}
 
-        map.put(new HandModel(HandShape.CURVADO_X, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH
-                + "dir/curvado_x.obj"));
-        map.put(new HandModel(HandShape.CURVADO_X, HandSide.LEFT), new AnimObj(processing, MODELS_PATH
-                + "esq/curvado_x.obj"));
+	/**
+	 * 
+	 * @return modelo (obj) do gorrinho do muleque
+	 */
+	public static OBJModel getHatModel() {
+		return hatModel;
+	}
 
-        map.put(new HandModel(HandShape.FLEXIONADO1, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH
-                + "dir/flexionado1.obj"));
-        map.put(new HandModel(HandShape.FLEXIONADO1, HandSide.LEFT), new AnimObj(processing, MODELS_PATH
-                + "esq/flexionado1.obj"));
-
-        map.put(new HandModel(HandShape.MAO_D, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_d.obj"));
-        map.put(new HandModel(HandShape.MAO_D, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_d.obj"));
-
-        map.put(new HandModel(HandShape.MAO_S, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_s.obj"));
-        map.put(new HandModel(HandShape.MAO_S, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_s.obj"));
-
-        map.put(new HandModel(HandShape.MAO_2, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_2.obj"));
-        map.put(new HandModel(HandShape.MAO_2, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_2.obj"));
-
-        map.put(new HandModel(HandShape.ANGULO_ABERTO_AFASTADO, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/angulo_aberto_afastado.obj"));
-        map.put(new HandModel(HandShape.ANGULO_ABERTO_AFASTADO, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/angulo_aberto_afastado.obj"));
-        
-        map.put(new HandModel(HandShape.C_AFASTADO, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/angulo_aberto_afastado.obj"));
-        map.put(new HandModel(HandShape.C_AFASTADO, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/angulo_aberto_afastado.obj"));
-
-        map.put(new HandModel(HandShape.MAO_A, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_a.obj"));
-        map.put(new HandModel(HandShape.MAO_A, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_a.obj"));
-
-        map.put(new HandModel(HandShape.MAO_ESTENDIDA_COM_POLEGAR, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_estendida_com_polegar.obj"));
-        map.put(new HandModel(HandShape.MAO_ESTENDIDA_COM_POLEGAR, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_estendida_com_polegar.obj"));
-
-        map.put(new HandModel(HandShape.MAO_ONZE, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_onze.obj"));
-        map.put(new HandModel(HandShape.MAO_ONZE, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_onze.obj"));
-
-        map.put(new HandModel(HandShape.MAO_ONZE_APERTA, HandSide.RIGHT), new AnimObj(processing, MODELS_PATH + "dir/mao_onze_aperta.obj"));
-        map.put(new HandModel(HandShape.MAO_ONZE_APERTA, HandSide.LEFT), new AnimObj(processing, MODELS_PATH + "esq/mao_onze_aperta.obj"));
-
-        // modelo da cabeça
-        faceModel = new OBJModel(processing, MODELS_PATH + "face/cabeca.obj");
-        hatModel = new OBJModel(processing, MODELS_PATH + "face/gorro.obj");
-        
-        System.out.println("Loading Face Textures");
-        faceTextures.put(Others.NADA, processing.loadImage("resources/models/face/texturas/cabeca1.jpg"));
-        faceTextures.put(Others.EXPRESSAO_RADIANTE, processing.loadImage("resources/models/face/texturas/cabeca1.jpg"));
-        faceTextures.put(Others.EXPRESSAO_QUESTAO, processing.loadImage("resources/models/face/texturas/cabeca2.jpg"));
-        faceTextures.put(Others.QUEIXO, processing.loadImage("resources/models/face/texturas/cabeca3.jpg"));
-
-        System.out.println("Models loaded");
-    }
-
-    /**
-     * Retorna o modelo de acordo com a configuração e lado especificados Antes de poder usar esta função, loadModels
-     * deve ser executado uma vez
-     * 
-     * @param shape configuração de mão
-     * @param side lado da mão
-     * @return modelo carregado a partir de arquivo obj
-     */
-    public static AnimObj getHandModel(HandShape shape, HandSide side) {
-
-        // TODO: coleção interna de objs não deveria ser modificável por irresponsáveis que usam este método
-        return map.get(new HandModel(shape, side));
-    }
-
-    /**
-     * 
-     * @return modelo (obj) do rosto
-     */
-    public static OBJModel getFaceModel() {
-
-        return faceModel;
-    }
-
-    /**
-     * 
-     * @return modelo (obj) do gorrinho do muleque
-     */
-    public static OBJModel getHatModel() {
-
-        return hatModel;
-    }
-    
-    /**
-     * Returns the adequate face texture
-     * @param other
-     * @return correpondent texture; If not found, returns some default;
-     */
-    public static PImage getFaceTexture(Others other) {
-        PImage texture = faceTextures.get(other);
-        return texture != null ? texture : faceTextures.get(Others.EXPRESSAO_RADIANTE);
-    }
+	/**
+	 * Returns the adequate face texture
+	 * 
+	 * @param other
+	 * @return correspondent texture; If not found, returns some default;
+	 */
+	public static PImage getFaceTexture(Others other) {
+		PImage texture = faceTextures.get(other);
+		return texture != null ? texture : faceTextures
+				.get(Others.EXPRESSAO_RADIANTE);
+	}
 
 }
