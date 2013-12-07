@@ -45,7 +45,7 @@ public class ModelsLoader {
 
 	private static void loadHandModels(PApplet processing) {
 		System.out.println("Loading hand models");
-		List<String> fileNames = getExistingHandModelFileNames();
+		List<String> fileNames = getExistingHandModelFileNames(processing);
 		for (String fileName : fileNames) {
 			try {
 				HandShape shape = shapeFrom(fileName);
@@ -61,8 +61,8 @@ public class ModelsLoader {
 		}
 	}
 	
-	private static List<String> getExistingHandModelFileNames() {
-		File modelsFolder = new File(MODELS_PATH + "dir");
+	private static List<String> getExistingHandModelFileNames(PApplet processing) {
+		File modelsFolder = new File(processing.dataPath(MODELS_PATH + "dir"));
 		FilenameFilter filter = new FilenameFilter() {
 			@Override
 			public boolean accept(File dir, String name) {
