@@ -1,14 +1,11 @@
 package br.usp.libras.jonah;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
 import java.io.Reader;
 import java.io.StringReader;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -183,10 +180,6 @@ public class VirtualJonah extends PApplet {
 			this.loadLocalXML();
 		}
 
-		if ((key == 'z') || (key == 'Z')) {
-			this.loadLocalSerialized();
-		}
-		
 		// controle de câmera
 		if (key == 'a')
 			rotY += -0.1;
