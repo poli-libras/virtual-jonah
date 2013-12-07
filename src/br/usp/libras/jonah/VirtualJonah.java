@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.Reader;
+import java.io.StringReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -185,7 +186,7 @@ public class VirtualJonah extends PApplet {
 		if ((key == 'z') || (key == 'Z')) {
 			this.loadLocalSerialized();
 		}
-
+		
 		// controle de câmera
 		if (key == 'a')
 			rotY += -0.1;
@@ -223,6 +224,18 @@ public class VirtualJonah extends PApplet {
 	public void loadSignsFromXML(String link) throws IOException, JAXBException {
 		URL url = new URL(link);
 		Reader reader = new InputStreamReader(url.openStream());
+		this.signs = XMLParser.parseXML(reader);
+		printSigns();
+	}
+	
+	/**
+	 * Carrega sequência de sinais a partir de string XML
+	 * 
+	 * @param xml
+	 * @throws JAXBException 
+	 */
+	public void loadSignsFromXMLString(String xml) throws JAXBException {
+		Reader reader = new StringReader(xml);
 		this.signs = XMLParser.parseXML(reader);
 		printSigns();
 	}
