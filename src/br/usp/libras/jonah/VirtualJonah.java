@@ -240,25 +240,6 @@ public class VirtualJonah extends PApplet {
 		printSigns();
 	}
 
-	/**
-	 * Carrega sinais a partir de arquivo contendo serialização de um array de
-	 * sinais
-	 * 
-	 * @param link
-	 *            link apontando para o aruivo.
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
-	public void loadSignsFromSerialized(String link) throws IOException,
-			ClassNotFoundException {
-		System.out.println("Carregando " + link);
-		URL url = new URL(link);
-		ObjectInputStream objr = new ObjectInputStream(url.openStream());
-		Sign[] retrieved = (Sign[]) objr.readObject();
-		objr.close();
-		this.signs = Arrays.asList(retrieved);
-		printSigns();
-	}
 
 	/**
 	 * Carrega sequência de sinais do arquivo "xml/signs.xml"
@@ -271,26 +252,6 @@ public class VirtualJonah extends PApplet {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Carrega sinais do arquivo serial/signs.txt
-	 */
-	protected void loadLocalSerialized() {
-		try {
-			String file = "resources/serial/signs.txt";
-			FileInputStream fis = new FileInputStream(file);
-			ObjectInputStream objr = new ObjectInputStream(fis);
-			Sign[] retrieved = (Sign[]) objr.readObject();
-			objr.close();
-			fis.close();
-			this.signs = Arrays.asList(retrieved);
-			printSigns();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
