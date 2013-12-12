@@ -13,6 +13,7 @@ import javax.xml.bind.JAXBException;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import br.usp.libras.jonah.input.ShapesForTest;
 import br.usp.libras.sign.Sign;
 import br.usp.libras.sign.symbol.Hand;
 import br.usp.libras.sign.symbol.HandShape;
@@ -179,6 +180,10 @@ public class VirtualJonah extends PApplet {
 		if ((key == 'x') || (key == 'X')) {
 			this.loadLocalXML();
 		}
+		
+		if ((key == 'c') || (key == 'C')) {
+			this.loadHandShapesFromFile();
+		}
 
 		// controle de câmera
 		if (key == 'a')
@@ -239,7 +244,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	protected void loadLocalXML() {
 		try {
-			String file = "resources/xml/signs.xml";
+			String file = "resources/input/signs.xml";
 			this.signs = XMLParser.parseXMLFile(file);
 			printSigns();
 		} catch (JAXBException e) {
@@ -247,6 +252,12 @@ public class VirtualJonah extends PApplet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void loadHandShapesFromFile() {
+		ShapesForTest shapes = new ShapesForTest();
+		this.signs = shapes.getSignsWithListedShapes();
+		printSigns();
 	}
 
 	/**
