@@ -29,7 +29,11 @@ public class ShapesForTest {
 			Hand rightHand = new Hand();
 			rightHand.setSide(HandSide.RIGHT);
 			rightHand.setShape(HandShape.valueOf(confName.toUpperCase()));
+			Hand leftHand = new Hand();
+			leftHand.setSide(HandSide.LEFT);
+			leftHand.setShape(HandShape.valueOf(confName.toUpperCase()));
 			symbol.setRightHand(rightHand);
+			symbol.setLeftHand(leftHand);
 			sign.addSymbol(symbol);
 			signs.add(sign);
 		}
@@ -42,8 +46,11 @@ public class ShapesForTest {
 		List<String> lines = new ArrayList<String>();
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
-			while (reader.ready())
-				lines.add(reader.readLine());
+			while (reader.ready()) {
+				String line = reader.readLine(); 
+				if (!line.startsWith("#") && !line.isEmpty())
+					lines.add(line);
+			}
 			reader.close();
 		} catch (FileNotFoundException e) {
 			System.out.println(FILE_NAME + " not found! Should never happen!");

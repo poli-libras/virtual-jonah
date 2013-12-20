@@ -51,7 +51,7 @@ public class AnimObj extends OBJModel {
 	
 		super(parent, filepath);
 		this.interp = 1.0f; // starts stopped
-		
+
 		// copying vertices (caution to not copy by reference)
 		this.current = new PVector[this.getVertexCount()];
 		for(int i = 0; i < this.getVertexCount(); i++){			  

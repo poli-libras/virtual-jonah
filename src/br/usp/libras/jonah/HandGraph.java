@@ -73,13 +73,13 @@ public class HandGraph {
         this.nextHand = hand;
 
         this.animationPhase = AnimationPhase.INITIAL_INTERPOLATION;
-
-        // primeira mão não pega de ModelsLoader pra não estragar o modelo
-        // mão inicial é mão_2!
+        
+        // primeira mão não pega de ModelsLoader pra não estragar o modelo (????)
+        String shape = hand.getShape().name();
         if (hand.getSide() == HandSide.RIGHT)
-            this.model = new AnimObj(processing, ModelsLoader.MODELS_PATH + "dir/mao_2.obj");
+            this.model = new AnimObj(processing, ModelsLoader.MODELS_PATH + "dir/" + shape + ".obj");
         else
-            this.model = new AnimObj(processing, ModelsLoader.MODELS_PATH + "esq/mao_2.obj");
+            this.model = new AnimObj(processing, ModelsLoader.MODELS_PATH + "esq/" + shape + ".obj");
 
         this.posHand = LocationsLoader.getVector(location, hand.getSide());
         this.posBeginMove = this.posHand;
@@ -377,4 +377,5 @@ public class HandGraph {
     public boolean hasTransitionEnded() {
         return this.ended;
     }
+    
 }

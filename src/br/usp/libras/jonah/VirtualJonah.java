@@ -141,7 +141,7 @@ public class VirtualJonah extends PApplet {
 		
 		// mão inicial deve ser sempre esta:
 		Hand leftHand = new Hand();
-		leftHand.setShape(HandShape.INDICADOR);
+		leftHand.setShape(HandShape.MAO_2);
 		leftHand.setSide(HandSide.LEFT);
 		Hand rightHand = new Hand();
 		rightHand.setShape(HandShape.MAO_2);
