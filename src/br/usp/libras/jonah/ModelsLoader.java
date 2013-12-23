@@ -21,11 +21,26 @@ public class ModelsLoader {
     public static final String MODELS_PATH = "resources/models/";
 
     private static HandShape[] HAND_MODELS_TO_LOAD = new HandShape[] {HandShape.ANGULO_ABERTO_AFASTADO, 
-    	HandShape.ANGULO_ABERTO, HandShape.ANGULO_FECHADO, HandShape.CURVADO_X, HandShape.INDICADOR, 
-    	HandShape.MAO_2, HandShape.MAO_5_COM_POLEGAR_PARA_FRENTE, HandShape.MAO_5, HandShape.MAO_A, HandShape.MAO_B, 
-    	HandShape.MAO_CERTO, HandShape.MAO_ESTENDIDA_COM_POLEGAR, HandShape.MAO_ESTICADA, HandShape.MAO_L_COM_C, 
-    	HandShape.MAO_L, HandShape.MAO_ONZE, HandShape.MAO_PASSARINHO_FECHADA, HandShape.MAO_S, HandShape.MAO_U, 
-    	HandShape.MAO_Y} ;
+    	HandShape.ANGULO_ABERTO, HandShape.ANGULO_COM_POLEGAR, HandShape.ANGULO_FECHADO, HandShape.CURVADOS, 
+    	HandShape.CURVADO_X, HandShape.FLEXIONADO1, HandShape.FLEXIONADO2, HandShape.INDICADOR, HandShape.MAO_2, 
+    	HandShape.MAO_3, HandShape.MAO_4, HandShape.MAO_5_COM_POLEGAR_PARA_FRENTE, HandShape.MAO_5, HandShape.MAO_A, 
+    	HandShape.MAO_BANHEIRO, HandShape.MAO_B, HandShape.MAO_C_COM_POLEGAR_PARA_O_LADO, HandShape.MAO_CERTO_ABERTA, 
+    	HandShape.MAO_CERTO, HandShape.MAO_C, HandShape.MAO_D, HandShape.MAO_DOENTE, 
+    	HandShape.MAO_ESTENDIDA_COM_POLEGAR, HandShape.MAO_ESTICADA, HandShape.MAO_F, HandShape.MAO_JESUS, 
+    	HandShape.MAO_K, HandShape.MAO_L_COM_C, HandShape.MAO_L, HandShape.MAO_ONZE, 
+    	HandShape.MAO_O, HandShape.MAO_PASSARINHO_ABERTA, HandShape.MAO_PASSARINHO_FECHADA, HandShape.MAO_R, 
+    	HandShape.MAO_S, HandShape.MAO_SO, HandShape.MAO_U, HandShape.MAO_Y, HandShape.O_CURVADO, 
+    	HandShape.U_COM_POLEGAR, HandShape.ANGULO_ABERTO_AFASTADO, HandShape.ANGULO_ABERTO, 
+    	HandShape.ANGULO_COM_POLEGAR, HandShape.ANGULO_FECHADO, HandShape.CURVADOS, HandShape.CURVADO_X, 
+    	HandShape.FLEXIONADO1, HandShape.FLEXIONADO2, HandShape.INDICADOR, HandShape.MAO_2, HandShape.MAO_3, 
+    	HandShape.MAO_4, HandShape.MAO_5_COM_POLEGAR_PARA_FRENTE, HandShape.MAO_5, HandShape.MAO_A, 
+    	HandShape.MAO_BANHEIRO, HandShape.MAO_B, HandShape.MAO_C_COM_POLEGAR_PARA_O_LADO, HandShape.MAO_CERTO_ABERTA, 
+    	HandShape.MAO_CERTO, HandShape.MAO_C, HandShape.MAO_D, HandShape.MAO_DOENTE, 
+    	HandShape.MAO_ESTENDIDA_COM_POLEGAR, HandShape.MAO_ESTICADA, HandShape.MAO_F, HandShape.MAO_JESUS, 
+    	HandShape.MAO_K, HandShape.MAO_L_COM_C, HandShape.MAO_L, HandShape.MAO_ONZE, 
+    	HandShape.MAO_O, HandShape.MAO_PASSARINHO_ABERTA, HandShape.MAO_PASSARINHO_FECHADA, HandShape.MAO_R, 
+    	HandShape.MAO_S, HandShape.MAO_SO, HandShape.MAO_U, HandShape.MAO_Y, HandShape.O_CURVADO, 
+    	HandShape.U_COM_POLEGAR} ;
     
     private static Map<HandModel, AnimObj> map = new HashMap<HandModel, AnimObj>();
 

@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib resources/models/esq/hand.mtl
+mtllib resources/models/dir/hand.mtl
 g skinCluster1Set tweakSet1
 v -6.593020 -2.484555 7.815241
 v 19.286621 1.898295 11.125715
