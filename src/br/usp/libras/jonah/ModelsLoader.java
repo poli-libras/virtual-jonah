@@ -32,7 +32,7 @@ public class ModelsLoader {
     	HandShape.MAO_CERTO, HandShape.MAO_CERTO_RETA, HandShape.MAO_C, HandShape.MAO_D, 
     	HandShape.MAO_DOENTE, HandShape.MAO_DROGA, HandShape.MAO_E, 
     	HandShape.MAO_ESTENDIDA_COM_POLEGAR, HandShape.MAO_ESTICADA, HandShape.MAO_FIGA, 
-    	HandShape.MAO_F, HandShape.MAO_G, HandShape.MAO_I_LOVE_YOU, HandShape.MAO_I, 
+    	HandShape.MAO_F, HandShape.MAO_G, HandShape.MAO_I_AMANTE, HandShape.MAO_I_LOVE_YOU, HandShape.MAO_I, 
     	HandShape.MAO_JESUS, HandShape.MAO_K, HandShape.MAO_L_COM_C, HandShape.MAO_L_COM_O, 
     	HandShape.MAO_L, HandShape.MAO_N, HandShape.MAO_ONZE_APERTA, HandShape.MAO_ONZE, 
     	HandShape.MAO_O, HandShape.MAO_PASSARINHO_ABERTA, HandShape.MAO_PASSARINHO_FECHADA, 
