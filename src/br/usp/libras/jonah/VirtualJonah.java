@@ -184,6 +184,10 @@ public class VirtualJonah extends PApplet {
 		if ((key == 'c') || (key == 'C')) {
 			this.loadHandShapesFromFile();
 		}
+		
+		if (key == 'S') {
+			this.loadHandSpock();
+		}
 
 		// controle de câmera
 		if (key == 'a')
@@ -198,6 +202,10 @@ public class VirtualJonah extends PApplet {
 			rotZ += -0.1;
 		if (key == 'e')
 			rotZ += 0.1;
+	}
+
+	private void loadHandSpock() {
+		this.symbolGraph.spock();
 	}
 
 	/**

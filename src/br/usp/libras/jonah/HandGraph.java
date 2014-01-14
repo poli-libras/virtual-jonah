@@ -97,7 +97,12 @@ public class HandGraph {
             this.ended = false;
             this.animationPhase = AnimationPhase.INITIAL_INTERPOLATION;
             this.nextHand = nextHand;
-            this.model.setNextPose(ModelsLoader.getHandModel(nextHand.getShape(), nextHand.getSide()));
+            if (!spoke) {
+            	this.model.setNextPose(ModelsLoader.getHandModel(nextHand.getShape(), nextHand.getSide()));
+            } else {
+            	this.model.setNextPose(ModelsLoader.getSpockModel(processing));
+            	spoke = false;
+            }
             this.model.startAnim();
             this.interp = 0; // inicia interpolação
 
@@ -377,5 +382,14 @@ public class HandGraph {
     public boolean hasTransitionEnded() {
         return this.ended;
     }
+
+    ///////////////////////////////////////////
+
+    private static boolean spoke = false;
+	public void spock() {
+		Hand hand = new Hand();
+		spoke = true;
+		nextHand(hand, Location.ESPACO_NEUTRO, false);
+	}
     
 }

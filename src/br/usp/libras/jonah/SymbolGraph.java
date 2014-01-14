@@ -4,6 +4,7 @@ import java.util.Map;
 
 import processing.core.PApplet;
 import processing.core.PVector;
+import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Location;
 import br.usp.libras.sign.symbol.Symbol;
 
@@ -77,12 +78,23 @@ public class SymbolGraph {
         return this.faceGraph;
     }
     
+    public HandGraph getHandGraph(HandSide side) {
+    	if (side == HandSide.LEFT)
+    		return this.leftHandGraph;
+    	else
+    		return this.rightHandGraph;
+    }
+    
     public boolean hasTransitionEnded() {
         boolean ok = this.rightHandGraph.hasTransitionEnded();
         if (this.leftHandGraph != null)
             return ok && this.leftHandGraph.hasTransitionEnded();
         else
             return ok;
+    }
+    
+    public void spock() {
+    	this.rightHandGraph.spock();
     }
 
 }

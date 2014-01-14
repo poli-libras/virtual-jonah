@@ -123,5 +123,11 @@ public class ModelsLoader {
         PImage texture = faceTextures.get(other);
         return texture != null ? texture : faceTextures.get(Others.EXPRESSAO_RADIANTE);
     }
-
+    
+    private static AnimObj spockModel = null;
+    public static AnimObj getSpockModel(PApplet processing) {
+    	if (spockModel == null)
+    		spockModel = new AnimObj(processing, MODELS_PATH + "dir/MAO_SPOCK.obj");
+    	return spockModel;
+    }
 }
