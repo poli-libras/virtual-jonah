@@ -48,6 +48,7 @@ public class VirtualJonah extends PApplet {
 	private boolean playing;
 	private PFont font;
 	private String signName = "";
+	private boolean showSignName = true;
 
 	private boolean initialized = false;
 	private boolean initializing = false;
@@ -127,7 +128,9 @@ public class VirtualJonah extends PApplet {
 		popMatrix();
 		// Desenha na tela
 		fill(255);
-		text(signName, width / 2, height - 50);
+		if (showSignName) {
+			text(signName, width / 2, height - 50);
+		}
 	}	
 
 	/**
@@ -187,6 +190,10 @@ public class VirtualJonah extends PApplet {
 		
 		if (key == 'S') {
 			this.loadHandSpock();
+		}
+		
+		if (key == 't' || key == 'T') {
+			showSignName = !showSignName;
 		}
 
 		// controle de câmera
@@ -252,7 +259,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	protected void loadLocalXML() {
 		try {
-			String file = "resources/input/signs.xml";
+			String file = "input/signs.xml";
 			this.signs = XMLParser.parseXMLFile(file);
 			printSigns();
 		} catch (JAXBException e) {

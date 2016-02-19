@@ -79,10 +79,10 @@ public class ModelsLoader {
 
 	private static void loadFaceTextures(PApplet processing) {
 		System.out.println("Loading Face Textures");
-        faceTextures.put(Others.NADA, processing.loadImage("resources/models/face/texturas/cabeca1.jpg"));
-        faceTextures.put(Others.EXPRESSAO_RADIANTE, processing.loadImage("resources/models/face/texturas/cabeca1.jpg"));
-        faceTextures.put(Others.EXPRESSAO_QUESTAO, processing.loadImage("resources/models/face/texturas/cabeca2.jpg"));
-        faceTextures.put(Others.QUEIXO, processing.loadImage("resources/models/face/texturas/cabeca3.jpg"));
+        faceTextures.put(Others.NADA, processing.loadImage(MODELS_PATH + "face/texturas/cabeca1.jpg"));
+        faceTextures.put(Others.EXPRESSAO_RADIANTE, processing.loadImage(MODELS_PATH + "face/texturas/cabeca1.jpg"));
+        faceTextures.put(Others.EXPRESSAO_QUESTAO, processing.loadImage(MODELS_PATH + "face/texturas/cabeca2.jpg"));
+        faceTextures.put(Others.QUEIXO, processing.loadImage(MODELS_PATH + "face/texturas/cabeca3.jpg"));
 	}
 
     /**
