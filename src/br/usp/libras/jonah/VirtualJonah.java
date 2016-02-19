@@ -11,18 +11,17 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import processing.core.PApplet;
-import processing.core.PFont;
 import br.usp.libras.jonah.input.ShapesForTest;
 import br.usp.libras.sign.Sign;
 import br.usp.libras.sign.symbol.Hand;
 import br.usp.libras.sign.symbol.HandOrientation;
 import br.usp.libras.sign.symbol.HandPlane;
-import br.usp.libras.sign.symbol.HandRotation;
 import br.usp.libras.sign.symbol.HandShape;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Symbol;
 import br.usp.libras.xml.XMLParser;
+import processing.core.PApplet;
+import processing.core.PFont;
 
 /**
  * Esta classe é a aplicação, o sketch do Processing, que chama o parser do XML
