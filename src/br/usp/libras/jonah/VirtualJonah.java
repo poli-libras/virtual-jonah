@@ -16,6 +16,9 @@ import processing.core.PFont;
 import br.usp.libras.jonah.input.ShapesForTest;
 import br.usp.libras.sign.Sign;
 import br.usp.libras.sign.symbol.Hand;
+import br.usp.libras.sign.symbol.HandOrientation;
+import br.usp.libras.sign.symbol.HandPlane;
+import br.usp.libras.sign.symbol.HandRotation;
 import br.usp.libras.sign.symbol.HandShape;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Symbol;
@@ -57,7 +60,7 @@ public class VirtualJonah extends PApplet {
 	 * Esse método é chamado pelo processing no começo da execução.
 	 */
 	public void setup() {
-		size(800, 600, P3D);
+		size(1120, 700, P3D);
 		perspective(PI / 4, 1.0f * width / height, 0.1f, 1500);
 		frameRate(20);
 		setupText();
@@ -102,22 +105,22 @@ public class VirtualJonah extends PApplet {
 	 * Desenha eixos coordenados (x,y)
 	 */
 	private void drawAxis() {
-		background(150, 150, 150);
-		beginShape(LINES);
-		stroke(0, 255, 0); // verde - 0x
-		vertex(-200, 0, 0);
-		vertex(200, 0, 0);
-		stroke(0, 0, 255); // azul - 0y
-		vertex(0, -200, 0);
-		vertex(0, 200, 0);
-		endShape(LINES);
+		background(255, 238, 116);
+//		beginShape(LINES);
+//		stroke(0, 255, 0); // verde - 0x
+//		vertex(-200, 0, 0);
+//		vertex(200, 0, 0);
+//		stroke(0, 0, 255); // azul - 0y
+//		vertex(0, -200, 0);
+//		vertex(0, 200, 0);
+//		endShape(LINES);
 		noStroke();
 	}
 	
 	private void drawWhenInitialized() {
 		lights();
 		pushMatrix();
-		translate(width / 2, 0.6f * height, -300);
+		translate(width / 2, 0.6f * height, -200);
 		rotateModel();
 		drawAxis();
 		if (playing && this.symbolGraph.hasTransitionEnded()) {
@@ -193,7 +196,11 @@ public class VirtualJonah extends PApplet {
 		}
 		
 		if (key == 't' || key == 'T') {
-			showSignName = !showSignName;
+			this.showSignName = !this.showSignName;
+		}
+		
+		if (key == 'r' || key == 'R') {
+			this.resetHands();
 		}
 
 		// controle de câmera
@@ -209,6 +216,24 @@ public class VirtualJonah extends PApplet {
 			rotZ += -0.1;
 		if (key == 'e')
 			rotZ += 0.1;
+	}
+	
+	protected void resetHands() {
+		// mão inicial deve ser sempre esta:
+		Hand leftHand = new Hand();
+		leftHand.setShape(HandShape.MAO_A);
+		leftHand.setSide(HandSide.LEFT);
+		leftHand.setOrientation(HandOrientation.HALF);
+		leftHand.setPlane(HandPlane.HORIZONTAL);
+		Hand rightHand = new Hand();
+		rightHand.setShape(HandShape.MAO_A);
+		rightHand.setSide(HandSide.RIGHT);
+		rightHand.setOrientation(HandOrientation.HALF);
+		rightHand.setPlane(HandPlane.HORIZONTAL);
+		Symbol symbol = new Symbol();
+		symbol.setLeftHand(leftHand);
+		symbol.setRightHand(rightHand);
+		symbolGraph.nextSymbol(symbol);
 	}
 
 	private void loadHandSpock() {
@@ -324,6 +349,26 @@ public class VirtualJonah extends PApplet {
 					reset();
 					playing = false;
 				}
+			}
+		}
+	}
+	
+	protected void repeatLastSign() {
+		Sign s = this.signs.get(signIndex);
+		signName = s.getName();
+		List<Symbol> symbols = s.getSymbols();
+		Symbol symbol = symbols.get(symbolIndex);
+		this.symbolGraph.nextSymbol(symbol);
+
+		if (symbolIndex < symbols.size() - 1) {
+			symbolIndex++;
+		} else {
+			symbolIndex = 0;
+			if (signIndex < signs.size() - 1) {
+				signIndex++;
+			} else {
+				reset();
+				playing = false;
 			}
 		}
 	}
