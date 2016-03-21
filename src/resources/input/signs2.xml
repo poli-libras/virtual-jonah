@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:signList xmlns:ns2="br.usp.libras.xml">
 	<signs>
-		<name>SOL</name>
-		<symbols>
-			<contact>NENHUM</contact>
-			<handsInUnity>false</handsInUnity>
-			<location>TOPO_DA_CABECA</location>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<orientation>HALF</orientation>
-				<plane>VERTICAL</plane>
-				<rotation>ZERO</rotation>
-				<shape>MAO_S</shape>
-				<side>RIGHT</side>
-			</rightHand>
-		</symbols>
-		<symbols>
-			<contact>NENHUM</contact>
-			<handsInUnity>false</handsInUnity>
-			<location>TESTA</location>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<orientation>WHITE</orientation>
-				<plane>VERTICAL</plane>
-				<rotation>INCLINADO_PARA_DENTRO</rotation>
-				<shape>MAO_L</shape>
-				<side>RIGHT</side>
-			</rightHand>
-		</symbols>
-	</signs>
-	<signs>
 		<name>JUIZ</name>
 		<symbols>
 			<contact>NENHUM</contact>

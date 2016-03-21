@@ -173,6 +173,10 @@ public class VirtualJonah extends PApplet {
 	 * Respostas de comandos do usuário
 	 */
 	public void keyPressed() {
+		
+		if (key == 'l') {
+			repeatLastSymbol();
+		}
 
 		if (key == ' ') { 
 			goToNextSymbol();
@@ -352,23 +356,22 @@ public class VirtualJonah extends PApplet {
 		}
 	}
 	
-	protected void repeatLastSign() {
-		Sign s = this.signs.get(signIndex);
-		signName = s.getName();
-		List<Symbol> symbols = s.getSymbols();
-		Symbol symbol = symbols.get(symbolIndex);
-		this.symbolGraph.nextSymbol(symbol);
-
-		if (symbolIndex < symbols.size() - 1) {
-			symbolIndex++;
-		} else {
-			symbolIndex = 0;
-			if (signIndex < signs.size() - 1) {
-				signIndex++;
+	protected void repeatLastSymbol() {
+		if (this.signs.size() > 0) {
+			if (symbolIndex > 0) {
+				symbolIndex--;
 			} else {
-				reset();
-				playing = false;
-			}
+				if (signIndex > 0) {
+					signIndex--;
+					symbolIndex = this.signs.get(signIndex).getSymbols().size() - 1;
+				}
+			}		
+			Sign s = this.signs.get(signIndex);
+			signName = s.getName();
+			List<Symbol> symbols = s.getSymbols();
+			Symbol symbol = symbols.get(symbolIndex);
+			this.symbolGraph.nextSymbol(symbol);
+			
 		}
 	}
 	
