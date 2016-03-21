@@ -223,18 +223,23 @@ public class VirtualJonah extends PApplet {
 	
 	protected void resetHands() {
 		// mão inicial deve ser sempre esta:
-		Hand leftHand = new Hand();
-		leftHand.setShape(HandShape.MAO_A);
-		leftHand.setSide(HandSide.LEFT);
-		leftHand.setOrientation(HandOrientation.HALF);
-		leftHand.setPlane(HandPlane.HORIZONTAL);
+		Sign s = this.signs.get(signIndex);
+		List<Symbol> symbols = s.getSymbols();
+		Symbol nextSymbol = symbols.get(symbolIndex);
+		Symbol symbol = new Symbol();
+		if (nextSymbol.getLeftHand() != null) {
+			Hand leftHand = new Hand();
+			leftHand.setShape(HandShape.MAO_A);
+			leftHand.setSide(HandSide.LEFT);
+			leftHand.setOrientation(HandOrientation.HALF);
+			leftHand.setPlane(HandPlane.HORIZONTAL);
+			symbol.setLeftHand(leftHand);
+		}
 		Hand rightHand = new Hand();
 		rightHand.setShape(HandShape.MAO_A);
 		rightHand.setSide(HandSide.RIGHT);
 		rightHand.setOrientation(HandOrientation.HALF);
 		rightHand.setPlane(HandPlane.HORIZONTAL);
-		Symbol symbol = new Symbol();
-		symbol.setLeftHand(leftHand);
 		symbol.setRightHand(rightHand);
 		symbolGraph.nextSymbol(symbol);
 	}
