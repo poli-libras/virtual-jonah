@@ -47,7 +47,9 @@ public class VirtualJonah extends PApplet {
 	private float rotY = 0;
 	private float rotZ = 0;
 
-	private boolean playing;
+	private boolean pressN = false;
+	private boolean playingSign = false;
+	private boolean playing = false;
 	private PFont font;
 	private String signName = "";
 	private boolean showSignName = true;
@@ -105,17 +107,17 @@ public class VirtualJonah extends PApplet {
 	 */
 	private void drawAxis() {
 		background(255, 238, 116);
-//		beginShape(LINES);
-//		stroke(0, 255, 0); // verde - 0x
-//		vertex(-200, 0, 0);
-//		vertex(200, 0, 0);
-//		stroke(0, 0, 255); // azul - 0y
-//		vertex(0, -200, 0);
-//		vertex(0, 200, 0);
-//		endShape(LINES);
+		// beginShape(LINES);
+		// stroke(0, 255, 0); // verde - 0x
+		// vertex(-200, 0, 0);
+		// vertex(200, 0, 0);
+		// stroke(0, 0, 255); // azul - 0y
+		// vertex(0, -200, 0);
+		// vertex(0, 200, 0);
+		// endShape(LINES);
 		noStroke();
 	}
-	
+
 	private void drawWhenInitialized() {
 		lights();
 		pushMatrix();
@@ -125,6 +127,20 @@ public class VirtualJonah extends PApplet {
 		if (playing && this.symbolGraph.hasTransitionEnded()) {
 			goToNextSymbol();
 		}
+		// Caso payingSign seja true e sign atual tenha symbols restantes, deve
+		// chamar goToNextSymbol automaticamnte
+		// if (this.signs.size() > 0) {
+		// Sign signAtual = this.signs.get(signIndex);
+		if (playingSign && this.symbolGraph.hasTransitionEnded()) {
+			// if (symbolIndex < signAtual.getSymbols().size() - 1) {
+			goToNextSymbol();
+			// }
+			// else {
+			// playingSign = false;
+			// }
+		}
+		// }
+
 		// renderiza sinal (composto de modelos obj)
 		this.symbolGraph.draw();
 		popMatrix();
@@ -133,17 +149,17 @@ public class VirtualJonah extends PApplet {
 		if (showSignName) {
 			text(signName, width / 2, height - 50);
 		}
-	}	
+	}
 
 	/**
 	 * Loads all models. May take a while.
 	 */
 	private void loadModels() {
-		
+
 		// carrega objs
 		ModelsLoader.loadModels(this);
 		LocationsLoader.loadLocations();
-		
+
 		// mão inicial deve ser sempre esta:
 		Hand leftHand = new Hand();
 		leftHand.setShape(HandShape.MAO_2);
@@ -154,7 +170,7 @@ public class VirtualJonah extends PApplet {
 		Symbol initialSymbol = new Symbol();
 		initialSymbol.setLeftHand(leftHand);
 		initialSymbol.setRightHand(rightHand);
-		
+
 		this.reset();
 		this.symbolGraph = new SymbolGraph(this, initialSymbol);
 		this.initialized = true;
@@ -173,12 +189,16 @@ public class VirtualJonah extends PApplet {
 	 * Respostas de comandos do usuário
 	 */
 	public void keyPressed() {
-		
+
+		if (key == 'n') {
+			goToNextSign();
+		}
+
 		if (key == 'l') {
 			goToPreviousSymbol();
 		}
 
-		if (key == ' ') { 
+		if (key == ' ') {
 			goToNextSymbol();
 		}
 
@@ -189,19 +209,19 @@ public class VirtualJonah extends PApplet {
 		if ((key == 'x') || (key == 'X')) {
 			this.loadLocalXML();
 		}
-		
+
 		if ((key == 'c') || (key == 'C')) {
 			this.loadHandShapesFromFile();
 		}
-		
+
 		if (key == 'S') {
 			this.loadHandSpock();
 		}
-		
+
 		if (key == 't' || key == 'T') {
 			this.showSignName = !this.showSignName;
 		}
-		
+
 		if (key == 'r' || key == 'R') {
 			this.resetHands();
 		}
@@ -220,7 +240,7 @@ public class VirtualJonah extends PApplet {
 		if (key == 'e')
 			rotZ += 0.1;
 	}
-	
+
 	protected void resetHands() {
 		// mão inicial deve ser sempre esta:
 		Sign s = this.signs.get(signIndex);
@@ -273,19 +293,18 @@ public class VirtualJonah extends PApplet {
 		this.signs = XMLParser.parseXML(reader);
 		printSigns();
 	}
-	
+
 	/**
 	 * Carrega sequência de sinais a partir de string XML
 	 * 
 	 * @param xml
-	 * @throws JAXBException 
+	 * @throws JAXBException
 	 */
 	public void loadSignsFromXMLString(String xml) throws JAXBException {
 		Reader reader = new StringReader(xml);
 		this.signs = XMLParser.parseXML(reader);
 		printSigns();
 	}
-
 
 	/**
 	 * Carrega sequência de sinais do arquivo "xml/signs.xml"
@@ -301,7 +320,7 @@ public class VirtualJonah extends PApplet {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void loadHandShapesFromFile() {
 		ShapesForTest shapes = new ShapesForTest();
 		this.signs = shapes.getSignsWithListedShapes();
@@ -313,8 +332,8 @@ public class VirtualJonah extends PApplet {
 	 */
 	public void playSigns() {
 		this.reset();
-		goToNextSymbol();
 		playing = true;
+		goToNextSymbol();
 	}
 
 	private void printSigns() {
@@ -347,9 +366,14 @@ public class VirtualJonah extends PApplet {
 			Symbol symbol = symbols.get(symbolIndex);
 			this.symbolGraph.nextSymbol(symbol);
 
+			if (pressN == true) {
+				playingSign = true;
+			}
+
 			if (symbolIndex < symbols.size() - 1) {
 				symbolIndex++;
 			} else {
+				playingSign = false;
 				symbolIndex = 0;
 				if (signIndex < signs.size() - 1) {
 					signIndex++;
@@ -360,7 +384,7 @@ public class VirtualJonah extends PApplet {
 			}
 		}
 	}
-	
+
 	protected void goToPreviousSymbol() {
 		if (this.signs.size() > 0) {
 			if (symbolIndex > 0) {
@@ -370,16 +394,22 @@ public class VirtualJonah extends PApplet {
 					signIndex--;
 					symbolIndex = this.signs.get(signIndex).getSymbols().size() - 1;
 				}
-			}		
+			}
 			Sign s = this.signs.get(signIndex);
 			signName = s.getName();
 			List<Symbol> symbols = s.getSymbols();
 			Symbol symbol = symbols.get(symbolIndex);
 			this.symbolGraph.nextSymbol(symbol);
-			
+
 		}
 	}
-	
+
+	public void goToNextSign() {
+		pressN = true;
+		goToNextSymbol();
+		pressN = false;
+	}
+
 	public static void main(String[] args) {
 		PApplet.main(new String[] { "br.usp.libras.jonah.VirtualJonah" });
 	}
