@@ -92,11 +92,10 @@ public class HandGraph {
      * @param nextHand próximo estado da mão a ser renderizado
      */
     public void nextHand(Hand nextHand, Location location, boolean handsInUnity) {
-        
+        this.nextHand = nextHand;
         if (nextHand != null) {
             this.ended = false;
             this.animationPhase = AnimationPhase.INITIAL_INTERPOLATION;
-            this.nextHand = nextHand;
             if (!spoke) {
             	this.model.setNextPose(ModelsLoader.getHandModel(nextHand.getShape(), nextHand.getSide()));
             } else {
@@ -184,7 +183,13 @@ public class HandGraph {
 	}
 
 	public void draw() {
+		
+		// não desenha a mão se é nulo
         
+		if (nextHand == null) {
+			return;
+		}
+		
         // movimento tem duas fases: uma de posicionamento para poder iniciar o movimento
         // e outra que é do propriamento dito
         // sendo que o movimento pode começar ou terminar no ponto de locação

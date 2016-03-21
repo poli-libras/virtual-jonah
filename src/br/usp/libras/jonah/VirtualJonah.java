@@ -175,7 +175,7 @@ public class VirtualJonah extends PApplet {
 	public void keyPressed() {
 		
 		if (key == 'l') {
-			repeatLastSymbol();
+			goToPreviousSymbol();
 		}
 
 		if (key == ' ') { 
@@ -356,7 +356,7 @@ public class VirtualJonah extends PApplet {
 		}
 	}
 	
-	protected void repeatLastSymbol() {
+	protected void goToPreviousSymbol() {
 		if (this.signs.size() > 0) {
 			if (symbolIndex > 0) {
 				symbolIndex--;
