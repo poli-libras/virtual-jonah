@@ -258,7 +258,7 @@ public class HandGraph {
         // supõe-se que a orientação inicial da mão é BLACK no plano VERTICAL
         // => modelo OBJ deve seguir essa convenção
 
-        float rot = 0, ini = 0, end = 0;
+        float rotP = 0, iniP = 0, endP = 0;
         int sense;
 
         if (nextHand.getSide() == HandSide.RIGHT)
@@ -269,43 +269,43 @@ public class HandGraph {
 
         // controle de plano
         if (hand.getPlane() == HandPlane.VERTICAL)
-            ini = 0;
+            iniP = 0;
         if (hand.getPlane() == HandPlane.HORIZONTAL)
-            ini = -PApplet.PI / 2;
+            iniP = -PApplet.PI / 2;
         if (nextHand.getPlane() == HandPlane.VERTICAL)
-            end = 0;
+            endP = 0;
         if (nextHand.getPlane() == HandPlane.HORIZONTAL)
-            end = -PApplet.PI / 2;
-        rot = PApplet.map(interp, 0, 1, ini, end);
-        processing.rotateX(rot);
+            endP = -PApplet.PI / 2;
+        rotP = PApplet.map(interp, 0, 1, iniP, endP);
+        processing.rotateX(rotP);
 
-        rot = 0;
-        ini = 0;
-        end = 0;
+        float rotO = 0;
+        float iniO = 0;
+        float endO = 0;
 
         // controle de orientação
         if (hand.getOrientation() == HandOrientation.BLACK)
-            ini = 0;
+            iniO = 0;
         if (hand.getOrientation() == HandOrientation.HALF)
-            ini = PApplet.HALF_PI;
+            iniO = PApplet.HALF_PI;
         if (hand.getOrientation() == HandOrientation.WHITE)
-            ini = PApplet.PI;
+            iniO = PApplet.PI;
         if (nextHand.getOrientation() == HandOrientation.BLACK)
-            end = 0;
+            endO = 0;
         if (nextHand.getOrientation() == HandOrientation.HALF)
-            end = PApplet.HALF_PI;
+            endO = PApplet.HALF_PI;
         if (nextHand.getOrientation() == HandOrientation.WHITE)
-            end = PApplet.PI;
-        rot = PApplet.map(interp, 0, 1, ini, end);
-        processing.rotateY(sense * rot);
+            endO = PApplet.PI;
+        rotO = PApplet.map(interp, 0, 1, iniO, endO);
+        processing.rotateY(sense * rotO);
 
-        rot = 0;
-        ini = 0;
-        end = 0;
+        float rotR = 0;
+        float iniR = 0;
+        float endR = 0;
 
-        float rot2 = 0;
-        float ini2 = 0;
-        float end2 = 0;
+        float rotR2 = 0;
+        float iniR2 = 0;
+        float endR2 = 0;
 
         boolean half = hand.getOrientation() == HandOrientation.HALF;
         boolean nextHalf = nextHand.getOrientation() == HandOrientation.HALF;
@@ -313,38 +313,54 @@ public class HandGraph {
         // Rotacao no eixo Z (palma)
         if (!half) {
             if (hand.getRotation() == HandRotation.ZERO)
-                ini = 0;
+                iniR = 0;
             if (hand.getRotation() == HandRotation.RETO)
-                ini = PApplet.HALF_PI;
+                iniR = PApplet.HALF_PI;
             if (hand.getRotation() == HandRotation.RASO)
-                ini = PApplet.PI;
+                iniR = -1 * PApplet.HALF_PI;
+            if (hand.getRotation() == HandRotation.INCLINADO_PARA_DENTRO)
+            	iniR = PApplet.QUARTER_PI;
+            if (hand.getRotation() == HandRotation.INCLINADO_PARA_FORA)
+            	iniR = PApplet.HALF_PI * PApplet.QUARTER_PI;
         } else {
             if (hand.getRotation() == HandRotation.ZERO)
-                ini2 = 0;
+                iniR2 = 0;
             if (hand.getRotation() == HandRotation.RETO)
-                ini2 = PApplet.HALF_PI;
+                iniR2 = PApplet.HALF_PI;
             if (hand.getRotation() == HandRotation.RASO)
-                ini2 = PApplet.PI;
+                iniR2 = -1 * PApplet.HALF_PI;
+            if (hand.getRotation() == HandRotation.INCLINADO_PARA_DENTRO)
+            	iniR2 = PApplet.QUARTER_PI;
+            if (hand.getRotation() == HandRotation.INCLINADO_PARA_FORA)
+            	iniR2 = PApplet.HALF_PI + PApplet.QUARTER_PI;
         }
         if (!nextHalf) {
             if (nextHand.getRotation() == HandRotation.ZERO)
-                end = 0;
+                endR = 0;
             if (nextHand.getRotation() == HandRotation.RETO)
-                end = PApplet.HALF_PI;
-            if (nextHand.getRotation() == HandRotation.RASO)
-                end = PApplet.PI;
+                endR = PApplet.HALF_PI;
+            if (nextHand.getRotation() == HandRotation.RASO) // ESTOU USANDO RASO = 270° 
+                endR = -1 * PApplet.HALF_PI;
+            if (nextHand.getRotation() == HandRotation.INCLINADO_PARA_DENTRO)
+            	endR = PApplet.QUARTER_PI;
+            if (nextHand.getRotation() == HandRotation.INCLINADO_PARA_FORA)
+            	endR = PApplet.HALF_PI + PApplet.QUARTER_PI;
         } else {
             if (nextHand.getRotation() == HandRotation.ZERO)
-                end2 = 0;
+                endR2 = 0;
             if (nextHand.getRotation() == HandRotation.RETO)
-                end2 = PApplet.HALF_PI;
+                endR2 = PApplet.HALF_PI;
             if (nextHand.getRotation() == HandRotation.RASO)
-                end2 = PApplet.PI;
+                endR2 = -1 * PApplet.HALF_PI;
+            if (nextHand.getRotation() == HandRotation.INCLINADO_PARA_DENTRO)
+            	endR2 = PApplet.QUARTER_PI; 
+            if (nextHand.getRotation() == HandRotation.INCLINADO_PARA_FORA)
+            	endR2 = PApplet.HALF_PI + PApplet.QUARTER_PI;
         }
-        rot = PApplet.map(interp, 0, 1, ini, end);
-        rot2 = PApplet.map(interp, 0, 1, ini2, end2);
-        processing.rotateZ(-sense * rot);
-        processing.rotateX(-rot2);
+        rotR = PApplet.map(interp, 0, 1, iniR, endR);
+        rotR2 = PApplet.map(interp, 0, 1, iniR2, endR2);
+        processing.rotateZ(-sense * rotR);
+        processing.rotateX(-rotR2);
 
     }
 

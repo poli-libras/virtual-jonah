@@ -19,6 +19,10 @@ public class DirectionsTranslator {
         directionsMap.put(Direction.PARA_CIMA, new PVector(0, -MAGNITUDE, 0));
         directionsMap.put(Direction.PARA_DIREITA, new PVector(-MAGNITUDE, 0, 0));
         directionsMap.put(Direction.PARA_ESQUERDA, new PVector(MAGNITUDE, 0, 0));
+        directionsMap.put(Direction.DIAGONAL_PARA_CIMA_DIREITA, new PVector(-MAGNITUDE,-MAGNITUDE,0));
+        directionsMap.put(Direction.DIAGONAL_PARA_CIMA_ESQUERDA, new PVector(MAGNITUDE,-MAGNITUDE,0));
+        directionsMap.put(Direction.DIAGONAL_PARA_BAIXO_DIREITA, new PVector(-MAGNITUDE,MAGNITUDE,0));
+        directionsMap.put(Direction.DIAGONAL_PARA_BAIXO_ESQUERDA, new PVector(MAGNITUDE,MAGNITUDE,0));
     }
 
     /**

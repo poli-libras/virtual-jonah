@@ -17,7 +17,7 @@ import br.usp.libras.sign.symbol.Symbol;
 
 public class ShapesForTest {
 
-	private static final String FILE_NAME = "input/shapes.txt";
+	private static final String FILE_NAME = "resources/input/shapes.txt";
 
 	public List<Sign> getSignsWithListedShapes() {
 		List<Sign> signs = new ArrayList<Sign>();

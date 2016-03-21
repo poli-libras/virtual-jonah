@@ -283,7 +283,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	protected void loadLocalXML() {
 		try {
-			String file = "input/signs.xml";
+			String file = "resources/input/signs2.xml";
 			this.signs = XMLParser.parseXMLFile(file);
 			printSigns();
 		} catch (JAXBException e) {
@@ -371,7 +371,7 @@ public class VirtualJonah extends PApplet {
 			}
 		}
 	}
-
+	
 	public static void main(String[] args) {
 		PApplet.main(new String[] { "br.usp.libras.jonah.VirtualJonah" });
 	}
