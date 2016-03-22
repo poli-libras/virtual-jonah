@@ -13,6 +13,17 @@
                 <plane>HORIZONTAL</plane>
                 <rotation>ZERO</rotation>
                 <shape>INDICADOR</shape>
+                <movement>
+                	<segments>
+                		<direction>PARA_FRENTE</direction>
+                		<magnitude>NORMAL</magnitude>
+                		<sequence>0</sequence>
+                	</segments>
+                	<frequency>SIMPLES</frequency>
+                	<startsInLocation>false</startsInLocation>
+                	<speed>NORMAL</speed>
+                	<type>RETILINIO</type>
+                </movement>
                 <side>RIGHT</side>
             </rightHand>
             <sequence>0</sequence>

@@ -243,17 +243,19 @@ public class VirtualJonah extends PApplet {
 
 	protected void resetHands() {
 		// mão inicial deve ser sempre esta:
-		Sign s = this.signs.get(signIndex);
-		List<Symbol> symbols = s.getSymbols();
-		Symbol nextSymbol = symbols.get(symbolIndex);
 		Symbol symbol = new Symbol();
-		if (nextSymbol.getLeftHand() != null) {
-			Hand leftHand = new Hand();
-			leftHand.setShape(HandShape.MAO_A);
-			leftHand.setSide(HandSide.LEFT);
-			leftHand.setOrientation(HandOrientation.HALF);
-			leftHand.setPlane(HandPlane.HORIZONTAL);
-			symbol.setLeftHand(leftHand);
+		if (this.signs.size() > 0) {
+			Sign s = this.signs.get(signIndex);
+			List<Symbol> symbols = s.getSymbols();
+			Symbol nextSymbol = symbols.get(symbolIndex);
+			if (nextSymbol.getLeftHand() != null) {
+				Hand leftHand = new Hand();
+				leftHand.setShape(HandShape.MAO_A);
+				leftHand.setSide(HandSide.LEFT);
+				leftHand.setOrientation(HandOrientation.HALF);
+				leftHand.setPlane(HandPlane.HORIZONTAL);
+				symbol.setLeftHand(leftHand);
+			}
 		}
 		Hand rightHand = new Hand();
 		rightHand.setShape(HandShape.MAO_A);
@@ -311,7 +313,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	protected void loadLocalXML() {
 		try {
-			String file = "resources/input/signs2.xml";
+			String file = "resources/input/signs.xml";
 			this.signs = XMLParser.parseXMLFile(file);
 			printSigns();
 		} catch (JAXBException e) {

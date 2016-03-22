@@ -6,6 +6,9 @@
 			<contact>NENHUM</contact>
 			<handsInUnity>false</handsInUnity>
 			<location>BOCA</location>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
 			<rightHand>
 				<fingers>NENHUM</fingers>
 				<orientation>WHITE</orientation>
@@ -90,6 +93,9 @@
 			<contact>NENHUM</contact>
 			<handsInUnity>false</handsInUnity>
 			<location>ESPACO_NEUTRO</location>
+			<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
 			<rightHand>
 				<fingers>NENHUM</fingers>
 				<orientation>WHITE</orientation>
@@ -103,6 +109,9 @@
 			<contact>NENHUM</contact>
 			<handsInUnity>false</handsInUnity>
 			<location>ESPACO_NEUTRO</location>
+    		<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
 			<rightHand>
 				<fingers>NENHUM</fingers>
 				<orientation>HALF</orientation>
@@ -116,6 +125,9 @@
 			<contact>NENHUM</contact>
 			<handsInUnity>false</handsInUnity>
 			<location>ESPACO_NEUTRO</location>
+    		<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
 			<rightHand>
 				<fingers>NENHUM</fingers>
 				<orientation>WHITE</orientation>
@@ -247,6 +259,9 @@
     		<contact>CONTATO</contact>
     		<handsInUnity>true</handsInUnity>
     		<location>OLHOS</location>
+    		<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
     		<rightHand>
     			<fingers>NENHUM</fingers>
     			<orientation>HALF</orientation>
@@ -337,6 +352,9 @@
     		<contact>NENHUM</contact>
     		<handsInUnity>false</handsInUnity>
     		<location>ESPACO_NEUTRO</location>
+    		<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
     		<rightHand>
     			<fingers>NENHUM</fingers>
     			<orientation>BLACK</orientation>
@@ -646,6 +664,9 @@
     		<contact>NENHUM</contact>
     		<handsInUnity>true</handsInUnity>
     		<location>ESPACO_NEUTRO</location>
+      		<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
     		<rightHand>
     			<fingers>NENHUM</fingers>
     			<orientation>WHITE</orientation>
@@ -664,6 +685,9 @@
     		</leftHand>
     	</symbols>
     	<symbols>
+    		<face>
+    			<others>EXPRESSAO_QUESTAO</others>
+    		</face>
     		<contact>NENHUM</contact>
     		<handsInUnity>true</handsInUnity>
     		<location>ESPACO_NEUTRO</location>
@@ -736,6 +760,9 @@
     		<contact>NENHUM</contact> 		
     		<handsInUnity>false</handsInUnity>
     		<location>ESPACO_NEUTRO</location>
+    		<face>
+    			<others>QUEIXO</others>
+    		</face>
     		<rightHand>
 				<fingers>NENHUM</fingers>
 				<orientation>HALF</orientation>    		
