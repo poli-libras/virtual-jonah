@@ -29,7 +29,7 @@ public class LocationsLoader {
         locationsRight.put(Location.TESTA, new PVector(x-HANDS_SPACE, y-5, z+HEAD_RADIX));
         locationsRight.put(Location.BOCA, new PVector(x-100, y+180, z+HEAD_RADIX));
         locationsRight.put(Location.NARIZ, new PVector(x-HANDS_SPACE, y+200, z+HEAD_RADIX+170));
-        locationsRight.put(Location.OLHOS, new PVector(x-HANDS_SPACE, y+200, z+HEAD_RADIX+170));
+        locationsRight.put(Location.OLHOS, new PVector(x-HANDS_SPACE, y+200, z+HEAD_RADIX));
         locationsRight.put(Location.ORELHA, new PVector(x-HEAD_RADIX, 0, 0));
         
         locationsRight.put(Location.BUSTO, new PVector(x-HANDS_SPACE, y+250, z+170));
@@ -43,7 +43,7 @@ public class LocationsLoader {
         locationsLeft.put(Location.TESTA, new PVector(x+HANDS_SPACE, y-5, z+HEAD_RADIX));
         locationsLeft.put(Location.BOCA, new PVector(x+HANDS_SPACE, y+150, z+HEAD_RADIX));
         locationsLeft.put(Location.NARIZ, new PVector(x+HANDS_SPACE, y+200, z+HEAD_RADIX+170));
-        locationsLeft.put(Location.OLHOS, new PVector(x+HANDS_SPACE, y+200, z+HEAD_RADIX+170));
+        locationsLeft.put(Location.OLHOS, new PVector(x+HANDS_SPACE, y+200, z+HEAD_RADIX));
         locationsLeft.put(Location.ORELHA, new PVector(x+HEAD_RADIX, 0, 0));
         
         locationsLeft.put(Location.BUSTO, new PVector(x+HANDS_SPACE, y+250, z+170));

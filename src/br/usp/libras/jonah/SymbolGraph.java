@@ -37,9 +37,9 @@ public class SymbolGraph {
         this.symbol = symbol;
         this.faceGraph = new FaceGraph(processing, symbol.getFace());
         this.processing = processing;
-        this.rightHandGraph = new HandGraph(processing, symbol.getRightHand(), symbol.getLocation(), symbol.isHandsInUnity());
+        this.rightHandGraph = new HandGraph(processing, symbol.getRightHand(), symbol.getRightHand().getLocation());
         if (symbol.getLeftHand() != null)
-            this.leftHandGraph = new HandGraph(processing, symbol.getLeftHand(), symbol.getLocation(), symbol.isHandsInUnity());
+            this.leftHandGraph = new HandGraph(processing, symbol.getLeftHand(), symbol.getLeftHand().getLocation());
     }
 
     public void draw() {
@@ -60,9 +60,10 @@ public class SymbolGraph {
      * @param nextSymbol definição do próximo sinal a ser renderizado
      */
     public void nextSymbol(Symbol nextSymbol) {
-        this.rightHandGraph.nextHand(nextSymbol.getRightHand(), nextSymbol.getLocation(), nextSymbol.isHandsInUnity());
-        this.leftHandGraph.nextHand(nextSymbol.getLeftHand(), nextSymbol.getLocation(), nextSymbol.isHandsInUnity());
+    	
         this.faceGraph.nextSign(nextSymbol.getFace());
+    	this.rightHandGraph.nextHand(nextSymbol.getRightHand());
+        this.leftHandGraph.nextHand(nextSymbol.getLeftHand());
         this.symbol = nextSymbol;
     }
 

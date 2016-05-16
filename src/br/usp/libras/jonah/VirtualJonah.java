@@ -14,8 +14,8 @@ import javax.xml.bind.JAXBException;
 import br.usp.libras.jonah.input.ShapesForTest;
 import br.usp.libras.sign.Sign;
 import br.usp.libras.sign.symbol.Hand;
-import br.usp.libras.sign.symbol.HandOrientation;
-import br.usp.libras.sign.symbol.HandPlane;
+// import br.usp.libras.sign.symbol.HandOrientation;
+// import br.usp.libras.sign.symbol.HandPlane;
 import br.usp.libras.sign.symbol.HandShape;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Symbol;
@@ -107,14 +107,14 @@ public class VirtualJonah extends PApplet {
 	 */
 	private void drawAxis() {
 		background(255, 238, 116);
-		// beginShape(LINES);
-		// stroke(0, 255, 0); // verde - 0x
-		// vertex(-200, 0, 0);
-		// vertex(200, 0, 0);
-		// stroke(0, 0, 255); // azul - 0y
-		// vertex(0, -200, 0);
-		// vertex(0, 200, 0);
-		// endShape(LINES);
+//		 beginShape(LINES);
+//		 stroke(0, 255, 0); // verde - 0x
+//		 vertex(-200, 0, 0);
+//		 vertex(200, 0, 0);
+//		 stroke(0, 0, 255); // azul - 0y
+//		 vertex(0, -200, 0);
+//		 vertex(0, 200, 0);
+//		 endShape(LINES);
 		noStroke();
 	}
 
@@ -252,16 +252,14 @@ public class VirtualJonah extends PApplet {
 				Hand leftHand = new Hand();
 				leftHand.setShape(HandShape.MAO_A);
 				leftHand.setSide(HandSide.LEFT);
-				leftHand.setOrientation(HandOrientation.HALF);
-				leftHand.setPlane(HandPlane.HORIZONTAL);
+				leftHand.setYaw(-1.570796);
 				symbol.setLeftHand(leftHand);
 			}
 		}
 		Hand rightHand = new Hand();
 		rightHand.setShape(HandShape.MAO_A);
 		rightHand.setSide(HandSide.RIGHT);
-		rightHand.setOrientation(HandOrientation.HALF);
-		rightHand.setPlane(HandPlane.HORIZONTAL);
+		rightHand.setYaw(1.570796);
 		symbol.setRightHand(rightHand);
 		symbolGraph.nextSymbol(symbol);
 	}
@@ -313,7 +311,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	protected void loadLocalXML() {
 		try {
-			String file = "resources/input/signs.xml";
+			String file = "resources/input/signs2.xml";
 			this.signs = XMLParser.parseXMLFile(file);
 			printSigns();
 		} catch (JAXBException e) {
