@@ -270,28 +270,22 @@ public class HandGraph {
 		// => modelo OBJ deve seguir essa convenção
 
 		float rotY = 0;
-		double e = hand.getYaw();
-		double f = nextHand.getYaw();
-		float g = (float) e;
-		float h = (float) f;
-		rotY = PApplet.map(interp, 0, 1, g, h);
+		float iniY = (float) hand.getRotY();
+		float endY = (float) nextHand.getRotY();
+		rotY = PApplet.map(interp, 0, 1, iniY, endY);
 		processing.rotateY(rotY);
 
 		float rotX = 0;
-		double c = hand.getPitch();
-		double d = nextHand.getPitch();
-		float a = (float) c;
-		float b = (float) d;
-		rotX = PApplet.map(interp, 0, 1, a, b);
+		float iniX = (float) hand.getRotX();
+		float endX = (float) nextHand.getRotX();
+		rotX = PApplet.map(interp, 0, 1, iniX, endX);
 		processing.rotateX(rotX);
 
 		float rotZ = 0;
 		float iniR = 0;
 		float endR = 0;
-		double i = hand.getRoll();
-		iniR = (float) i;
-		double k = nextHand.getRoll();
-		endR = (float) k;
+		iniR = (float) hand.getRotZ();
+		endR = (float) nextHand.getRotZ();
 		rotZ = PApplet.map(interp, 0, 1, iniR, endR);
 		processing.rotateZ(rotZ);
 	}

@@ -252,14 +252,14 @@ public class VirtualJonah extends PApplet {
 				Hand leftHand = new Hand();
 				leftHand.setShape(HandShape.MAO_A);
 				leftHand.setSide(HandSide.LEFT);
-				leftHand.setYaw(-1.570796);
+				leftHand.setRotY((float) -1.570796);
 				symbol.setLeftHand(leftHand);
 			}
 		}
 		Hand rightHand = new Hand();
 		rightHand.setShape(HandShape.MAO_A);
 		rightHand.setSide(HandSide.RIGHT);
-		rightHand.setYaw(1.570796);
+		rightHand.setRotY((float)1.570796);
 		symbol.setRightHand(rightHand);
 		symbolGraph.nextSymbol(symbol);
 	}
