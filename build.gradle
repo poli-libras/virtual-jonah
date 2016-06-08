@@ -1,7 +1,8 @@
 apply plugin: 'java'
 
 //Informe o path do projeto sign-model em sua máquina. Deve fazer referência ao diretório local do projeto sign-model. 
-def signModelProjectLocalDir = '/home/path-do-projeto/sign-model/'
+// TODO dar um jeito dessa configuração local não ficar versionada
+def signModelProjectLocalDir = '/home/leonardo/workspaces/poli-libras/sign-model/'
 
 def signModelRepositorioFlat = 'repositorioFlat'
 
