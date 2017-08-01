@@ -1,5 +1,7 @@
 package br.usp.libras.jonah;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -311,8 +313,10 @@ public class VirtualJonah extends PApplet {
 	 */
 	protected void loadLocalXML() {
 		try {
-			String file = "resources/input/signs2.xml";
-			this.signs = XMLParser.parseXMLFile(file);
+			URL uri = this.getClass().getClassLoader().getResource("resources/input/signs.xml");
+			File file = new File(uri.getFile());
+			FileReader reader = new FileReader(file);
+			this.signs = XMLParser.parseXML(reader);
 			printSigns();
 		} catch (JAXBException e) {
 			e.printStackTrace();

@@ -16,7 +16,7 @@ Comandos
 --------
 
 * x: carrega sinais de resources/xml/signs.xml
-* z: carrega sinais de resources/serial/signs.txt
+* c: carrega todas as configurações de mão
 * y: executa sinais 
 * Espaço: executa próximo símbolo
 * a, d, w, s, q, e: controle de câmera
