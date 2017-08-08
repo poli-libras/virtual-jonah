@@ -15,11 +15,12 @@ Os modelos gráficos foram feitos no 3DStudioMAX e exportados no formato texto O
 Comandos
 --------
 
-* x: carrega sinais de resources/xml/signs.xml
-* c: carrega todas as configurações de mão
-* y: executa sinais 
-* Espaço: executa próximo símbolo
-* a, d, w, s, q, e: controle de câmera
+* x: carrega sinais de resources/xml/signs.xml.
+* c: carrega todas as configurações de mão.
+* s: carrega um sinal específico do arquivo signs.xml. O nome do sinal deve ser escrito no console.
+* y: executa sinais.
+* Espaço: executa próximo símbolo.
+* a, d, w, s, q, e: controle de câmera.
 
 Comandos devem ser executados com foco no applet.
 

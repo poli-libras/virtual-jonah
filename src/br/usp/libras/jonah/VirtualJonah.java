@@ -1,7 +1,5 @@
 package br.usp.libras.jonah;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -10,10 +8,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.xml.bind.JAXBException;
 
 import br.usp.libras.jonah.input.ShapesForTest;
+import br.usp.libras.jonah.input.SignsForTest;
 import br.usp.libras.sign.Sign;
 import br.usp.libras.sign.symbol.Hand;
 // import br.usp.libras.sign.symbol.HandOrientation;
@@ -109,14 +109,14 @@ public class VirtualJonah extends PApplet {
 	 */
 	private void drawAxis() {
 		background(255, 238, 116);
-//		 beginShape(LINES);
-//		 stroke(0, 255, 0); // verde - 0x
-//		 vertex(-200, 0, 0);
-//		 vertex(200, 0, 0);
-//		 stroke(0, 0, 255); // azul - 0y
-//		 vertex(0, -200, 0);
-//		 vertex(0, 200, 0);
-//		 endShape(LINES);
+		// beginShape(LINES);
+		// stroke(0, 255, 0); // verde - 0x
+		// vertex(-200, 0, 0);
+		// vertex(200, 0, 0);
+		// stroke(0, 0, 255); // azul - 0y
+		// vertex(0, -200, 0);
+		// vertex(0, 200, 0);
+		// endShape(LINES);
 		noStroke();
 	}
 
@@ -216,6 +216,10 @@ public class VirtualJonah extends PApplet {
 			this.loadHandShapesFromFile();
 		}
 
+		if (key == 's') {
+			this.loadSignByName();
+		}
+
 		if (key == 'S') {
 			this.loadHandSpock();
 		}
@@ -261,7 +265,7 @@ public class VirtualJonah extends PApplet {
 		Hand rightHand = new Hand();
 		rightHand.setShape(HandShape.MAO_A);
 		rightHand.setSide(HandSide.RIGHT);
-		rightHand.setRotY((float)1.570796);
+		rightHand.setRotY((float) 1.570796);
 		symbol.setRightHand(rightHand);
 		symbolGraph.nextSymbol(symbol);
 	}
@@ -312,23 +316,31 @@ public class VirtualJonah extends PApplet {
 	 * Carrega sequência de sinais do arquivo "xml/signs.xml"
 	 */
 	protected void loadLocalXML() {
-		try {
-			URL uri = this.getClass().getClassLoader().getResource("resources/input/signs.xml");
-			File file = new File(uri.getFile());
-			FileReader reader = new FileReader(file);
-			this.signs = XMLParser.parseXML(reader);
-			printSigns();
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		this.signs = SignsForTest.getSigns();
+		printSigns();
 	}
 
 	private void loadHandShapesFromFile() {
 		ShapesForTest shapes = new ShapesForTest();
 		this.signs = shapes.getSignsWithListedShapes();
 		printSigns();
+	}
+
+	/**
+	 * Usuário deve escrever nome do sinal no console. Para facilitar os testes.
+	 */
+	private void loadSignByName() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Digite o nome do sinal: ");
+		String signName = keyboard.next();
+		Sign sign = SignsForTest.getSignByName(signName);
+		if (sign == null) {
+			System.out.println("Sinal não encontrado.");
+		} else {
+			this.signs = Collections.singletonList(sign);
+			System.out.println("Sinal carregado.");
+		}
+		keyboard.close();
 	}
 
 	/**
