@@ -12,8 +12,8 @@ import java.util.Scanner;
 
 import javax.xml.bind.JAXBException;
 
-import br.usp.libras.jonah.input.ShapesForTest;
-import br.usp.libras.jonah.input.SignsForTest;
+import br.usp.libras.jonah.input.Shapes;
+import br.usp.libras.jonah.input.Signs;
 import br.usp.libras.sign.Sign;
 import br.usp.libras.sign.symbol.Hand;
 // import br.usp.libras.sign.symbol.HandOrientation;
@@ -215,17 +215,17 @@ public class VirtualJonah extends PApplet {
 		if ((key == 'c') || (key == 'C')) {
 			this.loadHandShapesFromFile();
 		}
-
+		
+		if ((key == 't') || (key == 'T')) {
+			this.loadTestSuit();
+		}
+		
 		if (key == 's') {
 			this.loadSignByName();
 		}
 
 		if (key == 'S') {
 			this.loadHandSpock();
-		}
-
-		if (key == 't' || key == 'T') {
-			this.showSignName = !this.showSignName;
 		}
 
 		if (key == 'r' || key == 'R') {
@@ -312,16 +312,18 @@ public class VirtualJonah extends PApplet {
 		printSigns();
 	}
 
-	/**
-	 * Carrega sequência de sinais do arquivo "xml/signs.xml"
-	 */
-	protected void loadLocalXML() {
-		this.signs = SignsForTest.getSigns();
+	private void loadLocalXML() {
+		this.signs = Signs.getSigns();
 		printSigns();
 	}
 
+	private void loadTestSuit() {
+		this.signs = Signs.getTestSuitSigns();
+		printSigns();
+	}
+	
 	private void loadHandShapesFromFile() {
-		ShapesForTest shapes = new ShapesForTest();
+		Shapes shapes = new Shapes();
 		this.signs = shapes.getSignsWithListedShapes();
 		printSigns();
 	}
@@ -333,7 +335,7 @@ public class VirtualJonah extends PApplet {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Digite o nome do sinal: ");
 		String signName = keyboard.next();
-		Sign sign = SignsForTest.getSignByName(signName);
+		Sign sign = Signs.getSignByName(signName);
 		if (sign == null) {
 			System.out.println("Sinal não encontrado.");
 		} else {

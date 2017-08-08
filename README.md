@@ -18,6 +18,7 @@ Comandos
 * x: carrega sinais de resources/xml/signs.xml.
 * c: carrega todas as configurações de mão.
 * s: carrega um sinal específico do arquivo signs.xml. O nome do sinal deve ser escrito no console.
+* t: carrega sinais da suíte de teste.
 * y: executa sinais.
 * Espaço: executa próximo símbolo.
 * a, d, w, s, q, e: controle de câmera.

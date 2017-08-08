@@ -15,7 +15,7 @@ import br.usp.libras.sign.symbol.HandShape;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Symbol;
 
-public class ShapesForTest {
+public class Shapes {
 
 	private static final String FILE_NAME = "resources/input/shapes.txt";
 
