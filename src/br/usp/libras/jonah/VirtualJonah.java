@@ -21,7 +21,7 @@ import br.usp.libras.sign.symbol.Hand;
 import br.usp.libras.sign.symbol.HandShape;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Symbol;
-import br.usp.libras.xml.XMLParser;
+import br.usp.libras.xml.SignXMLParser;
 import processing.core.PApplet;
 import processing.core.PFont;
 
@@ -296,7 +296,7 @@ public class VirtualJonah extends PApplet {
 	public void loadSignsFromXML(String link) throws IOException, JAXBException {
 		URL url = new URL(link);
 		Reader reader = new InputStreamReader(url.openStream());
-		this.signs = XMLParser.parseXML(reader);
+		this.signs = SignXMLParser.parseXML(reader);
 		printSigns();
 	}
 
@@ -308,7 +308,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	public void loadSignsFromXMLString(String xml) throws JAXBException {
 		Reader reader = new StringReader(xml);
-		this.signs = XMLParser.parseXML(reader);
+		this.signs = SignXMLParser.parseXML(reader);
 		printSigns();
 	}
 

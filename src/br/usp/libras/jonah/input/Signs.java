@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import javax.xml.bind.JAXBException;
 
 import br.usp.libras.sign.Sign;
-import br.usp.libras.xml.XMLParser;
+import br.usp.libras.xml.SignXMLParser;
 
 public class Signs {
 
@@ -33,7 +33,7 @@ public class Signs {
 			URL uri = Signs.class.getClassLoader().getResource(XML_FILE_PATH);
 			File file = new File(uri.getFile());
 			FileReader reader = new FileReader(file);
-			return XMLParser.parseXML(reader);
+			return SignXMLParser.parseXML(reader);
 		} catch (JAXBException e) {
 			throw new IllegalStateException(e);
 		} catch (IOException e) {
