@@ -26,8 +26,8 @@ public class CircularMovementIn2D extends PApplet {
         float endX = 400, endY = 150;
         ellipse(endX, endY, 20, 20);
 
-        float centerX = Math.abs(endX + startX) / 2;
-        float centerY = Math.abs(endY + startY) / 2;
+        float centerX = (endX + startX) / 2;
+        float centerY = (endY + startY) / 2;
 
         fill(0, 0, 255);
         ellipse(centerX, centerY, 20, 20);
@@ -37,7 +37,6 @@ public class CircularMovementIn2D extends PApplet {
         float x = centerX + cos(alpha) * raio;
         float y = centerY + sin(alpha) * raio;
         translate(x, y, 0);
-//        rotate(alpha);
         
         alpha += 0.2;
         if(alpha > TWO_PI) {
