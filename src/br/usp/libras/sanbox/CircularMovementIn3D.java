@@ -1,7 +1,7 @@
 package br.usp.libras.sanbox;
 
+import br.usp.libras.sign.transition.Path;
 import processing.core.PApplet;
-import processing.core.PFont;
 
 public class CircularMovementIn3D extends PApplet {
 
@@ -12,6 +12,21 @@ public class CircularMovementIn3D extends PApplet {
     private float cameraRotX = 0;
     private float cameraRotY = 0;
     private float cameraRotZ = 0;
+    private float cameraX = 0;
+    private float cameraY = 0;
+    private float cameraZ = 0;
+    
+    float startX = 180, startY = 0, startZ = 0;
+    float endX = -180, endY = 0, endZ = 0;
+    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
+
+//    float startX = 180, startY = 0, startZ = 0;
+//    float endX = -180, endY = 0, endZ = 0;
+//    Path path = Path.CIRCULAR_HORARIO_EM_XY;
+
+//    float startX = 0, startY = 0, startZ = 0;
+//    float endX = 0, endY = 0, endZ = -100;
+//    Path path = Path.CIRCULAR_HORARIO_EM_YZ;
 
     @Override
     public void setup() {
@@ -31,14 +46,12 @@ public class CircularMovementIn3D extends PApplet {
         drawAxes();
         
         fill(255, 0, 0);
-        float startX = -180, startY = 100, startZ = 50;
         pushMatrix();
         translate(startX, startY, startZ);
         sphere(5);
         popMatrix();
 
         fill(0, 255, 0);
-        float endX = 200, endY = -80, endZ = -50;
         pushMatrix();
         translate(endX, endY, endZ);
         sphere(5);
@@ -53,26 +66,44 @@ public class CircularMovementIn3D extends PApplet {
         sphere(5);
         popMatrix();
 
-        
+
+        float angulo = alpha;
+        if (path.antiHorario()) {
+            angulo = -alpha;
+        } 
+
         float raio = dist(startX, startY, startZ, endX, endY, endZ) / 2;
-        float x = centerX + cos(alpha) * raio;
-        float y = centerY + sin(alpha) * raio;
-        // (x-cx)^2 + (y-cy)^2 + (z-cz^2) = R^2
-        double radicando = Math.pow(Math.round(raio), 2) - Math.pow(Math.round(x) - Math.round(centerX), 2) - Math.pow(Math.round(y) - Math.round(centerY), 2);
-        System.out.println(x + " " + centerX + " " + y + " " + centerY + " " + raio + " " + radicando);
-        double zDouble = Math.sqrt(radicando) + centerZ;
-        float z = (float) zDouble;
-//        System.out.println(x + " " + centerX + " " + y + " " + centerY + " " + raio + " " + zDouble);
+        float x = 0, y = 0, z = 0;
+        
+        if (path.planoXZ()) {
+            x = centerX + cos(angulo) * raio;
+            y = map(alpha, 0, TWO_PI, startY, endY);
+            z = centerZ + sin(angulo) * raio;
+        }
+
+        if (path.planoXY()) {
+            x = centerX + cos(angulo) * raio;
+            y = centerY + sin(angulo) * raio;
+            z = map(alpha, 0, TWO_PI, startZ, endZ);
+        }
+
+        if (path.planoYZ()) {
+            x = map(alpha, 0, TWO_PI, startX, endX);
+            y = centerY + cos(angulo) * raio;
+            z = centerZ + sin(angulo) * raio;
+        }
+
         translate(x, y, z);
         
+
         alpha += 0.1;
         if(alpha > TWO_PI) {
-            alpha = 0.0f;
+            alpha = 0;
         }
-        
+
         fill(0);
         stroke(255);
-        box(20);
+        box(10);
 
     }
     
@@ -80,13 +111,33 @@ public class CircularMovementIn3D extends PApplet {
          beginShape(LINES);
          stroke(255, 0, 0); // vermelho - 0x
          vertex(0, 0, 0);
-         vertex(100, 0, 0);
+         vertex(50, 0, 0);
          stroke(0, 255, 0); // verde - 0y
          vertex(0, 0, 0);
-         vertex(0, 100, 0);
+         vertex(0, 50, 0);
          stroke(0, 0, 255); // azul - 0z
          vertex(0, 0, 0);
-         vertex(0, 0, 100);
+         vertex(0, 0, 50);
+         endShape(LINES);
+         stroke(0);
+         
+         // Oz sobre pontos de início e fim:
+         beginShape(LINES);
+         stroke(255, 0, 0); // vermelho - 0x
+         vertex(startX-100, startY, startZ);
+         vertex(startX+100, startY, startZ);
+         vertex(endX-100, endY, endZ);
+         vertex(endX+100, endY, endZ);
+         stroke(0, 255, 0); // verde - 0y
+         vertex(startX, startY-100, startZ);
+         vertex(startX, startY+100, startZ);
+         vertex(endX, endY-100, endZ);
+         vertex(endX, endY+100, endZ);
+         stroke(0, 0, 255); // azul - 0z
+         vertex(startX, startY, startZ-100);
+         vertex(startX, startY, startZ+100);
+         vertex(endX, endY, endZ-100);
+         vertex(endX, endY, endZ+100);
          endShape(LINES);
          stroke(0);
     }
@@ -95,6 +146,7 @@ public class CircularMovementIn3D extends PApplet {
         rotateX(cameraRotX);
         rotateY(cameraRotY);
         rotateZ(cameraRotZ);
+        translate(cameraX, cameraY, cameraZ);
     }
     
     @Override
@@ -113,6 +165,18 @@ public class CircularMovementIn3D extends PApplet {
             cameraRotZ += -0.1;
         if (key == 'e')
             cameraRotZ += 0.1;
+        if (key == 'i')
+            cameraZ += +5;
+        if (key == 'k')
+            cameraZ += -5;
+        if (key == 'l')
+            cameraX += -5;
+        if (key == 'j')
+            cameraX += 5;
+        if (key == 'u')
+            cameraY += 5;
+        if (key == 'o')
+            cameraY += -5;
     }
 
 
