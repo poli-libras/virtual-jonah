@@ -16,18 +16,23 @@ public class CircularMovementIn3D extends PApplet {
     private float cameraY = 0;
     private float cameraZ = 0;
     
+    private static final float ALPHA_STEP = 0.08f;
+//    private static final float ALPHA_STEP = 0.01f;
+    
 //    float startX = 180, startY = 0, startZ = 0;
 //    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
-//    Path path = Path.CIRCULAR_HORARIO_EM_XZ;
+//    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
 
-//    float startX = 180, startY = 0, startZ = 0;
-//    float endX = -180, endY = 0, endZ = -30; // z final desalinhado com z inicial 
+//    float startX = -180, startY = 0, startZ = 0;
+//    float endX = 180, endY = 0, endZ = -30; // z final desalinhado com z inicial 
 //    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
 
     float startX = 0, startY = 0, startZ = 0;
-    float endX = -30, endY = 0, endZ = -100; // x final desalinhado com x inicial
-    Path path = Path.CIRCULAR_HORARIO_EM_YZ;
+    float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
+    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
 
+    boolean debug = true;
+    
     @Override
     public void setup() {
         size(800, 500, P3D);
@@ -66,16 +71,17 @@ public class CircularMovementIn3D extends PApplet {
         sphere(5);
         popMatrix();
 
-
-        float angulo = alpha;
-        if (path.antiHorario()) {
-            angulo = -alpha;
-        } 
-
         float raio = dist(startX, startY, startZ, endX, endY, endZ) / 2;
         float x = 0, y = 0, z = 0;
-        
+
         if (path.planoXZ()) {
+
+            float angulo_inicial = acos((startX - centerX) / raio);
+            float angulo = angulo_inicial + alpha;
+            if (path.antiHorario()) {
+                angulo = -1 * angulo;
+            } 
+
             x = centerX + cos(angulo) * raio;
             if (alpha < PI) {
                 y = map(alpha, 0, PI, startY, endY);
@@ -86,6 +92,13 @@ public class CircularMovementIn3D extends PApplet {
         }
 
         if (path.planoXY()) {
+            
+            float angulo_inicial = acos((startX - centerX) / raio);
+            float angulo = angulo_inicial + alpha;
+            if (path.antiHorario()) {
+                angulo = -1 * angulo;
+            } 
+
             x = centerX + cos(angulo) * raio;
             y = centerY + sin(angulo) * raio;
             if (alpha < PI) {
@@ -96,19 +109,43 @@ public class CircularMovementIn3D extends PApplet {
         }
 
         if (path.planoYZ()) {
+            
+            float angulo_inicial = acos((startZ - centerZ) / raio);
+            float angulo = angulo_inicial;
+            if (path.horario()) {
+                angulo += alpha;
+            } else {
+                angulo -= alpha;
+            }
+            if (debug) {
+                System.out.println((startY - centerY) / raio);
+              System.out.println("angulo_inicial = " + angulo_inicial);
+              System.out.println("angulo = " + angulo);
+            }
+
             if (alpha < PI) {
                 x = map(alpha, 0, PI, startX, endX);
             } else {
                 x = map(alpha, PI, TWO_PI, endX, startX);
             }
+            // TODO quem leva sin e quem leva cos?
+            // parece que depende do ponto inicial...
             y = centerY + sin(angulo) * raio;
             z = centerZ + cos(angulo) * raio;
         }
 
         translate(x, y, z);
         
+        if (debug) {
+            System.out.println("startX = " + startX);
+            System.out.println("startY = " + startY);
+            System.out.println("alpha = " + alpha);
+            System.out.println("x = " + x);
+            System.out.println("y = " + y);
+            debug = false;
+        }
 
-        alpha += 0.08;
+        alpha += ALPHA_STEP;
         if(alpha > TWO_PI) {
             alpha = 0;
         }
