@@ -25,7 +25,7 @@ public class CircularMovementIn3D extends PApplet {
 //    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
 
     float startX = 0, startY = 0, startZ = 0;
-    float endX = 0, endY = 0, endZ = -100; // x final desalinhado com x inicial
+    float endX = -30, endY = 0, endZ = -100; // x final desalinhado com x inicial
     Path path = Path.CIRCULAR_HORARIO_EM_YZ;
 
     @Override
@@ -101,14 +101,14 @@ public class CircularMovementIn3D extends PApplet {
             } else {
                 x = map(alpha, PI, TWO_PI, endX, startX);
             }
-            y = centerY + cos(angulo) * raio;
-            z = centerZ + sin(angulo) * raio;
+            y = centerY + sin(angulo) * raio;
+            z = centerZ + cos(angulo) * raio;
         }
 
         translate(x, y, z);
         
 
-        alpha += 0.01;
+        alpha += 0.08;
         if(alpha > TWO_PI) {
             alpha = 0;
         }
