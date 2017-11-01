@@ -73,8 +73,7 @@ public class VirtualJonah extends PApplet {
 		// font = loadFont("resources/fonts/SansSerif.bold-48.vlw");
 		font = createFont("Arial", 48);
 		textFont(font, 48);
-		textMode(SCREEN);
-		textAlign(CENTER);
+		textMode(SCREEN);		textAlign(CENTER);
 	}
 
 	/**

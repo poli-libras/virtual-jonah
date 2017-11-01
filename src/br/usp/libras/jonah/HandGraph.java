@@ -15,6 +15,7 @@ import br.usp.libras.sign.symbol.Hand;
 //import br.usp.libras.sign.symbol.HandRotation;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Location;
+import br.usp.libras.sign.transition.Path;
 
 /**
  * Classe responsável por renderizar as mãos do sinal (cada mão possui um objeto
@@ -215,7 +216,7 @@ public class HandGraph {
 				}
 			}
 			this.processing.pushMatrix();
-			this.interpolate(interp, this.posHand, this.posBeginMove);
+			this.interpolatePosition(interp, this.posHand, this.posBeginMove);
 			this.interpolateHand();
 			this.model.draw();
 			this.processing.popMatrix();
@@ -290,22 +291,29 @@ public class HandGraph {
 		processing.rotateZ(rotZ);
 	}
 
-	private void interpolate(float value, PVector origin, PVector target) {
+	private void interpolatePosition(float value, PVector origin, PVector target) {
 		// deslocamento relativo
 		// calcula e aplica deslocamento na mão
-		float x = PApplet.map(value, 0, 1, origin.x, target.x);
-		float y = PApplet.map(value, 0, 1, origin.y, target.y);
-		float z = PApplet.map(value, 0, 1, origin.z, target.z);
 
-		this.processing.translate(x, y, z);
+	    if (this.hand.getTransition().getPath() == Path.LINEAR) {
+    		float x = PApplet.map(value, 0, 1, origin.x, target.x);
+    		float y = PApplet.map(value, 0, 1, origin.y, target.y);
+    		float z = PApplet.map(value, 0, 1, origin.z, target.z);
+    		this.processing.translate(x, y, z);
+	    }
+	    
+	    if (this.hand.getTransition().getPath() == Path.CIRCULAR_ANTI_HORARIO_EM_XY) {
+	        
+	    }
+
 	}
 
 	private void move() {
 
 		if (nextHand.getMovement() == null) {
-			interpolate(interpMove, this.posBeginMove, this.posEndMove);
+			interpolatePosition(interpMove, this.posBeginMove, this.posEndMove);
 		} else {
-			interpolate(interpMove, this.posBeginMove, this.posEndMove);
+			interpolatePosition(interpMove, this.posBeginMove, this.posEndMove);
 		}
 	}
 

@@ -16,17 +16,17 @@ public class CircularMovementIn3D extends PApplet {
     private float cameraY = 0;
     private float cameraZ = 0;
     
-    float startX = 180, startY = 0, startZ = 0;
-    float endX = -180, endY = 0, endZ = 0;
-    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
+//    float startX = 180, startY = 0, startZ = 0;
+//    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
+//    Path path = Path.CIRCULAR_HORARIO_EM_XZ;
 
 //    float startX = 180, startY = 0, startZ = 0;
-//    float endX = -180, endY = 0, endZ = 0;
-//    Path path = Path.CIRCULAR_HORARIO_EM_XY;
+//    float endX = -180, endY = 0, endZ = -30; // z final desalinhado com z inicial 
+//    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
 
-//    float startX = 0, startY = 0, startZ = 0;
-//    float endX = 0, endY = 0, endZ = -100;
-//    Path path = Path.CIRCULAR_HORARIO_EM_YZ;
+    float startX = 0, startY = 0, startZ = 0;
+    float endX = 0, endY = 0, endZ = -100; // x final desalinhado com x inicial
+    Path path = Path.CIRCULAR_HORARIO_EM_YZ;
 
     @Override
     public void setup() {
@@ -77,18 +77,30 @@ public class CircularMovementIn3D extends PApplet {
         
         if (path.planoXZ()) {
             x = centerX + cos(angulo) * raio;
-            y = map(alpha, 0, TWO_PI, startY, endY);
+            if (alpha < PI) {
+                y = map(alpha, 0, PI, startY, endY);
+            } else {
+                y = map(alpha, PI, TWO_PI, endY, startY);
+            }
             z = centerZ + sin(angulo) * raio;
         }
 
         if (path.planoXY()) {
             x = centerX + cos(angulo) * raio;
             y = centerY + sin(angulo) * raio;
-            z = map(alpha, 0, TWO_PI, startZ, endZ);
+            if (alpha < PI) {
+                z = map(alpha, 0, PI, startZ, endZ);
+            } else {
+                z = map(alpha, PI, TWO_PI, endZ, startZ);
+            }
         }
 
         if (path.planoYZ()) {
-            x = map(alpha, 0, TWO_PI, startX, endX);
+            if (alpha < PI) {
+                x = map(alpha, 0, PI, startX, endX);
+            } else {
+                x = map(alpha, PI, TWO_PI, endX, startX);
+            }
             y = centerY + cos(angulo) * raio;
             z = centerZ + sin(angulo) * raio;
         }
@@ -96,7 +108,7 @@ public class CircularMovementIn3D extends PApplet {
         translate(x, y, z);
         
 
-        alpha += 0.1;
+        alpha += 0.01;
         if(alpha > TWO_PI) {
             alpha = 0;
         }
