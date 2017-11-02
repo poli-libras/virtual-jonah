@@ -1,14 +1,12 @@
 package br.usp.libras.sanbox;
 
+import static br.usp.libras.sanbox.Point.point;
 import static org.junit.Assert.assertTrue;
+import static processing.core.PConstants.PI;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import br.usp.libras.sign.transition.Path;
-
-import static br.usp.libras.sanbox.Point.point;
-import static processing.core.PConstants.*;
 
 public class CircularInterpolationTest {
 
@@ -65,7 +63,6 @@ public class CircularInterpolationTest {
         assertCaminhoInterpoladoEh(start, point(0, -180, 0), end, point(0, 180, 0));
     }
     
-    @Ignore("Em andamento")
     @Test
     public void should_interpolar_no_plano_xy_horario_start_e_end_no_eixo_y() {
         Point start = point(0, -180, 0);

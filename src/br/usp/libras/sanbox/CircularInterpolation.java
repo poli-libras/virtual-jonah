@@ -1,15 +1,15 @@
 package br.usp.libras.sanbox;
 
+import static br.usp.libras.sanbox.Point.point;
+import static processing.core.PApplet.atan;
+import static processing.core.PApplet.cos;
+import static processing.core.PApplet.map;
+import static processing.core.PApplet.sin;
+import static processing.core.PConstants.PI;
+import static processing.core.PConstants.TWO_PI;
+
 import br.usp.libras.sign.transition.Path;
 import processing.core.PApplet;
-import static processing.core.PApplet.cos;
-import static processing.core.PApplet.atan;
-import static processing.core.PApplet.acos;
-import static processing.core.PApplet.sin;
-import static processing.core.PApplet.map;
-
-import static br.usp.libras.sanbox.Point.point;
-import static processing.core.PConstants.*;
 
 
 public class CircularInterpolation {
@@ -50,8 +50,9 @@ public class CircularInterpolation {
 
         if (path.planoXY()) {
             
-//            float angulo = atan(start.x / start.y) + alpha;
-            float angulo = alpha;
+            // TODO reflitir:
+            float angulo = atan(start.y / start.x) + alpha;
+//            float angulo = alpha;
 
             if (start.x < end.x) {
                 angulo = angulo + PI;
