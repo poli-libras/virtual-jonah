@@ -13,10 +13,13 @@ public class CircularInterpolationTest {
     static final float TOLERANCIA = 1;
     
     // pontos do ponto de vista do interlocutor
-    Point NORTE = point(0, 180, 0);
+    // Ox é direcionado da esquerda para direita
+    // Oy é direcionado de cima para baixo
+    // Oz é direcionado da dentro para fora da tela
+    Point NORTE = point(0, -180, 0);
+    Point SUL = point(0, 180, 0);
     Point LESTE = point(180, 0, 0);
     Point OESTE = point(-180, 0, 0);
-    Point SUL = point(0, -180, 0);
     
     CircularInterpolation interpolation;
 
@@ -26,7 +29,7 @@ public class CircularInterpolationTest {
         Point end = OESTE; 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, NORTE, end, SUL);
+        assertCaminhoInterpoladoEh(start, SUL, end, NORTE);
     }
 
     private void assertCaminhoInterpoladoEh(Point p0, Point ppi2, Point ppi, Point p3pi2) {
@@ -57,7 +60,7 @@ public class CircularInterpolationTest {
         Point end = OESTE.comZ(-30); 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, NORTE.comZ(-15), end, SUL.comZ(-15));
+        assertCaminhoInterpoladoEh(start, SUL.comZ(-15), end, NORTE.comZ(-15));
     }
     
     @Test
@@ -66,13 +69,13 @@ public class CircularInterpolationTest {
         Point end = LESTE; 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, SUL, end, NORTE);
+        assertCaminhoInterpoladoEh(start, NORTE, end, SUL);
     }
     
     @Test
     public void should_interpolar_no_plano_xy_horario_start_e_end_no_eixo_y() {
-        Point start = SUL; 
-        Point end = NORTE; 
+        Point start = NORTE; 
+        Point end = SUL; 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
         assertCaminhoInterpoladoEh(start, LESTE, end, OESTE);
