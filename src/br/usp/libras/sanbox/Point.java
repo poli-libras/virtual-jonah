@@ -1,5 +1,7 @@
 package br.usp.libras.sanbox;
 
+import static br.usp.libras.sanbox.Point.point;
+
 import processing.core.PApplet;
 
 public class Point {
@@ -25,13 +27,25 @@ public class Point {
     }
     
     public Point mais(Point p) {
-        return new Point(x + p.x, y + p.y, z + p.z);
+        return point(x + p.x, y + p.y, z + p.z);
     }
     
     public Point comZ(float novoZ) {
-        return new Point(x, y, novoZ);
+        return point(x, y, novoZ);
+    }
+
+    public Point comX(float novoX) {
+        return point(novoX, y, z);
+    }
+
+    public Point comY(float novoY) {
+        return point(x, novoY, z);
     }
     
+    public Point pontoMedioIndoPara(Point p) {
+        return point((x + p.x) / 2, (y + p.y) / 2, (z + p.z) / 2);
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";

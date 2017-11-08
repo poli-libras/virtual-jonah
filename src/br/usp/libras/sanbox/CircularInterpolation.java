@@ -44,8 +44,8 @@ public class CircularInterpolation {
      */
     public Point interpolate(float alpha) {
         
-        Point center = point((end.x + start.x) / 2, (end.y + start.y) / 2, (end.z + start.z) / 2);
-        float raio = PApplet.dist(start.x, start.y, start.z, end.x, end.y, end.z) / 2;
+        Point center = start.pontoMedioIndoPara(end);
+        float raio = start.distanciaDe(end) / 2;
         float x = 0, y = 0, z = 0;
 
         if (path.planoXY()) {
@@ -63,6 +63,24 @@ public class CircularInterpolation {
                 z = map(alpha, 0, PI, start.z, end.z);
             } else {
                 z = map(alpha, PI, TWO_PI, end.z, start.z);
+            }
+        }
+        
+        if (path.planoXZ()) {
+            
+            int sentido = path.horario() ? 1 : -1;
+            float angulo = atan(start.z / start.x) + sentido * alpha;
+
+            if (start.x < end.x) {
+                angulo = angulo + PI;
+            }
+
+            x = center.x + cos(angulo) * raio;
+            z = center.z + sin(angulo) * raio;
+            if (alpha < PI) {
+                y = map(alpha, 0, PI, start.y, end.y);
+            } else {
+                y = map(alpha, PI, TWO_PI, end.y, start.y);
             }
         }
 

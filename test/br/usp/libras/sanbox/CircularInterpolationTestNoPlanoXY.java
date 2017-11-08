@@ -8,11 +8,12 @@ import org.junit.Test;
 
 import br.usp.libras.sign.transition.Path;
 
-public class CircularInterpolationTest {
+public class CircularInterpolationTestNoPlanoXY {
 
     static final float TOLERANCIA = 1;
     
     // pontos do ponto de vista do interlocutor
+    // (em XY o que é horário pro emissor é anti-horário pro interlocutor)
     // Ox é direcionado da esquerda para direita
     // Oy é direcionado de cima para baixo
     // Oz é direcionado da dentro para fora da tela
@@ -55,7 +56,7 @@ public class CircularInterpolationTest {
     
     private void assertPontosProximos(Point expected, Point p) {
         assertTrue("Distância entre o ponto esperado " + expected + 
-                " e o ponto obtido " + p + " para foi de " + p.distanciaDe(expected),
+                " e o ponto obtido " + p + " foi de " + p.distanciaDe(expected),
                 p.proximoDe(expected, TOLERANCIA));
 //        System.out.println(p.distanciaDe(expected));
     }

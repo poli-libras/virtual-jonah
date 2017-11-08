@@ -19,17 +19,17 @@ public class CircularMovementIn3D extends PApplet {
     private static final float ALPHA_STEP = 0.08f;
 //    private static final float ALPHA_STEP = 0.01f;
     
-//    float startX = 180, startY = 0, startZ = 0;
-//    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
-//    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
+    float startX = 180, startY = 0, startZ = 0;
+    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
+    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
 
 //    float startX = -180, startY = 0, startZ = 0;
 //    float endX = 180, endY = 0, endZ = -30; // z final desalinhado com z inicial 
 //    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
 
-    float startX = 0, startY = 0, startZ = 0;
-    float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
-    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
+//    float startX = 0, startY = 0, startZ = 0;
+//    float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
+//    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
 
     boolean debug = true;
     
