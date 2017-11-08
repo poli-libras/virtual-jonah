@@ -81,7 +81,14 @@ public class CircularInterpolationTest {
         assertCaminhoInterpoladoEh(start, OESTE, end, LESTE);
     }
 
-    // TODO anti-horário em XY
+    @Test
+    public void should_interpolar_no_plano_xy_anti_horario() {
+        Point start = LESTE; 
+        Point end = OESTE; 
+        Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        assertCaminhoInterpoladoEh(start, SUL, end, NORTE);
+    }
     
 
 }
