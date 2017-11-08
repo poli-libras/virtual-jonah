@@ -24,6 +24,14 @@ public class Point {
         return PApplet.dist(this.x, this.y, this.z, p.x, p.y, p.z);
     }
     
+    public Point mais(Point p) {
+        return new Point(x + p.x, y + p.y, z + p.z);
+    }
+    
+    public Point comZ(float novoZ) {
+        return new Point(x, y, novoZ);
+    }
+    
     @Override
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
