@@ -9,7 +9,6 @@ import static processing.core.PConstants.PI;
 import static processing.core.PConstants.TWO_PI;
 
 import br.usp.libras.sign.transition.Path;
-import processing.core.PApplet;
 
 
 public class CircularInterpolation {
@@ -81,6 +80,24 @@ public class CircularInterpolation {
                 y = map(alpha, 0, PI, start.y, end.y);
             } else {
                 y = map(alpha, PI, TWO_PI, end.y, start.y);
+            }
+        }
+
+        if (path.planoYZ()) {
+            
+            int sentido = path.horario() ? -1 : 1;
+            float angulo = atan(start.z / start.y) + sentido * alpha;
+
+            if (start.y < end.y) {
+                angulo = angulo + PI;
+            }
+
+            y = center.y + cos(angulo) * raio;
+            z = center.z + sin(angulo) * raio;
+            if (alpha < PI) {
+                x = map(alpha, 0, PI, start.x, end.x);
+            } else {
+                x = map(alpha, PI, TWO_PI, end.x, start.x);
             }
         }
 

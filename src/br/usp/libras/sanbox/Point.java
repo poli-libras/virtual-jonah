@@ -1,7 +1,5 @@
 package br.usp.libras.sanbox;
 
-import static br.usp.libras.sanbox.Point.point;
-
 import processing.core.PApplet;
 
 public class Point {
