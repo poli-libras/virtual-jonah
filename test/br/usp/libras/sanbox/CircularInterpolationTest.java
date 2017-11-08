@@ -29,7 +29,7 @@ public class CircularInterpolationTest {
         Point end = OESTE; 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, SUL, end, NORTE);
+        assertCaminhoInterpoladoEh(start, NORTE, end, SUL);
     }
 
     private void assertCaminhoInterpoladoEh(Point p0, Point ppi2, Point ppi, Point p3pi2) {
@@ -60,7 +60,7 @@ public class CircularInterpolationTest {
         Point end = OESTE.comZ(-30); 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, SUL.comZ(-15), end, NORTE.comZ(-15));
+        assertCaminhoInterpoladoEh(start, NORTE.comZ(-15), end, SUL.comZ(-15));
     }
     
     @Test
@@ -69,7 +69,7 @@ public class CircularInterpolationTest {
         Point end = LESTE; 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, NORTE, end, SUL);
+        assertCaminhoInterpoladoEh(start, SUL, end, NORTE);
     }
     
     @Test
@@ -78,7 +78,7 @@ public class CircularInterpolationTest {
         Point end = SUL; 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
-        assertCaminhoInterpoladoEh(start, LESTE, end, OESTE);
+        assertCaminhoInterpoladoEh(start, OESTE, end, LESTE);
     }
 
     // TODO anti-horário em XY
