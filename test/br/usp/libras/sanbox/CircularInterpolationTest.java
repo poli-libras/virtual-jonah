@@ -16,10 +16,16 @@ public class CircularInterpolationTest {
     // Ox é direcionado da esquerda para direita
     // Oy é direcionado de cima para baixo
     // Oz é direcionado da dentro para fora da tela
-    Point NORTE = point(0, -180, 0);
-    Point SUL = point(0, 180, 0);
-    Point LESTE = point(180, 0, 0);
-    Point OESTE = point(-180, 0, 0);
+    float c = 180; // cateto
+    Point NORTE = point(0, -c, 0);
+    Point SUL = point(0, c, 0);
+    Point LESTE = point(c, 0, 0);
+    Point OESTE = point(-c, 0, 0);
+    float h = (float) (c * Math.sqrt(2)); // hipotenusa
+    Point NORDESTE = point(h, -h, 0);
+    Point NOROESTE = point(-h, -h, 0);
+    Point SUDOESTE = point(-h, h, 0);
+    Point SUDESTE = point(h, h, 0);
     
     CircularInterpolation interpolation;
 
@@ -82,6 +88,15 @@ public class CircularInterpolationTest {
     }
 
     @Test
+    public void should_interpolar_no_plano_xy_horario_start_e_end_no_eixo_y_invertendo_y() {
+        Point start = SUL; 
+        Point end = NORTE; 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        assertCaminhoInterpoladoEh(start, LESTE, end, OESTE);
+    }
+    
+    @Test
     public void should_interpolar_no_plano_xy_anti_horario() {
         Point start = LESTE; 
         Point end = OESTE; 
@@ -90,5 +105,40 @@ public class CircularInterpolationTest {
         assertCaminhoInterpoladoEh(start, SUL, end, NORTE);
     }
     
+    @Test
+    public void should_interpolar_no_plano_xy_horario_start_no_quadrante1() {
+        Point start = NORDESTE; 
+        Point end = SUDOESTE; 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        assertCaminhoInterpoladoEh(start, NOROESTE, end, SUDESTE);
+    }
+    
+    @Test
+    public void should_interpolar_no_plano_xy_horario_start_no_quadrante2() {
+        Point start = NOROESTE; 
+        Point end = SUDESTE; 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        assertCaminhoInterpoladoEh(start, SUDOESTE, end, NORDESTE);
+    }
 
+    @Test
+    public void should_interpolar_no_plano_xy_horario_start_no_quadrante3() {
+        Point start = SUDOESTE; 
+        Point end = NORDESTE; 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        assertCaminhoInterpoladoEh(start, SUDESTE, end, NOROESTE);
+    }
+    
+    @Test
+    public void should_interpolar_no_plano_xy_horario_start_no_quadrante4() {
+        Point start = SUDESTE; 
+        Point end = NOROESTE; 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        assertCaminhoInterpoladoEh(start, NORDESTE, end, SUDOESTE);
+    }
+    
 }
