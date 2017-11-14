@@ -45,6 +45,10 @@ public class Signs {
 		Map<String, Sign> signsByName = getSignsByName();
 		List<Sign> signs = new ArrayList<>();
 		
+		// movimento circular
+		signs.add(signsByName.get("TESTE PARA MOVIMENTO CIRCULAR"));
+		signs.add(signsByName.get("PIZZA"));
+		
 		// rotY, duas mãos
 		signs.add(signsByName.get("BOLA"));
 		

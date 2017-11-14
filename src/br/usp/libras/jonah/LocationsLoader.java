@@ -3,10 +3,9 @@ package br.usp.libras.jonah;
 import java.util.HashMap;
 import java.util.Map;
 
-import processing.core.PVector;
-
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Location;
+import processing.core.PVector;
 
 public class LocationsLoader {
     
@@ -33,7 +32,8 @@ public class LocationsLoader {
         locationsRight.put(Location.ORELHA, new PVector(x-HEAD_RADIX, 0, 0));
         
         locationsRight.put(Location.BUSTO, new PVector(x-HANDS_SPACE, y+250, z+170));
-        locationsRight.put(Location.OMBRO, new PVector(x+HEAD_RADIX+5, y+HEAD_RADIX+5, z+HEAD_RADIX));
+        locationsRight.put(Location.ESTOMAGO, new PVector(x-HANDS_SPACE+20, y+300, z));
+        locationsRight.put(Location.OMBRO, new PVector(x-HEAD_RADIX-5, y+HEAD_RADIX+5, z));
         
         locationsRight.put(Location.PONTA_DOS_DEDOS, new PVector(-140, 110, 150));
         locationsRight.put(Location.DEDOS, new PVector(-50, 110, 150));
@@ -47,6 +47,7 @@ public class LocationsLoader {
         locationsLeft.put(Location.ORELHA, new PVector(x+HEAD_RADIX, 0, 0));
         
         locationsLeft.put(Location.BUSTO, new PVector(x+HANDS_SPACE, y+250, z+170));
+        locationsLeft.put(Location.ESTOMAGO, new PVector(x+HANDS_SPACE+20, y+300, z));
         locationsLeft.put(Location.OMBRO, new PVector(x-155, y+HEAD_RADIX+5, z+HEAD_RADIX));
         
         locationsLeft.put(Location.PONTA_DOS_DEDOS, new PVector(140, 110, 150));
@@ -61,10 +62,17 @@ public class LocationsLoader {
      */
     public static PVector getVector(Location loc, HandSide side) {
 
+        PVector vector = null;
         if (side == HandSide.LEFT) {
-            return locationsLeft.get(loc);
+            vector = locationsLeft.get(loc);
         }
-        return locationsRight.get(loc);
+        if (side == HandSide.RIGHT) {
+            vector = locationsRight.get(loc);
+        }
+        if (vector == null) {
+            throw new IllegalStateException("Localização da locação " + loc + " do lado " + side + " não configurada.");
+        }
+        return vector;
     }
 
 }

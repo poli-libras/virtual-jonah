@@ -8,13 +8,30 @@
 				<shape>MAO_S</shape>
 				<side>RIGHT</side>
 				<transition>
-					<path>CIRCULAR_OVER_PLUS_Y</path>
+					<path>CIRCULAR_ANTI_HORARIO_EM_XY</path>
 				</transition>
 			</rightHand>
 		</symbols>
 		<symbols>
 			<rightHand>
 				<location>TESTA</location>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+			</rightHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>TESTA</location>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<path>CIRCULAR_ANTI_HORARIO_EM_XY</path>
+				</transition>
+			</rightHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>BOCA</location>
 				<shape>MAO_S</shape>
 				<side>RIGHT</side>
 			</rightHand>
@@ -1389,6 +1406,54 @@
 				<rotX>1.570796</rotX>
 				<rotZ>0</rotZ>
 			</rightHand>
+		</symbols>
+	</signs>
+	<signs>
+		<name>PIZZA</name>
+		<symbols>
+			<rightHand>
+				<location>ESTOMAGO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<path>CIRCULAR_ANTI_HORARIO_EM_XZ</path>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESTOMAGO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>LEFT</side>
+				<transition>
+					<path>CIRCULAR_HORARIO_EM_XZ</path>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<contact>NENHUM</contact>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+				<fingers>NENHUM</fingers>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+				<fingers>NENHUM</fingers>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>LEFT</side>
+			</leftHand>
 		</symbols>
 	</signs>
 </ns2:signList>

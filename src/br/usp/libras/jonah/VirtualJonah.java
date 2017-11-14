@@ -42,7 +42,7 @@ public class VirtualJonah extends PApplet {
 	private int signIndex; // indica passo da sequência carregada do arquivo
 	private int symbolIndex; // indica qual simbolo atual dentro do sinal
 
-	private List<Sign> signs = new ArrayList<Sign>();;
+	private List<Sign> signs = new ArrayList<Sign>();
 
 	// rotação do modelo controlada interativamente:
 	private float rotX = 0;

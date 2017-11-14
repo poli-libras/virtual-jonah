@@ -5,6 +5,8 @@ import java.util.List;
 
 import processing.core.PApplet;
 import processing.core.PVector;
+import br.usp.libras.jonah.interpolation.CircularInterpolation;
+import br.usp.libras.jonah.interpolation.Point;
 import br.usp.libras.sign.movement.Frequency;
 import br.usp.libras.sign.movement.HandMovement;
 import br.usp.libras.sign.movement.Segment;
@@ -16,6 +18,8 @@ import br.usp.libras.sign.symbol.Hand;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Location;
 import br.usp.libras.sign.transition.Path;
+
+import static br.usp.libras.jonah.interpolation.Point.point;
 
 /**
  * Classe responsável por renderizar as mãos do sinal (cada mão possui um objeto
@@ -295,17 +299,27 @@ public class HandGraph {
 		// deslocamento relativo
 		// calcula e aplica deslocamento na mão
 
-	    if (this.hand.getTransition().getPath() == Path.LINEAR) {
-    		float x = PApplet.map(value, 0, 1, origin.x, target.x);
-    		float y = PApplet.map(value, 0, 1, origin.y, target.y);
-    		float z = PApplet.map(value, 0, 1, origin.z, target.z);
-    		this.processing.translate(x, y, z);
+	    float x = 0, y = 0, z = 0;
+	    Path path = this.hand.getTransition().getPath();
+
+	    if (path == Path.LINEAR) {
+    		x = PApplet.map(value, 0, 1, origin.x, target.x);
+    		y = PApplet.map(value, 0, 1, origin.y, target.y);
+    		z = PApplet.map(value, 0, 1, origin.z, target.z);
 	    }
 	    
-	    if (this.hand.getTransition().getPath() == Path.CIRCULAR_ANTI_HORARIO_EM_XY) {
-	        
+	    if (path.isCircular()) {
+	        Point originPoint = point(origin.x, origin.y, origin.z);
+	        Point targetPoint = point(target.x, target.y, target.z);
+            CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
+            float alpha = PApplet.map(value, 0, 1, 0, PApplet.PI/2);
+            Point nextPoint = interpolation.interpolate(alpha);
+            x = nextPoint.x;
+            y = nextPoint.y;
+            z = nextPoint.z;
 	    }
 
+	    this.processing.translate(x, y, z);
 	}
 
 	private void move() {
