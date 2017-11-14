@@ -1,11 +1,13 @@
-package br.usp.libras.sanbox;
+package br.usp.libras.jonah.interpolation;
 
-import static br.usp.libras.sanbox.Point.point;
+import static br.usp.libras.jonah.interpolation.Point.point;
 import static org.junit.Assert.assertTrue;
 import static processing.core.PConstants.PI;
 
 import org.junit.Test;
 
+import br.usp.libras.jonah.interpolation.CircularInterpolation;
+import br.usp.libras.jonah.interpolation.Point;
 import br.usp.libras.sign.transition.Path;
 
 public class CircularInterpolationTestNoPlanoXZ {

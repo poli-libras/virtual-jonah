@@ -1,6 +1,6 @@
-package br.usp.libras.sanbox;
+package br.usp.libras.jonah.interpolation;
 
-import static br.usp.libras.sanbox.Point.point;
+import static br.usp.libras.jonah.interpolation.Point.point;
 import static processing.core.PApplet.atan;
 import static processing.core.PApplet.cos;
 import static processing.core.PApplet.map;
