@@ -17,15 +17,8 @@
 				<location>TESTA</location>
 				<shape>MAO_S</shape>
 				<side>RIGHT</side>
-			</rightHand>
-		</symbols>
-		<symbols>
-			<rightHand>
-				<location>TESTA</location>
-				<shape>MAO_S</shape>
-				<side>RIGHT</side>
 				<transition>
-					<path>CIRCULAR_ANTI_HORARIO_EM_XY</path>
+					<path>CIRCULAR_HORARIO_EM_XY</path>
 				</transition>
 			</rightHand>
 		</symbols>

@@ -221,7 +221,7 @@ public class HandGraph {
 			}
 			this.processing.pushMatrix();
 			this.interpolatePosition(interp, this.posHand, this.posBeginMove);
-			this.interpolateHand();
+			this.interpolateHandRotation();
 			this.model.draw();
 			this.processing.popMatrix();
 			break;
@@ -236,7 +236,7 @@ public class HandGraph {
 			// desenha de fato a mão
 			this.processing.pushMatrix();
 			this.move();
-			this.interpolateHand();
+			this.interpolateHandRotation();
 			this.model.draw();
 			this.processing.popMatrix();
 
@@ -269,7 +269,7 @@ public class HandGraph {
 
 	// interpola a mão independente da localização da mão no espaço (fç de
 	// configuração, orientação e plano)
-	private void interpolateHand() {
+	private void interpolateHandRotation() {
 
 		// supõe-se que a orientação inicial da mão é BLACK no plano VERTICAL
 		// => modelo OBJ deve seguir essa convenção
