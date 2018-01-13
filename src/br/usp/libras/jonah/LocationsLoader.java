@@ -13,6 +13,7 @@ public class LocationsLoader {
     private static final PVector POS_FACE = new PVector(0, -140, 0);
     private static final int HANDS_SPACE = 80;
     private static final int HANDS_SIZE = 198;
+    private static final int SPACE_TO_SIDES = 200;
     
     private static Map<Location, PVector> locationsRight = new HashMap<Location, PVector>();
     private static Map<Location, PVector> locationsLeft = new HashMap<Location, PVector>();
@@ -23,7 +24,12 @@ public class LocationsLoader {
         float y = POS_FACE.y;
         float z = POS_FACE.z;
         
-        locationsRight.put(Location.ESPACO_NEUTRO, new PVector(-200, 110, 150));
+        // RIGHT
+        
+        PVector espacoNeutroDireito = new PVector(-200, 110, 150);
+        locationsRight.put(Location.ESPACO_NEUTRO, espacoNeutroDireito);
+        locationsRight.put(Location.ESPACO_NEUTRO_DIREITO, new PVector(espacoNeutroDireito.x - SPACE_TO_SIDES, espacoNeutroDireito.y, espacoNeutroDireito.z));
+        locationsRight.put(Location.ESPACO_NEUTRO_ESQUERDO, new PVector(espacoNeutroDireito.x + SPACE_TO_SIDES, espacoNeutroDireito.y, espacoNeutroDireito.z));
         locationsRight.put(Location.TOPO_DA_CABECA, new PVector(x-HANDS_SPACE, y-110, z+HEAD_RADIX+50));
         locationsRight.put(Location.TESTA, new PVector(x-HANDS_SPACE, y-5, z+HEAD_RADIX));
         locationsRight.put(Location.BOCA, new PVector(x-100, y+180, z+HEAD_RADIX));
@@ -31,14 +37,21 @@ public class LocationsLoader {
         locationsRight.put(Location.OLHOS, new PVector(x-HANDS_SPACE, y+200, z+HEAD_RADIX));
         locationsRight.put(Location.ORELHA, new PVector(x-HEAD_RADIX, 0, 0));
         
-        locationsRight.put(Location.BUSTO, new PVector(x-HANDS_SPACE, y+250, z+170));
+        PVector busto = new PVector(x-HANDS_SPACE, y+250, z+170);
+        locationsRight.put(Location.BUSTO, busto);
+        locationsRight.put(Location.BUSTO_DIREITO, new PVector(busto.x - SPACE_TO_SIDES, busto.y, busto.z));
         locationsRight.put(Location.ESTOMAGO, new PVector(x-HANDS_SPACE+20, y+300, z));
         locationsRight.put(Location.OMBRO, new PVector(x-HEAD_RADIX-5, y+HEAD_RADIX+5, z));
         
         locationsRight.put(Location.PONTA_DOS_DEDOS, new PVector(-140, 110, 150));
         locationsRight.put(Location.DEDOS, new PVector(-50, 110, 150));
         
-        locationsLeft.put(Location.ESPACO_NEUTRO, new PVector(200, 110, 150));
+        // LEFT
+
+        PVector espacoNeutroEsquerdo = new PVector(200, 110, 150);
+        locationsLeft.put(Location.ESPACO_NEUTRO, espacoNeutroEsquerdo);
+        locationsLeft.put(Location.ESPACO_NEUTRO_DIREITO, new PVector(espacoNeutroEsquerdo.x - SPACE_TO_SIDES, espacoNeutroEsquerdo.y, espacoNeutroEsquerdo.z));
+        locationsLeft.put(Location.ESPACO_NEUTRO_ESQUERDO, new PVector(espacoNeutroEsquerdo.x + SPACE_TO_SIDES, espacoNeutroEsquerdo.y, espacoNeutroEsquerdo.z));
         locationsLeft.put(Location.TOPO_DA_CABECA, new PVector(x+HANDS_SPACE, y-110, z+HEAD_RADIX+50));
         locationsLeft.put(Location.TESTA, new PVector(x+HANDS_SPACE, y-5, z+HEAD_RADIX));
         locationsLeft.put(Location.BOCA, new PVector(x+HANDS_SPACE, y+150, z+HEAD_RADIX));
@@ -46,7 +59,7 @@ public class LocationsLoader {
         locationsLeft.put(Location.OLHOS, new PVector(x+HANDS_SPACE, y+200, z+HEAD_RADIX));
         locationsLeft.put(Location.ORELHA, new PVector(x+HEAD_RADIX, 0, 0));
         
-        locationsLeft.put(Location.BUSTO, new PVector(x+HANDS_SPACE, y+250, z+170));
+        locationsLeft.put(Location.BUSTO, busto);
         locationsLeft.put(Location.ESTOMAGO, new PVector(x+HANDS_SPACE+20, y+300, z));
         locationsLeft.put(Location.OMBRO, new PVector(x-155, y+HEAD_RADIX+5, z+HEAD_RADIX));
         

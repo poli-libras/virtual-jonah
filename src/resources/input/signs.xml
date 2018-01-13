@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:signList xmlns:ns2="br.usp.libras.xml">
+<!-- 
 	<signs>
 		<name>TESTE PARA MOVIMENTO CIRCULAR</name>
 		<symbols>
@@ -30,6 +31,8 @@
 			</rightHand>
 		</symbols>
 	</signs>
+-->
+
 	<signs>
 		<name>SAÚDE</name>
 		<symbols>
@@ -55,6 +58,33 @@
 			</rightHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>SAÚDE 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_JESUS</shape>
+				<side>RIGHT</side>
+			</rightHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_DIREITO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_JESUS</shape>
+				<side>RIGHT</side>
+			</rightHand>
+		</symbols>
+	</signs>
+
 	<signs>
 		<name>INGRESSO</name> <!-- Verificar MAGNITUDE -->
 		<symbols>
@@ -130,6 +160,113 @@
 			</leftHand>
 		</symbols>
 	</signs>
+
+	<signs>
+		<name>INGRESSO 2</name> <!-- Verificar MAGNITUDE -->
+		<!-- TODO transição rápida -->
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_L_COM_C</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+	</signs>
+
+
 	<signs> <!-- filmar em velocidade acelerada -->
 		<name>EDUCAÇÃO FÍSICA</name>
 		<symbols>
