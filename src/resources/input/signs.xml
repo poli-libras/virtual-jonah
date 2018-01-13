@@ -163,7 +163,6 @@
 
 	<signs>
 		<name>INGRESSO 2</name> <!-- Verificar MAGNITUDE -->
-		<!-- TODO transição rápida -->
 		<symbols>
 			<rightHand>
 				<fingers>NENHUM</fingers>
@@ -173,6 +172,9 @@
 				<rotZ>-1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
 			</rightHand>
 			<leftHand>
 				<fingers>NENHUM</fingers>
@@ -182,6 +184,9 @@
 				<rotZ>1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</leftHand>
 		</symbols>
 		<symbols>
@@ -193,6 +198,9 @@
 				<rotZ>-1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</rightHand>
 			<leftHand>
 				<fingers>NENHUM</fingers>
@@ -202,6 +210,9 @@
 				<rotZ>1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</leftHand>
 		</symbols>		
 		<symbols>
@@ -213,6 +224,9 @@
 				<rotZ>-1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</rightHand>
 			<leftHand>
 				<fingers>NENHUM</fingers>
@@ -222,6 +236,9 @@
 				<rotZ>1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</leftHand>
 		</symbols>
 		<symbols>
@@ -233,6 +250,9 @@
 				<rotZ>-1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</rightHand>
 			<leftHand>
 				<fingers>NENHUM</fingers>
@@ -242,6 +262,9 @@
 				<rotZ>1.570796</rotZ>
 				<shape>MAO_L_COM_C</shape>
 				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>				
 			</leftHand>
 		</symbols>		
 		<symbols>
@@ -265,6 +288,8 @@
 			</leftHand>
 		</symbols>
 	</signs>
+
+	
 
 
 	<signs> <!-- filmar em velocidade acelerada -->
@@ -370,6 +395,7 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>EMPATAR</name>
 		<symbols>
@@ -445,6 +471,7 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>ABERTURA</name>
 		<symbols>

@@ -301,6 +301,17 @@ public class HandGraph {
 
 	    float x = 0, y = 0, z = 0;
 	    Path path = this.hand.getTransition().getPath();
+	    
+        // velocidade do movimento
+        Speed speed = this.hand.getTransition().getSpeed();
+        if (speed != null) {
+            if (speed == Speed.LENTO) {
+                this.pass = DEFAULT_PASS / 2;
+            }
+            if (speed == Speed.RAPIDO) {
+                this.pass = 2 * DEFAULT_PASS;
+            }
+        }
 
 	    if (path == Path.LINEAR) {
     		x = PApplet.map(value, 0, 1, origin.x, target.x);
