@@ -473,6 +473,134 @@
 	</signs>
 	
 	<signs>
+		<name>EMPATAR 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>					
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+	</signs>	
+	
+	<signs>
 		<name>ABERTURA</name>
 		<symbols>
 			<rightHand>
@@ -611,6 +739,131 @@
 			</leftHand>
 		</symbols>
 	</signs>
+
+	<signs>
+		<name>PATINS 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_A_FRENTE</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_ATRAS</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_ATRAS</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_A_FRENTE</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_A_FRENTE</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO_ATRAS</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>BUSTO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+	</signs>
+		
 	<signs>
 		<name>FESTA</name>
 		<symbols>
@@ -656,6 +909,51 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>FESTA 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_Y</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_Y</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_Y</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_Y</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+	</signs>
+	
 	<signs>
 		<name>LIMITE</name>
 		<symbols>
@@ -693,6 +991,60 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>LIMITE 2</name>
+		<symbols>
+			<face>
+				<others>QUEIXO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<face>
+				<others>QUEIXO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ESTICADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+	</signs>
+	
 	<signs>
 		<name>HONRAR</name>
 		<symbols>
@@ -738,6 +1090,51 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>HONRAR 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>TESTA</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_C_COM_POLEGAR_PARA_O_LADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>TESTA</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_C_COM_POLEGAR_PARA_O_LADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>TESTA_A_FRENTE</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_C_COM_POLEGAR_PARA_O_LADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>TESTA_A_FRENTE</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_C_COM_POLEGAR_PARA_O_LADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+	</signs>	
+	
 	<signs>
 		<name>DISPUTAR</name>
 		<symbols>
@@ -787,6 +1184,7 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>TORCIDA</name>
 		<symbols>
@@ -934,6 +1332,225 @@
 			</leftHand>
 		</symbols>
 	</signs>
+
+	<signs>
+		<name>TORCIDA 2</name>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>C_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>												
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ORELHA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ORELHA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ORELHA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ORELHA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ORELHA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ORELHA</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+	</signs>	
+
 	<signs>
 		<name>MEDALHA</name>
 		<symbols>
@@ -948,6 +1565,7 @@
 			</rightHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>EQUIPE</name>
 		<symbols>
@@ -1043,6 +1661,151 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>EQUIPE 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>	
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>	
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ESQUERDO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_DIREITO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>ANGULO_ABERTO_AFASTADO</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>	
+	</signs>
+	
 	<signs>
 		<name>BOXE</name>
 		<symbols>
@@ -1095,6 +1858,138 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>BOXE 2</name>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_A_FRENTE</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_A_FRENTE</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>-3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_S</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+	</signs>
+	
 	<signs>
 		<name>CAMPO</name>
 		<symbols>
@@ -1140,6 +2035,51 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>CAMPO 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>CURVADO_U</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>CURVADO_U</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS_A_DIREITA</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>CURVADO_U</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS_A_ESQUERDA</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>0</rotZ>
+				<shape>CURVADO_U</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>		
+	</signs>		
+	
 	<signs>
 		<name>TORNEIO</name>
 		<symbols>
@@ -1188,6 +2128,57 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>TORNEIO 2</name>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS</location>
+				<rotY>1.570796</rotY>
+				<rotX>-0.785398</rotX>
+				<rotZ>0</rotZ>
+				<shape>INDICADOR</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS</location>
+				<rotY>-1.570796</rotY>
+				<rotX>-0.785398</rotX>
+				<rotZ>0</rotZ>
+				<shape>INDICADOR</shape>
+				<side>LEFT</side>			
+			</leftHand>
+		</symbols>
+		<symbols>
+			<face>
+				<others>EXPRESSAO_QUESTAO</others>
+			</face>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS_ABAIXO</location>
+				<rotY>1.570796</rotY>
+				<rotX>-0.785398</rotX>
+				<rotZ>0</rotZ>
+				<shape>INDICADOR</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>OLHOS_ABAIXO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>-0.785398</rotX>
+				<rotZ>0</rotZ>
+				<shape>INDICADOR</shape>
+				<side>LEFT</side>			
+			</leftHand>
+		</symbols>
+	</signs>
+	
 	<signs>
 		<name>JOGADOR</name>
 		<symbols>
@@ -1263,6 +2254,142 @@
 			</leftHand>
 		</symbols>
 	</signs>
+
+	<signs>
+		<name>JOGADOR 2</name>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ABAIXO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO_ABAIXO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<fingers>NENHUM</fingers>
+				<location>ESPACO_NEUTRO</location>
+				<rotY>3.1415</rotY>
+				<rotX>0</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_ONZE</shape>
+				<side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>		
+	</signs>
+
+
 	<signs>
 		<name>BOLA</name>
 		<symbols>
@@ -1286,6 +2413,7 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>2016</name>
 		<symbols>
@@ -1342,6 +2470,7 @@
 			</rightHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>CASA</name>
 		<symbols>
@@ -1366,6 +2495,7 @@
 			</leftHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>TREM</name>
 		<symbols>
@@ -1414,6 +2544,47 @@
 			</leftHand>
 		</symbols>
 	</signs>
+
+	<signs>
+		<name>TREM 2</name>
+		<symbols>
+			<rightHand>
+				<location>PESCOCO</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>FLEXIONADO2</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>PESCOCO</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>FLEXIONADO2</shape>		
+				<side>LEFT</side>		
+			</leftHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>PESCOCO_A_FRENTE</location>
+				<rotY>1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>FLEXIONADO2</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>PESCOCO_A_FRENTE</location>
+				<rotY>-1.570796</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>FLEXIONADO2</shape>		
+				<side>LEFT</side>		
+			</leftHand>
+		</symbols>		
+	</signs>
+		
 	<signs>
 		<name>FUTEBOL</name>
 		<symbols>
@@ -1492,6 +2663,131 @@
 			</leftHand>
 		</symbols>	
 	</signs>
+	
+		<signs>
+		<name>FUTEBOL 2</name>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>3.1415</rotX>
+                <rotZ>1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>-3.1415</rotX>
+                <rotZ>-1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>	
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+                <rotY>0</rotY>
+                <rotX>3.1415</rotX>
+                <rotZ>1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO_ABAIXO</location>
+                <rotY>0</rotY>
+                <rotX>-3.1415</rotX>
+                <rotZ>-1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>	
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>3.1415</rotX>
+                <rotZ>1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>-3.1415</rotX>
+                <rotZ>-1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>	
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO_ABAIXO</location>
+                <rotY>0</rotY>
+                <rotX>3.1415</rotX>
+                <rotZ>1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO_ACIMA</location>
+                <rotY>0</rotY>
+                <rotX>-3.1415</rotX>
+                <rotZ>-1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>	
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>3.1415</rotX>
+                <rotZ>1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>RIGHT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>-3.1415</rotX>
+                <rotZ>-1.570796</rotZ>
+                <shape>MAO_ONZE</shape>
+                <side>LEFT</side>
+				<transition>
+					<speed>RAPIDO</speed>
+				</transition>
+			</leftHand>
+		</symbols>	
+	</signs>
+	
 	<signs>
 		<name>OLHAR</name>
 		<symbols>
@@ -1519,6 +2815,33 @@
 			</rightHand>
 		</symbols>
 	</signs>
+	
+		<signs>
+		<name>OLHAR 2</name>
+		<symbols>
+			<rightHand>
+				<location>OLHOS</location>
+				<fingers>NENHUM</fingers>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_2</shape>
+				<side>RIGHT</side>
+			</rightHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>OLHOS_A_FRENTE</location>
+				<fingers>NENHUM</fingers>
+				<rotY>0</rotY>
+				<rotX>0</rotX>
+				<rotZ>0</rotZ>
+				<shape>MAO_2</shape>
+				<side>RIGHT</side>
+			</rightHand>
+		</symbols>
+	</signs>
+	
 	<signs>
 		<name>VOCÊ</name>
 		<symbols>
@@ -1547,6 +2870,31 @@
             <sequence>0</sequence>	
 		</symbols>
 	</signs>
+	
+	<signs>
+		<name>VOCÊ 2</name>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO_ATRAS</location>
+                <rotY>0</rotY>
+                <rotX>-1.570796</rotX>
+                <rotZ>0</rotZ>
+                <shape>INDICADOR</shape>                
+            	<side>RIGHT</side>
+            </rightHand>
+		</symbols>
+		<symbols>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+                <rotY>0</rotY>
+                <rotX>-1.570796</rotX>
+                <rotZ>0</rotZ>
+                <shape>INDICADOR</shape>                
+            	<side>RIGHT</side>
+            </rightHand>
+		</symbols>
+	</signs>
+	
 	<signs>
 		<name>JUIZ</name>
 		<symbols>
@@ -1565,6 +2913,7 @@
 			</rightHand>
 		</symbols>
 	</signs>
+	
 	<signs>
 		<name>PIZZA</name>
 		<symbols>
