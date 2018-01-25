@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:signList xmlns:ns2="br.usp.libras.xml">
+
 <!-- 
 	<signs>
 		<name>TESTE PARA MOVIMENTO CIRCULAR</name>
@@ -31,9 +32,57 @@
 			</rightHand>
 		</symbols>
 	</signs>
--->
 
-	
+	<signs>
+		<name>PIZZA</name>
+		<symbols>
+			<rightHand>
+				<location>ESTOMAGO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>RIGHT</side>
+				<transition>
+					<path>CIRCULAR_ANTI_HORARIO_EM_XZ</path>
+				</transition>
+			</rightHand>
+			<leftHand>
+				<location>ESTOMAGO</location>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>LEFT</side>
+				<transition>
+					<path>CIRCULAR_HORARIO_EM_XZ</path>
+				</transition>
+			</leftHand>
+		</symbols>
+		<symbols>
+			<contact>NENHUM</contact>
+			<rightHand>
+				<location>ESPACO_NEUTRO</location>
+				<fingers>NENHUM</fingers>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>RIGHT</side>
+			</rightHand>
+			<leftHand>
+				<location>ESPACO_NEUTRO</location>
+				<fingers>NENHUM</fingers>
+				<rotY>0</rotY>
+				<rotX>-1.570796</rotX>
+				<rotZ>-1.570796</rotZ>
+				<shape>MAO_PATO_FECHADA</shape>
+				<side>LEFT</side>
+			</leftHand>
+		</symbols>
+	</signs>
+	-->
+		
 	<signs>
 		<name>SAÚDE</name>
 		<symbols>
@@ -1857,52 +1906,5 @@
 		</symbols>
 	</signs>
 	
-	<signs>
-		<name>PIZZA</name>
-		<symbols>
-			<rightHand>
-				<location>ESTOMAGO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>1.570796</rotZ>
-				<shape>MAO_PATO_FECHADA</shape>
-				<side>RIGHT</side>
-				<transition>
-					<path>CIRCULAR_ANTI_HORARIO_EM_XZ</path>
-				</transition>
-			</rightHand>
-			<leftHand>
-				<location>ESTOMAGO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>-1.570796</rotZ>
-				<shape>MAO_PATO_FECHADA</shape>
-				<side>LEFT</side>
-				<transition>
-					<path>CIRCULAR_HORARIO_EM_XZ</path>
-				</transition>
-			</leftHand>
-		</symbols>
-		<symbols>
-			<contact>NENHUM</contact>
-			<rightHand>
-				<location>ESPACO_NEUTRO</location>
-				<fingers>NENHUM</fingers>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>1.570796</rotZ>
-				<shape>MAO_PATO_FECHADA</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<location>ESPACO_NEUTRO</location>
-				<fingers>NENHUM</fingers>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>-1.570796</rotZ>
-				<shape>MAO_PATO_FECHADA</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
+
 </ns2:signList>

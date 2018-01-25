@@ -1,12 +1,9 @@
 package br.usp.libras.jonah;
 
-import java.util.Map;
-
+import br.usp.libras.sign.symbol.HandSide;
+import br.usp.libras.sign.symbol.Symbol;
 import processing.core.PApplet;
 import processing.core.PVector;
-import br.usp.libras.sign.symbol.HandSide;
-import br.usp.libras.sign.symbol.Location;
-import br.usp.libras.sign.symbol.Symbol;
 
 /**
  * Classe responsável por orquestrar a execução do sinal de acordo com o especificado por um objeto da classe Sign; é
@@ -18,14 +15,12 @@ import br.usp.libras.sign.symbol.Symbol;
  */
 public class SymbolGraph {
 
-    private static final float PASS = 0.05f; // passo da interpolação
     private static final PVector POS_FACE = new PVector(0, -140, 0);
 
     private Symbol symbol;
     private HandGraph leftHandGraph, rightHandGraph;
     private FaceGraph faceGraph;
     private PApplet processing;
-    private Map<Location, PVector> locations;
 
     /**
      * Construtor
