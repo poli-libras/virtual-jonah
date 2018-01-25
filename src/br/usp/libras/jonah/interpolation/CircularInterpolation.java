@@ -10,13 +10,16 @@ import static processing.core.PConstants.TWO_PI;
 
 import br.usp.libras.sign.transition.Path;
 
-
 public class CircularInterpolation {
 
     private Point start;
     private Point end;
     private Path path;
 
+    /**
+     * Start e end devem pontos da circunferência ligadas por um diâmetro da
+     * circunferência.
+     */
     public CircularInterpolation(Point start, Point end, Path path) {
         this.start = start;
         this.end = end;
@@ -25,17 +28,18 @@ public class CircularInterpolation {
 
     /**
      * 
-     * @param alpha \in [0, 2_PI]
+     * @param alpha
+     *            \in [0, 2_PI]
      * @return
      */
     public Point interpolate(float alpha) {
-        
+
         Point center = start.pontoMedioIndoPara(end);
         float raio = start.distanciaDe(end) / 2;
         float x = 0, y = 0, z = 0;
 
         if (path.planoXY()) {
-            
+
             int sentido = path.horario() ? -1 : 1;
             float angulo = atan(start.y / start.x) + sentido * alpha;
 
@@ -51,9 +55,9 @@ public class CircularInterpolation {
                 z = map(alpha, PI, TWO_PI, end.z, start.z);
             }
         }
-        
+
         if (path.planoXZ()) {
-            
+
             int sentido = path.horario() ? 1 : -1;
             float angulo = atan(start.z / start.x) + sentido * alpha;
 
@@ -71,7 +75,7 @@ public class CircularInterpolation {
         }
 
         if (path.planoYZ()) {
-            
+
             int sentido = path.horario() ? -1 : 1;
             float angulo = atan(start.z / start.y) + sentido * alpha;
 

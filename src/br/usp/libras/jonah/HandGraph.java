@@ -146,7 +146,7 @@ public class HandGraph {
                 interpolation.slowDown(); 
             }
             if (speed == Speed.RAPIDO) {
-                this.interpolation.speedUp(); 
+                interpolation.speedUp(); 
             }
         }
 
@@ -160,7 +160,7 @@ public class HandGraph {
             Point originPoint = point(origin.x, origin.y, origin.z);
             Point targetPoint = point(target.x, target.y, target.z);
             CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
-            float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI / 2);
+            float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI);
             Point nextPoint = interpolation.interpolate(alpha);
             x = nextPoint.x;
             y = nextPoint.y;

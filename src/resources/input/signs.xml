@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns2:signList xmlns:ns2="br.usp.libras.xml">
 
-<!-- 
 	<signs>
 		<name>TESTE PARA MOVIMENTO CIRCULAR</name>
 		<symbols>
@@ -81,7 +80,6 @@
 			</leftHand>
 		</symbols>
 	</signs>
-	-->
 		
 	<signs>
 		<name>SAÚDE</name>
