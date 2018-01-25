@@ -33,34 +33,9 @@
 	</signs>
 -->
 
-	<signs>
-		<name>SAÚDE</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>BUSTO</location>
-				<rotY>3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_JESUS</shape>
-				<side>RIGHT</side>
-			</rightHand>
-		</symbols>
-	</signs>
 	
 	<signs>
-		<name>SAÚDE 2</name>
+		<name>SAÚDE</name>
 		<symbols>
 			<rightHand>
 				<fingers>NENHUM</fingers>
@@ -87,82 +62,6 @@
 
 	<signs>
 		<name>INGRESSO</name> <!-- Verificar MAGNITUDE -->
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>CURTO</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_L_COM_C</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>-1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_L_COM_C</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-
-	<signs>
-		<name>INGRESSO 2</name> <!-- Verificar MAGNITUDE -->
 		<symbols>
 			<rightHand>
 				<fingers>NENHUM</fingers>
@@ -405,82 +304,6 @@
 				<rotY>0</rotY>
 				<rotX>-1.570796</rotX>
 				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ESTICADA</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ESTICADA</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>EMPATAR 2</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
 				<shape>MAO_ESTICADA</shape>
 				<side>RIGHT</side>
 				<transition>
@@ -643,105 +466,9 @@
 			</leftHand>
 		</symbols>
 	</signs>
-	
-	<signs>
-		<name>PATINS</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>BUSTO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ESTICADA</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>BUSTO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>false</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ESTICADA</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
 
 	<signs>
-		<name>PATINS 2</name>
+		<name>PATINS</name>
 		<symbols>
 			<rightHand>
 				<fingers>NENHUM</fingers>
@@ -873,52 +600,6 @@
 				<rotY>3.1415</rotY>
 				<rotX>0</rotX>
 				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_CIMA</direction>
-						<magnitude>CURTO</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_Y</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_CIMA</direction>
-						<magnitude>CURTO</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_Y</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>FESTA 2</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>-1.570796</rotZ>
 				<shape>MAO_Y</shape>
 				<side>RIGHT</side>
 			</rightHand>
@@ -956,44 +637,6 @@
 	
 	<signs>
 		<name>LIMITE</name>
-		<symbols>
-			<face>
-				<others>QUEIXO</others>
-			</face>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ESTICADA</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>-1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>1.570796</rotZ>
-				<shape>MAO_ESTICADA</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>LIMITE 2</name>
 		<symbols>
 			<face>
 				<others>QUEIXO</others>
@@ -1047,52 +690,6 @@
 	
 	<signs>
 		<name>HONRAR</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>TESTA</location>
-				<rotY>1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_C_COM_POLEGAR_PARA_O_LADO</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>TESTA</location>
-				<rotY>-1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-    					<direction>PARA_FRENTE</direction>
-    					<magnitude>NORMAL</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<speed>NORMAL</speed>
-    				<startsInLocation>true</startsInLocation>
-    				<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_C_COM_POLEGAR_PARA_O_LADO</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>HONRAR 2</name>
 		<symbols>
 			<rightHand>
 				<fingers>NENHUM</fingers>
@@ -1187,154 +784,6 @@
 	
 	<signs>
 		<name>TORCIDA</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>1.570796</rotX>
-				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>C_AFASTADO</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>1.570796</rotX>
-				<rotZ>1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>C_AFASTADO</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ORELHA</location>
-				<rotY>0</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>DIAGONAL_PARA_CIMA_DIREITA</direction>
-						<magnitude>CURTO</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-    					<direction>DIAGONAL_PARA_BAIXO_ESQUERDA</direction>
-    					<magnitude>CURTO</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<segments>
-    					<direction>DIAGONAL_PARA_CIMA_DIREITA</direction>
-    					<magnitude>CURTO</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<segments>
-    					<direction>DIAGONAL_PARA_BAIXO_ESQUERDA</direction>
-    					<magnitude>CURTO</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<speed>RAPIDO</speed>
-    				<startsInLocation>true</startsInLocation>
-    				<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_S</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ORELHA</location>
-				<rotY>0</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>DIAGONAL_PARA_CIMA_ESQUERDA</direction>
-						<magnitude>CURTO</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-    					<direction>DIAGONAL_PARA_BAIXO_DIREITA</direction>
-    					<magnitude>CURTO</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<segments>
-    					<direction>DIAGONAL_PARA_CIMA_ESQUERDA</direction>
-    					<magnitude>CURTO</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<segments>
-    					<direction>DIAGONAL_PARA_BAIXO_DIREITA</direction>
-    					<magnitude>CURTO</magnitude>
-    					<sequence>0</sequence>
-    				</segments>
-    				<speed>RAPIDO</speed>
-    				<startsInLocation>true</startsInLocation>
-    				<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_S</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-
-	<signs>
-		<name>TORCIDA 2</name>
 		<symbols>
 			<rightHand>
 				<location>ESPACO_NEUTRO</location>
@@ -1575,102 +1024,6 @@
 				<rotY>0</rotY>
 				<rotX>0</rotX>
 				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>ANGULO_ABERTO_AFASTADO</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>0</rotX>
-				<rotZ>1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>ANGULO_ABERTO_AFASTADO</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>EQUIPE 2</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>0</rotX>
-				<rotZ>-1.570796</rotZ>
 				<shape>ANGULO_ABERTO_AFASTADO</shape>
 				<side>RIGHT</side>
 			</rightHand>
@@ -1818,59 +1171,6 @@
 				<rotY>0</rotY>
 				<rotX>-1.570796</rotX>
 				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<segments>
-						<direction>PARA_TRAS</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_S</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>-3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<shape>MAO_S</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>BOXE 2</name>
-		<symbols>
-			<face>
-				<others>EXPRESSAO_QUESTAO</others>
-			</face>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
 				<shape>MAO_S</shape>
 				<side>RIGHT</side>
 				<transition>
@@ -1999,52 +1299,6 @@
 				<rotY>0</rotY>
 				<rotX>-1.570796</rotX>
 				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_DIREITA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>CURVADO_U</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>OLHOS</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_ESQUERDA</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>CURVADO_U</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>CAMPO 2</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>OLHOS</location>
-				<rotY>0</rotY>
-				<rotX>-1.570796</rotX>
-				<rotZ>0</rotZ>
 				<shape>CURVADO_U</shape>
 				<side>RIGHT</side>
 			</rightHand>
@@ -2082,55 +1336,6 @@
 	
 	<signs>
 		<name>TORNEIO</name>
-		<symbols>
-			<face>
-				<others>EXPRESSAO_QUESTAO</others>
-			</face>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>OLHOS</location>
-				<rotY>1.570796</rotY>
-				<rotX>-0.785398</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_BAIXO</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>INDICADOR</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>OLHOS</location>
-				<rotY>-1.570796</rotY>
-				<rotX>-0.785398</rotX>
-				<rotZ>0</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_BAIXO</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>INDICADOR</shape>
-				<side>LEFT</side>			
-			</leftHand>
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>TORNEIO 2</name>
 		<symbols>
 			<face>
 				<others>EXPRESSAO_QUESTAO</others>
@@ -2188,82 +1393,6 @@
 				<rotY>3.1415</rotY>
 				<rotX>0</rotX>
 				<rotZ>-1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-                        	<direction>PARA_BAIXO</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-                    	</segments>
-                    	<segments>
-                        	<direction>PARA_CIMA</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-                    	</segments>
-                    	<segments>
-                        	<direction>PARA_CIMA</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-                    	</segments>
-                    	<segments>
-                        	<direction>PARA_BAIXO</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ONZE</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>1.570796</rotZ>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-                        	<direction>PARA_CIMA</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-                    	</segments>
-                    	<segments>
-                        	<direction>PARA_BAIXO</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-                    	</segments>
-                    	<segments>
-                        	<direction>PARA_BAIXO</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-                    	</segments>
-                    	<segments>
-                        	<direction>PARA_CIMA</direction>
-                        	<magnitude>NORMAL</magnitude>
-                        	<sequence>0</sequence>
-					</segments>
-					<speed>RAPIDO</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<shape>MAO_ONZE</shape>
-				<side>LEFT</side>
-			</leftHand>
-		</symbols>
-	</signs>
-
-	<signs>
-		<name>JOGADOR 2</name>
-		<symbols>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>ESPACO_NEUTRO</location>
-				<rotY>3.1415</rotY>
-				<rotX>0</rotX>
-				<rotZ>-1.570796</rotZ>
 				<shape>MAO_ONZE</shape>
 				<side>RIGHT</side>
 				<transition>
@@ -2388,7 +1517,6 @@
 			</leftHand>
 		</symbols>		
 	</signs>
-
 
 	<signs>
 		<name>BOLA</name>
@@ -2499,55 +1627,6 @@
 	<signs>
 		<name>TREM</name>
 		<symbols>
-			<contact>NENHUM</contact>
-			<rightHand>
-				<fingers>NENHUM</fingers>
-				<location>DEDOS</location>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<locationAt>INICIO</locationAt>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<rotY>1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<shape>FLEXIONADO2</shape>
-				<side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<fingers>NENHUM</fingers>
-				<location>DEDOS</location>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<locationAt>INICIO</locationAt>
-					<speed>NORMAL</speed>
-					<startsInLocation>true</startsInLocation>
-					<type>RETILINIO</type>
-				</movement>
-				<rotY>-1.570796</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<shape>FLEXIONADO2</shape>		
-				<side>LEFT</side>		
-			</leftHand>
-		</symbols>
-	</signs>
-
-	<signs>
-		<name>TREM 2</name>
-		<symbols>
 			<rightHand>
 				<location>PESCOCO</location>
 				<rotY>1.570796</rotY>
@@ -2584,88 +1663,9 @@
 			</leftHand>
 		</symbols>		
 	</signs>
-		
+	
 	<signs>
 		<name>FUTEBOL</name>
-		<symbols>
-			<contact>NENHUM</contact>
-			<rightHand>
-				<location>ESPACO_NEUTRO</location>
-				<fingers>NENHUM</fingers>
-				<movement>
-                    <frequency>SIMPLES</frequency>
-                    <segments>
-                        <direction>PARA_CIMA</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <segments>
-                        <direction>PARA_BAIXO</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <segments>
-                        <direction>PARA_BAIXO</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <segments>
-                        <direction>PARA_CIMA</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <speed>RAPIDO</speed>
-                    <type>RETILINIO</type>
-                    <locationAt>INICIO</locationAt>
-                    <startsInLocation>true</startsInLocation>
-                </movement>
-                <rotY>0</rotY>
-                <rotX>3.1415</rotX>
-                <rotZ>1.570796</rotZ>
-                <shape>MAO_ONZE</shape>
-                <side>RIGHT</side>
-			</rightHand>
-			<leftHand>
-				<location>ESPACO_NEUTRO</location>
-				<fingers>NENHUM</fingers>
-				<movement>
-                    <frequency>SIMPLES</frequency>
-                    <segments>
-                        <direction>PARA_BAIXO</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <segments>
-                        <direction>PARA_CIMA</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <segments>
-                        <direction>PARA_CIMA</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <segments>
-                        <direction>PARA_BAIXO</direction>
-                        <magnitude>NORMAL</magnitude>
-                        <sequence>0</sequence>
-                    </segments>
-                    <speed>RAPIDO</speed>
-                    <type>RETILINIO</type>
-                    <locationAt>INICIO</locationAt>
-                    <startsInLocation>true</startsInLocation>
-                </movement>
-                <rotY>0</rotY>
-                <rotX>-3.1415</rotX>
-                <rotZ>-1.570796</rotZ>
-                <shape>MAO_ONZE</shape>
-                <side>LEFT</side>				
-			</leftHand>
-		</symbols>	
-	</signs>
-	
-		<signs>
-		<name>FUTEBOL 2</name>
 		<symbols>
 			<rightHand>
 				<location>ESPACO_NEUTRO</location>
@@ -2791,34 +1791,6 @@
 	<signs>
 		<name>OLHAR</name>
 		<symbols>
-			<contact>NENHUM</contact>
-			<rightHand>
-				<location>OLHOS</location>
-				<fingers>NENHUM</fingers>
-				<movement>
-					<frequency>SIMPLES</frequency>
-					<segments>
-						<direction>PARA_FRENTE</direction>
-						<magnitude>NORMAL</magnitude>
-						<sequence>0</sequence>
-					</segments>
-					<locationAt>INICIO</locationAt>
-					<speed>NORMAL</speed>
-					<type>RETILINIO</type>
-					<startsInLocation>true</startsInLocation>  
-				</movement>
-				<rotY>0</rotY>
-				<rotX>0</rotX>
-				<rotZ>0</rotZ>
-				<shape>MAO_2</shape>
-				<side>RIGHT</side>
-			</rightHand>
-		</symbols>
-	</signs>
-	
-		<signs>
-		<name>OLHAR 2</name>
-		<symbols>
 			<rightHand>
 				<location>OLHOS</location>
 				<fingers>NENHUM</fingers>
@@ -2844,35 +1816,6 @@
 	
 	<signs>
 		<name>VOCÊ</name>
-		<symbols>
-			<contact>NENHUM</contact>
-			<rightHand>
-				<location>ESPACO_NEUTRO</location>
-				<fingers>NENHUM</fingers>
-                <movement>
-                  	<frequency>SIMPLES</frequency>
-                	<segments>
-                		<direction>PARA_FRENTE</direction>
-                		<magnitude>NORMAL</magnitude>
-                		<sequence>0</sequence>
-                	</segments>
-                	<speed>NORMAL</speed>  
-                	<locationAt>FIM</locationAt>  
-                	<type>RETILINIO</type>    
-                	<startsInLocation>false</startsInLocation>       	                
-                </movement>
-                <rotY>0</rotY>
-                <rotX>-1.570796</rotX>
-                <rotZ>0</rotZ>
-                <shape>INDICADOR</shape>                
-            	<side>RIGHT</side>
-            </rightHand>
-            <sequence>0</sequence>	
-		</symbols>
-	</signs>
-	
-	<signs>
-		<name>VOCÊ 2</name>
 		<symbols>
 			<rightHand>
 				<location>ESPACO_NEUTRO_ATRAS</location>
