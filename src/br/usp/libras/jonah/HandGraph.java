@@ -3,6 +3,7 @@ package br.usp.libras.jonah;
 import static br.usp.libras.jonah.interpolation.Point.point;
 
 import br.usp.libras.jonah.interpolation.CircularInterpolation;
+import br.usp.libras.jonah.interpolation.InterpolationControl;
 import br.usp.libras.jonah.interpolation.Point;
 import br.usp.libras.sign.movement.Speed;
 import br.usp.libras.sign.symbol.Hand;
@@ -25,8 +26,6 @@ public class HandGraph {
 
     private static final float DEFAULT_INTERPOLATION_PASS = 0.1f;
 
-    private float interpolationPass = DEFAULT_INTERPOLATION_PASS;
-
     private Hand currentHand, nextHand;
 
     private PVector finalPositionLastHand;
@@ -35,8 +34,7 @@ public class HandGraph {
     private PApplet processing;
     private AnimObj handModel;
 
-    private float interpolation = 1; // interp = 0: início da interpolação; interp = 1:
-                              // interpolação terminada
+    private InterpolationControl interpolation = new InterpolationControl(DEFAULT_INTERPOLATION_PASS);
     private boolean ended;
 
     public HandGraph(PApplet processing, Hand hand, Location location) {
@@ -69,7 +67,7 @@ public class HandGraph {
                 spoke = false;
             }
             this.handModel.startAnim();
-            this.interpolation = 0; // inicia interpolação
+            interpolation.reset();
 
             this.initialPositionNextHand = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
         }
@@ -82,22 +80,19 @@ public class HandGraph {
             return;
         }
 
-        // TODO classe interpolation
-        if (interpolation < 1.0) { // interpolation.hasNotEnded
+        if (interpolation.hasNotEnded()) { 
 
-            interpolation = interpolation + interpolationPass; // interpolation.increment 
+            interpolation.increment(); 
 
-            if (interpolation >= 1.0) { // interpolation.hasEnded
-                interpolation = 1.0f;
+            if (interpolation.hasEnded()) {
                 this.currentHand = this.nextHand;
                 
                 this.finalPositionLastHand = new PVector(initialPositionNextHand.x, initialPositionNextHand.y, initialPositionNextHand.z);
-                this.interpolationPass = DEFAULT_INTERPOLATION_PASS;
                 this.ended = true;
             }
         }
         this.processing.pushMatrix();
-        this.interpolatePosition(interpolation, this.finalPositionLastHand, this.initialPositionNextHand);
+        this.interpolateHandPosition();
         this.interpolateHandRotation();
         this.handModel.draw();
         this.processing.popMatrix();
@@ -114,13 +109,13 @@ public class HandGraph {
         float rotY = 0;
         float iniY = (float) currentHand.getRotY();
         float endY = (float) nextHand.getRotY();
-        rotY = PApplet.map(interpolation, 0, 1, iniY, endY);
+        rotY = PApplet.map(interpolation.getInterpolationTime(), 0, 1, iniY, endY);
         processing.rotateY(rotY);
 
         float rotX = 0;
         float iniX = (float) currentHand.getRotX();
         float endX = (float) nextHand.getRotX();
-        rotX = PApplet.map(interpolation, 0, 1, iniX, endX);
+        rotX = PApplet.map(interpolation.getInterpolationTime(), 0, 1, iniX, endX);
         processing.rotateX(rotX);
 
         float rotZ = 0;
@@ -128,11 +123,16 @@ public class HandGraph {
         float endR = 0;
         iniR = (float) currentHand.getRotZ();
         endR = (float) nextHand.getRotZ();
-        rotZ = PApplet.map(interpolation, 0, 1, iniR, endR);
+        rotZ = PApplet.map(interpolation.getInterpolationTime(), 0, 1, iniR, endR);
         processing.rotateZ(rotZ);
     }
 
-    private void interpolatePosition(float value, PVector origin, PVector target) {
+    private void interpolateHandPosition() {
+        
+        PVector origin = this.finalPositionLastHand;
+        PVector target = this.initialPositionNextHand;
+        float interpolationTime = interpolation.getInterpolationTime();
+        
         // deslocamento relativo
         // calcula e aplica deslocamento na mão
 
@@ -143,24 +143,24 @@ public class HandGraph {
         Speed speed = this.currentHand.getTransition().getSpeed();
         if (speed != null) {
             if (speed == Speed.LENTO) {
-                this.interpolationPass = DEFAULT_INTERPOLATION_PASS / 2;
+                interpolation.slowDown(); 
             }
             if (speed == Speed.RAPIDO) {
-                this.interpolationPass = 2 * DEFAULT_INTERPOLATION_PASS;
+                this.interpolation.speedUp(); 
             }
         }
 
         if (path == Path.LINEAR) {
-            x = PApplet.map(value, 0, 1, origin.x, target.x);
-            y = PApplet.map(value, 0, 1, origin.y, target.y);
-            z = PApplet.map(value, 0, 1, origin.z, target.z);
+            x = PApplet.map(interpolationTime, 0, 1, origin.x, target.x);
+            y = PApplet.map(interpolationTime, 0, 1, origin.y, target.y);
+            z = PApplet.map(interpolationTime, 0, 1, origin.z, target.z);
         }
 
         if (path.isCircular()) {
             Point originPoint = point(origin.x, origin.y, origin.z);
             Point targetPoint = point(target.x, target.y, target.z);
             CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
-            float alpha = PApplet.map(value, 0, 1, 0, PApplet.PI / 2);
+            float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI / 2);
             Point nextPoint = interpolation.interpolate(alpha);
             x = nextPoint.x;
             y = nextPoint.y;
