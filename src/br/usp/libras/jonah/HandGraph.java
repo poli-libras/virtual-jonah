@@ -1,25 +1,16 @@
 package br.usp.libras.jonah;
 
-import java.util.ArrayList;
-import java.util.List;
+import static br.usp.libras.jonah.interpolation.Point.point;
 
-import processing.core.PApplet;
-import processing.core.PVector;
 import br.usp.libras.jonah.interpolation.CircularInterpolation;
 import br.usp.libras.jonah.interpolation.Point;
-import br.usp.libras.sign.movement.Frequency;
-import br.usp.libras.sign.movement.HandMovement;
-import br.usp.libras.sign.movement.Segment;
 import br.usp.libras.sign.movement.Speed;
 import br.usp.libras.sign.symbol.Hand;
-//import br.usp.libras.sign.symbol.HandOrientation;
-//import br.usp.libras.sign.symbol.HandPlane;
-//import br.usp.libras.sign.symbol.HandRotation;
 import br.usp.libras.sign.symbol.HandSide;
 import br.usp.libras.sign.symbol.Location;
 import br.usp.libras.sign.transition.Path;
-
-import static br.usp.libras.jonah.interpolation.Point.point;
+import processing.core.PApplet;
+import processing.core.PVector;
 
 /**
  * Classe responsável por renderizar as mãos do sinal (cada mão possui um objeto
@@ -37,12 +28,6 @@ public class HandGraph {
 	private enum AnimationPhase {
 		INITIAL_INTERPOLATION, MOVEMENT
 	};
-	// if startInLocation:
-	// INITIAL_INTERPOLATION leva mão para o ponto de locação
-	// else
-	// INITIAL_INTERPOLATION leva mão para um local de forma que ao fim do
-	// movimento
-	// (i.e.: depois dos segmentos) a mão estará no ponto de locação
 
 	private float pass = DEFAULT_PASS;
 
@@ -57,8 +42,6 @@ public class HandGraph {
 	private PVector posEndMove;
 
 	private AnimationPhase animationPhase;
-
-	private List<Segment> segments;
 
 	private PApplet processing;
 	private AnimObj model;
@@ -118,80 +101,10 @@ public class HandGraph {
 			this.model.startAnim();
 			this.interp = 0; // inicia interpolação
 
-			// If doesn't have movement
-			if (nextHand.getMovement() == null) {
-				this.posBeginMove = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
-				this.posEndMove = this.posBeginMove;
-				this.interpMove = 1;
-			} else {
-
-				// Movement
-				this.interpMove = 0;
-				this.segments = new ArrayList<Segment>(nextHand.getMovement().getSegments());
-				Segment segment = this.segments.remove(0); // remove próximo da
-															// lista
-
-				// seta posições da trajetória do movimento
-				this.posBeginMove = this.calculateBeginMov(nextHand.getLocation(), nextHand.getMovement(), nextHand.getSide());
-				this.posEndMove = PVector.add(this.posBeginMove,
-						DirectionsTranslator.getDirectionVector(segment.getDirection()));
-
-				// velocidade do movimento
-				Speed speed = nextHand.getMovement().getSpeed();
-				if (speed != null) {
-
-					if (speed == Speed.LENTO)
-						this.pass = DEFAULT_PASS / 2;
-					if (speed == Speed.NORMAL)
-						this.pass = DEFAULT_PASS;
-					if (speed == Speed.RAPIDO)
-						this.pass = 2 * DEFAULT_PASS;
-				}
-
-				// frequência do movimento
-				Frequency freq = nextHand.getMovement().getFrequency();
-				if (freq != null && freq == Frequency.REPETIDO) {
-
-					// faz repetido 3 vezes e rápido
-					this.pass = 2 * DEFAULT_PASS;
-					Segment inv = segment.clone();
-					Segment again = segment.clone();
-					inv.invert();
-					this.segments.add(inv);
-					this.segments.add(again);
-					inv = inv.clone();
-					again = again.clone();
-					this.segments.add(inv);
-					this.segments.add(again);
-				}
-			}
+			this.posBeginMove = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
+			this.posEndMove = this.posBeginMove;
+			this.interpMove = 1;
 		}
-	}
-
-	/**
-	 * Calculates the point where the hand must to be at the end of
-	 * INITIAL_INTERPOLATION phase (this is the actual beggining of the
-	 * movement)
-	 * 
-	 * @param location
-	 * @param side
-	 * @return
-	 */
-	private PVector calculateBeginMov(Location location, HandMovement mov, HandSide side) {
-
-		PVector begin = LocationsLoader.getVector(location, side);
-		if (!mov.isStartsInLocation()) {
-			// prepara lista inversa
-			List<Segment> inverse = new ArrayList<Segment>();
-			for (int i = mov.getSegments().size() - 1; i >= 0; i--) {
-				inverse.add(mov.getSegments().get(i));
-			}
-			// subtrai sucessivamente os segmentos para achar o ponto inicial
-			for (Segment seg : inverse) {
-				begin = PVector.sub(begin, DirectionsTranslator.getDirectionVector(seg.getDirection()));
-			}
-		}
-		return begin;
 	}
 
 	public void draw() {
@@ -241,26 +154,11 @@ public class HandGraph {
 			this.processing.popMatrix();
 
 			if (interpMove >= 1.0) { // fim da interpolação
-
-				// checa se há mais segmentos
-				Segment seg = null;
-				if (this.segments != null && !this.segments.isEmpty())
-					seg = this.segments.remove(0);
-
-				if (seg != null) { // mais segmentos
-					interp = 0;
-					interpMove = 0;
-					this.posHand = new PVector(posEndMove.x, posEndMove.y, posEndMove.z);
-					PVector dir = DirectionsTranslator.getDirectionVector(seg.getDirection());
-					this.posBeginMove = new PVector(this.posEndMove.x, this.posEndMove.y, this.posEndMove.z);
-					this.posEndMove = PVector.add(this.posBeginMove, dir);
-				} else { // fim do movimento
-					interpMove = 1.0f;
-					this.hand = this.nextHand;
-					this.posHand = new PVector(posEndMove.x, posEndMove.y, posEndMove.z);
-					this.pass = DEFAULT_PASS;
-					this.ended = true;
-				}
+			    interpMove = 1.0f;
+			    this.hand = this.nextHand;
+			    this.posHand = new PVector(posEndMove.x, posEndMove.y, posEndMove.z);
+			    this.pass = DEFAULT_PASS;
+			    this.ended = true;
 			}
 
 			break;
