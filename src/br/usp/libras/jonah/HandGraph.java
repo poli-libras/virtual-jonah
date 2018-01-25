@@ -3,7 +3,7 @@ package br.usp.libras.jonah;
 import static br.usp.libras.jonah.interpolation.Point.point;
 
 import br.usp.libras.jonah.interpolation.CircularInterpolation;
-import br.usp.libras.jonah.interpolation.InterpolationControl;
+import br.usp.libras.jonah.interpolation.InterpolationTimer;
 import br.usp.libras.jonah.interpolation.Point;
 import br.usp.libras.sign.movement.Speed;
 import br.usp.libras.sign.symbol.Hand;
@@ -34,7 +34,7 @@ public class HandGraph {
     private PApplet processing;
     private AnimObj handModel;
 
-    private InterpolationControl interpolation = new InterpolationControl(DEFAULT_INTERPOLATION_PASS);
+    private InterpolationTimer interpolation = new InterpolationTimer(DEFAULT_INTERPOLATION_PASS);
     private boolean ended;
 
     public HandGraph(PApplet processing, Hand hand, Location location) {
@@ -109,13 +109,13 @@ public class HandGraph {
         float rotY = 0;
         float iniY = (float) currentHand.getRotY();
         float endY = (float) nextHand.getRotY();
-        rotY = PApplet.map(interpolation.getInterpolationTime(), 0, 1, iniY, endY);
+        rotY = PApplet.map(interpolation.getTime(), 0, 1, iniY, endY);
         processing.rotateY(rotY);
 
         float rotX = 0;
         float iniX = (float) currentHand.getRotX();
         float endX = (float) nextHand.getRotX();
-        rotX = PApplet.map(interpolation.getInterpolationTime(), 0, 1, iniX, endX);
+        rotX = PApplet.map(interpolation.getTime(), 0, 1, iniX, endX);
         processing.rotateX(rotX);
 
         float rotZ = 0;
@@ -123,7 +123,7 @@ public class HandGraph {
         float endR = 0;
         iniR = (float) currentHand.getRotZ();
         endR = (float) nextHand.getRotZ();
-        rotZ = PApplet.map(interpolation.getInterpolationTime(), 0, 1, iniR, endR);
+        rotZ = PApplet.map(interpolation.getTime(), 0, 1, iniR, endR);
         processing.rotateZ(rotZ);
     }
 
@@ -131,7 +131,7 @@ public class HandGraph {
         
         PVector origin = this.finalPositionLastHand;
         PVector target = this.initialPositionNextHand;
-        float interpolationTime = interpolation.getInterpolationTime();
+        float interpolationTime = interpolation.getTime();
         
         // deslocamento relativo
         // calcula e aplica deslocamento na mão
