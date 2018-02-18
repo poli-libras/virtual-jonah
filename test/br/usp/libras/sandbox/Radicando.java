@@ -1,4 +1,4 @@
-package br.usp.libras.sanbox;
+package br.usp.libras.sandbox;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

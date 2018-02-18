@@ -1,4 +1,4 @@
-package br.usp.libras.sanbox;
+package br.usp.libras.sandbox;
 
 import br.usp.libras.sign.transition.Path;
 import processing.core.PApplet;
