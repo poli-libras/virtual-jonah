@@ -51,7 +51,7 @@ public class VirtualJonah extends PApplet {
 
 	private boolean pressN = false;
 	private boolean playingSign = false;
-	private boolean playing = false;
+	private boolean playingAll = false;
 	private PFont font;
 	private String signName = "";
 	private boolean showSignName = true;
@@ -67,6 +67,7 @@ public class VirtualJonah extends PApplet {
 		perspective(PI / 4, 1.0f * width / height, 0.1f, 1500);
 		frameRate(20);
 		setupText();
+		this.loadLocalXML();
 	}
 
 	private void setupText() {
@@ -125,14 +126,14 @@ public class VirtualJonah extends PApplet {
 		translate(width / 2, 0.6f * height, -200);
 		rotateModel();
 		drawAxis();
-		if (playing && this.symbolGraph.hasTransitionEnded()) {
+		if (playingAll && this.symbolGraph.hasTransitionEnded()) {
 			goToNextSymbol();
 		}
 		// Caso payingSign seja true e sign atual tenha symbols restantes, deve
 		// chamar goToNextSymbol automaticamnte
 		// if (this.signs.size() > 0) {
 		// Sign signAtual = this.signs.get(signIndex);
-		if (playingSign && this.symbolGraph.hasTransitionEnded()) {
+		else if (playingSign && this.symbolGraph.hasTransitionEnded()) {
 			// if (symbolIndex < signAtual.getSymbols().size() - 1) {
 			goToNextSymbol();
 			// }
@@ -349,7 +350,7 @@ public class VirtualJonah extends PApplet {
 	 */
 	public void playSigns() {
 		this.reset();
-		playing = true;
+		playingAll = true;
 		goToNextSymbol();
 	}
 
@@ -396,7 +397,7 @@ public class VirtualJonah extends PApplet {
 					signIndex++;
 				} else {
 					reset();
-					playing = false;
+					playingAll = false;
 				}
 			}
 		}

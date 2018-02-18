@@ -28,14 +28,14 @@ public class HandGraph {
 
     private Hand currentHand, nextHand;
 
-    private PVector finalPositionLastHand;
-    private PVector initialPositionNextHand;
+    private Path path;
+    private PVector initialPosition;
+    private PVector finalPosition;
 
     private PApplet processing;
     private AnimObj handModel;
 
-    private InterpolationTimer interpolation = new InterpolationTimer(DEFAULT_INTERPOLATION_PASS);
-    private boolean ended;
+    private InterpolationTimer interpolationTimer = new InterpolationTimer(DEFAULT_INTERPOLATION_PASS);
 
     public HandGraph(PApplet processing, Hand hand, Location location) {
 
@@ -44,8 +44,9 @@ public class HandGraph {
         this.nextHand = hand;
 
         loadHandModel();
-        this.finalPositionLastHand = LocationsLoader.getVector(location, hand.getSide());
-        this.initialPositionNextHand = this.finalPositionLastHand;
+        this.initialPosition = LocationsLoader.getVector(location, hand.getSide());
+        this.finalPosition = this.initialPosition;
+        this.path = Path.LINEAR;
     }
 
     private void loadHandModel() {
@@ -57,40 +58,44 @@ public class HandGraph {
     }
 
     public void nextHand(Hand nextHand) {
+        this.currentHand = this.nextHand;
         this.nextHand = nextHand;
         if (nextHand != null) {
-            this.ended = false;
             if (!spoke) {
                 this.handModel.setNextPose(ModelsLoader.getHandModel(nextHand.getShape(), nextHand.getSide()));
             } else {
                 this.handModel.setNextPose(ModelsLoader.getSpockModel(processing));
                 spoke = false;
             }
+            
+            // Inicialização do movimento
             this.handModel.startAnim();
-            interpolation.reset();
-
-            this.initialPositionNextHand = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
+            interpolationTimer.reset();
+            if (currentHand != null) {
+                this.path = this.currentHand.getTransition().getPath();
+                Speed speed = this.currentHand.getTransition().getSpeed();
+                if (speed != null) {
+                    if (speed == Speed.LENTO) {
+                        interpolationTimer.slowDown(); 
+                    }
+                    if (speed == Speed.RAPIDO) {
+                        interpolationTimer.speedUp(); 
+                    }
+                }
+            }
+            
+            this.initialPosition = new PVector(finalPosition.x, finalPosition.y, finalPosition.z);
+            this.finalPosition = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
         }
     }
 
     public void draw() {
 
-        // TODO ????
         if (nextHand == null) {
             return;
         }
 
-        if (interpolation.hasNotEnded()) { 
-
-            interpolation.increment(); 
-
-            if (interpolation.hasEnded()) {
-                this.currentHand = this.nextHand;
-                
-                this.finalPositionLastHand = new PVector(initialPositionNextHand.x, initialPositionNextHand.y, initialPositionNextHand.z);
-                this.ended = true;
-            }
-        }
+        interpolationTimer.increment();
         this.processing.pushMatrix();
         this.interpolateHandPosition();
         this.interpolateHandRotation();
@@ -106,65 +111,60 @@ public class HandGraph {
         // supõe-se que a orientação inicial da mão é BLACK no plano VERTICAL
         // => modelo OBJ deve seguir essa convenção
 
-        float rotY = 0;
-        float iniY = (float) currentHand.getRotY();
+        float rotY;
+        float rotX;
+        float rotZ;
         float endY = (float) nextHand.getRotY();
-        rotY = PApplet.map(interpolation.getTime(), 0, 1, iniY, endY);
-        processing.rotateY(rotY);
-
-        float rotX = 0;
-        float iniX = (float) currentHand.getRotX();
         float endX = (float) nextHand.getRotX();
-        rotX = PApplet.map(interpolation.getTime(), 0, 1, iniX, endX);
+        float endZ = (float) nextHand.getRotZ();;
+        if (currentHand != null) {
+            float iniY = (float) currentHand.getRotY();
+            float iniX = (float) currentHand.getRotX();
+            float iniZ = (float) currentHand.getRotZ();
+            rotY = PApplet.map(interpolationTimer.getTime(), 0, 1, iniY, endY);
+            rotX = PApplet.map(interpolationTimer.getTime(), 0, 1, iniX, endX);
+            rotZ = PApplet.map(interpolationTimer.getTime(), 0, 1, iniZ, endZ);
+        } else {
+            rotY = endY;
+            rotX = endX;
+            rotZ = endZ;
+        }
+        processing.rotateY(rotY);
         processing.rotateX(rotX);
-
-        float rotZ = 0;
-        float iniR = 0;
-        float endR = 0;
-        iniR = (float) currentHand.getRotZ();
-        endR = (float) nextHand.getRotZ();
-        rotZ = PApplet.map(interpolation.getTime(), 0, 1, iniR, endR);
         processing.rotateZ(rotZ);
     }
 
+    /**
+     * Calcula a interpolação entre a currentHand e a nextHand.
+     */
     private void interpolateHandPosition() {
         
-        PVector origin = this.finalPositionLastHand;
-        PVector target = this.initialPositionNextHand;
-        float interpolationTime = interpolation.getTime();
-        
-        // deslocamento relativo
-        // calcula e aplica deslocamento na mão
+        PVector origin = this.initialPosition;
+        PVector target = this.finalPosition;
+        float interpolationTime = interpolationTimer.getTime();
 
         float x = 0, y = 0, z = 0;
-        Path path = this.currentHand.getTransition().getPath();
-
-        // velocidade do movimento
-        Speed speed = this.currentHand.getTransition().getSpeed();
-        if (speed != null) {
-            if (speed == Speed.LENTO) {
-                interpolation.slowDown(); 
+        
+        if (currentHand == null) {
+            x = target.x;
+            y = target.y;
+            z = target.z;
+        } else {
+            if (path == Path.LINEAR) {
+                x = PApplet.map(interpolationTime, 0, 1, origin.x, target.x);
+                y = PApplet.map(interpolationTime, 0, 1, origin.y, target.y);
+                z = PApplet.map(interpolationTime, 0, 1, origin.z, target.z);
+                
+            } else if (path.isCircular()) {
+                Point originPoint = point(origin.x, origin.y, origin.z);
+                Point targetPoint = point(target.x, target.y, target.z);
+                CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
+                float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI);
+                Point nextPoint = interpolation.interpolate(alpha);
+                x = nextPoint.x;
+                y = nextPoint.y;
+                z = nextPoint.z;
             }
-            if (speed == Speed.RAPIDO) {
-                interpolation.speedUp(); 
-            }
-        }
-
-        if (path == Path.LINEAR) {
-            x = PApplet.map(interpolationTime, 0, 1, origin.x, target.x);
-            y = PApplet.map(interpolationTime, 0, 1, origin.y, target.y);
-            z = PApplet.map(interpolationTime, 0, 1, origin.z, target.z);
-        }
-
-        if (path.isCircular()) {
-            Point originPoint = point(origin.x, origin.y, origin.z);
-            Point targetPoint = point(target.x, target.y, target.z);
-            CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
-            float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI);
-            Point nextPoint = interpolation.interpolate(alpha);
-            x = nextPoint.x;
-            y = nextPoint.y;
-            z = nextPoint.z;
         }
 
         this.processing.translate(x, y, z);
@@ -177,7 +177,7 @@ public class HandGraph {
     }
 
     public boolean hasTransitionEnded() {
-        return this.ended;
+        return this.interpolationTimer.hasEnded();
     }
 
     ///////////////////////////////////////////
