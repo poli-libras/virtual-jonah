@@ -5,7 +5,7 @@ import br.usp.libras.jonah.interpolation.Point;
 import br.usp.libras.sign.transition.Path;
 import processing.core.PApplet;
 
-public class CircularInterpolationPrototype extends PApplet {
+public class CircularInterpolationForaDaOrigemPrototype extends PApplet {
 
     private static final long serialVersionUID = 1L;
 
@@ -18,16 +18,16 @@ public class CircularInterpolationPrototype extends PApplet {
     private float cameraY = 0;
     private float cameraZ = 0;
     
-    private static final float ALPHA_STEP = 0.01f;
+    private static final float ALPHA_STEP = 0.03f;
 //    private static final float ALPHA_STEP = 0.01f;
     
 //    float startX = 180, startY = 0, startZ = 0;
 //    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
 //    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
 
-    float startX = -180, startY = 0, startZ = 0;
-    float endX = 180, endY = 0, endZ = -30; // z final desalinhado com z inicial 
-    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
+    float startX = -80, startY = -145, startZ = 150;
+    float endX = -100, endY = 40, endZ = 150; // z final desalinhado com z inicial 
+    Path path = Path.CIRCULAR_HORARIO_EM_XY;
 
 //    float startX = 0, startY = 0, startZ = 0;
 //    float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
@@ -91,7 +91,7 @@ public class CircularInterpolationPrototype extends PApplet {
         }
 
         alpha += ALPHA_STEP;
-        if(alpha > TWO_PI) {
+        if(alpha > PI) {
             alpha = 0;
         }
 
@@ -181,7 +181,7 @@ public class CircularInterpolationPrototype extends PApplet {
 
 
     public static void main(String[] args) {
-        PApplet.main(new String[] { "br.usp.libras.sandbox.CircularInterpolationPrototype" });
+        PApplet.main(new String[] { "br.usp.libras.sandbox.CircularInterpolationForaDaOrigemPrototype" });
 
     }
 

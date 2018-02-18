@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import br.usp.libras.jonah.interpolation.CircularInterpolation;
 import br.usp.libras.jonah.interpolation.Point;
+import br.usp.libras.sign.symbol.Location;
 import br.usp.libras.sign.transition.Path;
 
 public class CircularInterpolationTestNoPlanoXY {
@@ -142,6 +143,33 @@ public class CircularInterpolationTestNoPlanoXY {
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
         assertCaminhoInterpoladoEh(start, NORDESTE, end, SUDOESTE);
+    }
+    
+    @Test
+    public void testa_para_boca() {
+        Point start = new Point(-80, -145, 150); 
+        Point end = new Point(-100, 40, 150); 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        Point p = interpolation.interpolate(0);
+        assertPontosProximos(start, p);
+        p = interpolation.interpolate(0.03f);
+        System.out.println(p);
+        
+        
+    }
+    
+    @Test
+    public void should_interpolar_no_plano_xy_horario_com_centro_fora_da_origem() {
+        Point start = new Point(c,-c,0);
+        Point end = new Point(c, c, 0); 
+        Path path = Path.CIRCULAR_HORARIO_EM_XY;
+        interpolation = new CircularInterpolation(start, end, path);
+        
+        Point zero = new Point(0,0,0);
+        Point farEast = new Point(2*c, 0, 0);
+        assertCaminhoInterpoladoEh(start, zero, end, farEast);
+        
     }
     
 }

@@ -41,7 +41,7 @@ public class CircularInterpolation {
         if (path.planoXY()) {
 
             int sentido = path.horario() ? -1 : 1;
-            float angulo = atan(start.y / start.x) + sentido * alpha;
+            float angulo = atan(start.y / start.x) + (sentido * alpha);
 
             if (start.x < end.x) {
                 angulo = angulo + PI;
@@ -49,6 +49,7 @@ public class CircularInterpolation {
 
             x = center.x + cos(angulo) * raio;
             y = center.y + sin(angulo) * raio;
+                        
             if (alpha < PI) {
                 z = map(alpha, 0, PI, start.z, end.z);
             } else {
