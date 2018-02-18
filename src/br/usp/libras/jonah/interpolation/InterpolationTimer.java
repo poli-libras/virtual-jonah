@@ -43,6 +43,10 @@ public class InterpolationTimer {
     public float getTime() {
         return time;
     }
+    
+    public float getPass() {
+        return pass;
+    }
 
 
 }
