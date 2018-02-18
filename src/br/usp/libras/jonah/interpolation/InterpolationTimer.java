@@ -5,10 +5,11 @@ public class InterpolationTimer {
     private float pass;
     private float initialPass;
     
-    private float time = 1;
+    private float time = 0;
     
     public InterpolationTimer(float pass) {
         this.initialPass = pass;
+        this.pass = pass;
     }
 
     public void reset() {
@@ -24,10 +25,11 @@ public class InterpolationTimer {
         pass = pass / 2;
     }
 
-    public void increment() {
+    public float increment() {
         if (hasNotEnded()) {
             time = time + pass;
         }
+        return time;
     }
     
     public boolean hasEnded() {
