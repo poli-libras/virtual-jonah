@@ -24,13 +24,14 @@ import processing.core.PVector;
  */
 public class HandGraph {
 
-    private static final float DEFAULT_INTERPOLATION_PASS = 0.1f;
+    private static final float DEFAULT_INTERPOLATION_PASS = 0.05f;
 
     private Hand currentHand, nextHand;
 
-    private Path path;
-    private PVector initialPosition;
-    private PVector finalPosition;
+    //private Path path;
+    //private PVector initialPosition;
+    //private PVector finalPosition;
+    //private float alpha;
 
     private PApplet processing;
     private AnimObj handModel;
@@ -44,9 +45,9 @@ public class HandGraph {
         this.nextHand = hand;
 
         loadHandModel();
-        this.initialPosition = LocationsLoader.getVector(location, hand.getSide());
-        this.finalPosition = this.initialPosition;
-        this.path = Path.LINEAR;
+//        this.initialPosition = LocationsLoader.getVector(location, hand.getSide());
+//        this.finalPosition = this.initialPosition;
+//        this.path = Path.LINEAR;
     }
 
     private void loadHandModel() {
@@ -70,9 +71,10 @@ public class HandGraph {
             
             // Inicialização do movimento
             this.handModel.startAnim();
-            interpolationTimer.reset();
+            this.interpolationTimer.reset();
+//            this.alpha = 0;
             if (currentHand != null) {
-                this.path = this.currentHand.getTransition().getPath();
+//                this.path = this.currentHand.getTransition().getPath();
                 Speed speed = this.currentHand.getTransition().getSpeed();
                 if (speed != null) {
                     if (speed == Speed.LENTO) {
@@ -84,8 +86,8 @@ public class HandGraph {
                 }
             }
             
-            this.initialPosition = new PVector(finalPosition.x, finalPosition.y, finalPosition.z);
-            this.finalPosition = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
+//            this.initialPosition = new PVector(finalPosition.x, finalPosition.y, finalPosition.z);
+//            this.finalPosition = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
         }
     }
 
@@ -139,10 +141,9 @@ public class HandGraph {
      */
     private void interpolateHandPosition() {
         
-        PVector origin = this.initialPosition;
-        PVector target = this.finalPosition;
-        float interpolationTime = interpolationTimer.getTime();
-
+        PVector target = LocationsLoader.getVector(nextHand.getLocation(), nextHand.getSide());
+//        PVector origin = this.initialPosition;
+//        PVector target = this.finalPosition;
         float x = 0, y = 0, z = 0;
         
         if (currentHand == null) {
@@ -150,6 +151,10 @@ public class HandGraph {
             y = target.y;
             z = target.z;
         } else {
+            PVector origin = LocationsLoader.getVector(currentHand.getLocation(), currentHand.getSide());
+            
+            float interpolationTime = interpolationTimer.getTime();
+            Path path = currentHand.getTransition().getPath();
             if (path == Path.LINEAR) {
                 x = PApplet.map(interpolationTime, 0, 1, origin.x, target.x);
                 y = PApplet.map(interpolationTime, 0, 1, origin.y, target.y);
@@ -160,6 +165,11 @@ public class HandGraph {
                 Point targetPoint = point(target.x, target.y, target.z);
                 CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
                 float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI);
+//                float alphaPass = PApplet.map(interpolationTimer.getPass(), 0, 1, 0, PApplet.PI);
+//                alpha += alphaPass;
+//                if (alpha >= PApplet.PI) {
+//                    alpha = PApplet.PI;
+//                }
                 Point nextPoint = interpolation.interpolate(alpha);
                 x = nextPoint.x;
                 y = nextPoint.y;
