@@ -159,6 +159,12 @@ public class CircularInterpolationTestNoPlanoXY {
         
     }
     
+    /**
+     * Parece que isso vai ajudar a resolver:
+     * https://forum.processing.org/one/topic/rotate-around-point.html
+     * Pergunta certa:
+     * processing rotate around given point
+     */
     @Test
     public void should_interpolar_no_plano_xy_horario_com_centro_fora_da_origem() {
         Point start = new Point(c,-c,0);
