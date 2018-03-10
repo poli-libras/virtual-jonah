@@ -11,6 +11,15 @@ public class RotacionandoPrototype extends PApplet {
 
     private static final long serialVersionUID = 1L;
 
+    ////////////////////////
+    // Ajustes aqui para variar a demonstração
+    private static final float ALPHA_STEP = 0.05f;
+    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
+    //////////////////////
+    
+    float startX = 0, startY = 0, startZ = 0;
+    float endX = 0, endY = 0, endZ = 0;
+
     private float alpha = 0.0f;
 
     private float cameraRotX = 0;
@@ -19,28 +28,46 @@ public class RotacionandoPrototype extends PApplet {
     private float cameraX = 0;
     private float cameraY = 0;
     private float cameraZ = 0;
-
-    private static final float ALPHA_STEP = 0.05f;
-    // private static final float ALPHA_STEP = 0.01f;
-
-    // float startX = 180, startY = 0, startZ = 0;
-    // float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
-    // Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
-
-    float startX = -180, startY = -10, startZ = 0;
-    float endX = 180, endY = 10, endZ = -30; // z final desalinhado com z inicial
-    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
-
-    // float startX = 0, startY = 0, startZ = 0;
-    // float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
-    // Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
-
+    
     @Override
     public void setup() {
         size(800, 500, P3D);
         perspective(PI / 4, 1.0f * width / height, 0.1f, 1500);
         frameRate(20);
         lights();
+        setStartAndEndPoints();
+    }
+
+    private void setStartAndEndPoints() {
+
+
+        if (path.planoXY()) {
+            startX = -180;
+            startY = -10;
+            startZ = 0;
+            endX = 180;
+            endY = 10;
+            endZ = -30; // z final desalinhado com z inicial
+        }
+
+        if (path.planoXZ()) {
+            startX = 180;
+            startY = 0;
+            startZ = 0;
+            endX = -180;
+            endY = -50;
+            endZ = 0; // y final desalinhado com y inicial
+        }
+        
+        if (path.planoYZ()) {
+            startX = 0;
+            startY = 0;
+            startZ = 0;
+            endX = -30;
+            endY = 0;
+            endZ = 100; // x final desalinhado com x inicial
+        }
+
     }
 
     @Override
@@ -63,22 +90,33 @@ public class RotacionandoPrototype extends PApplet {
 
         float raio = PApplet.dist(startX, startY, startZ, endX, endY, endZ) / 2;
         int sentido = path.horario() ? -1 : 1;
-        
+
         if (path.planoXY()) {
-            
             float shiftZ = 0;
             if (alpha < PI) {
-                shiftZ = PApplet.map(alpha, 0, PI, startZ, endZ);
+                shiftZ = map(alpha, 0, PI, startZ, endZ);
             } else {
-                shiftZ = PApplet.map(alpha, PI, TWO_PI, endZ, startZ);
+                shiftZ = map(alpha, PI, TWO_PI, endZ, startZ);
             }
-
-            translate(centerX, centerY, 0);
+            translate(centerX, centerY, shiftZ);
             float alinhamento = atan(startY / startX);
             rotateZ(alinhamento);
             rotateZ(alpha * sentido);
             translate(-raio, 0, 0);
-            translate(0, 0, shiftZ);
+        }
+
+        if (path.planoXZ()) {
+            float shiftY = 0;
+            if (alpha < PI) {
+                shiftY = map(alpha, 0, PI, startY, endY);
+            } else {
+                shiftY = map(alpha, PI, TWO_PI, endY, startY);
+            }
+            translate(centerX, shiftY, centerZ);
+            float alinhamento = atan(startX / startZ);
+            rotateY(alinhamento);
+            rotateY(alpha * sentido);
+            translate(0, 0, raio);
         }
 
         // draw box
