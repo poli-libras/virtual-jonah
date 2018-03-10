@@ -19,23 +19,22 @@ public class RotacionandoPrototype extends PApplet {
     private float cameraX = 0;
     private float cameraY = 0;
     private float cameraZ = 0;
-    
+
     private static final float ALPHA_STEP = 0.05f;
-//    private static final float ALPHA_STEP = 0.01f;
-    
-//    float startX = 180, startY = 0, startZ = 0;
-//    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
-//    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
+    // private static final float ALPHA_STEP = 0.01f;
+
+    // float startX = 180, startY = 0, startZ = 0;
+    // float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
+    // Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
 
     float startX = -180, startY = -10, startZ = 0;
-    float endX = 180, endY = 10, endZ = -30; // z final desalinhado com z inicial 
+    float endX = 180, endY = 10, endZ = -30; // z final desalinhado com z inicial
     Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
 
-//    float startX = 0, startY = 0, startZ = 0;
-//    float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
-//    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
+    // float startX = 0, startY = 0, startZ = 0;
+    // float endX = -30, endY = 0, endZ = 100; // x final desalinhado com x inicial
+    // Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
 
-    
     @Override
     public void setup() {
         size(800, 500, P3D);
@@ -46,13 +45,13 @@ public class RotacionandoPrototype extends PApplet {
 
     @Override
     public void draw() {
-        
+
         background(255, 238, 116);
-        translate(width/2, height/2);
+        translate(width / 2, height / 2);
         rotateCamera();
 
         drawAxes();
-        
+
         drawStart();
 
         drawEnd();
@@ -63,28 +62,32 @@ public class RotacionandoPrototype extends PApplet {
         drawCenter(centerX, centerY, centerZ);
 
         float raio = PApplet.dist(startX, startY, startZ, endX, endY, endZ) / 2;
+        int sentido = path.horario() ? -1 : 1;
+        
+        if (path.planoXY()) {
+            
+            float shiftZ = 0;
+            if (alpha < PI) {
+                shiftZ = PApplet.map(alpha, 0, PI, startZ, endZ);
+            } else {
+                shiftZ = PApplet.map(alpha, PI, TWO_PI, endZ, startZ);
+            }
 
-        float shiftZ = 0;
-        if (alpha < PI) {
-            shiftZ = PApplet.map(alpha, 0, PI, startZ, endZ);
-        } else {
-            shiftZ = PApplet.map(alpha, PI, TWO_PI, endZ, startZ);
+            translate(centerX, centerY, 0);
+            float alinhamento = atan(startY / startX);
+            rotateZ(alinhamento);
+            rotateZ(alpha * sentido);
+            translate(-raio, 0, 0);
+            translate(0, 0, shiftZ);
         }
-        
-        translate(centerX, centerY, 0);
-        float alinhamento = atan(startY / startX);
-        rotateZ(alinhamento);
-        rotateZ(alpha);
-        translate(-raio, 0, 0);
-        translate(0, 0, shiftZ);
-        
+
         // draw box
         fill(0);
         stroke(255);
         box(10);
-        
+
         alpha += ALPHA_STEP;
-        if(alpha > TWO_PI) {
+        if (alpha > TWO_PI) {
             alpha = 0;
         }
 
@@ -113,40 +116,40 @@ public class RotacionandoPrototype extends PApplet {
         sphere(5);
         popMatrix();
     }
-    
+
     private void drawAxes() {
-         beginShape(LINES);
-         stroke(255, 0, 0); // vermelho - 0x
-         vertex(0, 0, 0);
-         vertex(50, 0, 0);
-         stroke(0, 255, 0); // verde - 0y
-         vertex(0, 0, 0);
-         vertex(0, 50, 0);
-         stroke(0, 0, 255); // azul - 0z
-         vertex(0, 0, 0);
-         vertex(0, 0, 50);
-         endShape(LINES);
-         stroke(0);
-         
-         // Oz sobre pontos de início e fim:
-         beginShape(LINES);
-         stroke(255, 0, 0); // vermelho - 0x
-         vertex(startX-100, startY, startZ);
-         vertex(startX+100, startY, startZ);
-         vertex(endX-100, endY, endZ);
-         vertex(endX+100, endY, endZ);
-         stroke(0, 255, 0); // verde - 0y
-         vertex(startX, startY-100, startZ);
-         vertex(startX, startY+100, startZ);
-         vertex(endX, endY-100, endZ);
-         vertex(endX, endY+100, endZ);
-         stroke(0, 0, 255); // azul - 0z
-         vertex(startX, startY, startZ-100);
-         vertex(startX, startY, startZ+100);
-         vertex(endX, endY, endZ-100);
-         vertex(endX, endY, endZ+100);
-         endShape(LINES);
-         stroke(0);
+        beginShape(LINES);
+        stroke(255, 0, 0); // vermelho - 0x
+        vertex(0, 0, 0);
+        vertex(50, 0, 0);
+        stroke(0, 255, 0); // verde - 0y
+        vertex(0, 0, 0);
+        vertex(0, 50, 0);
+        stroke(0, 0, 255); // azul - 0z
+        vertex(0, 0, 0);
+        vertex(0, 0, 50);
+        endShape(LINES);
+        stroke(0);
+
+        // Oz sobre pontos de início e fim:
+        beginShape(LINES);
+        stroke(255, 0, 0); // vermelho - 0x
+        vertex(startX - 100, startY, startZ);
+        vertex(startX + 100, startY, startZ);
+        vertex(endX - 100, endY, endZ);
+        vertex(endX + 100, endY, endZ);
+        stroke(0, 255, 0); // verde - 0y
+        vertex(startX, startY - 100, startZ);
+        vertex(startX, startY + 100, startZ);
+        vertex(endX, endY - 100, endZ);
+        vertex(endX, endY + 100, endZ);
+        stroke(0, 0, 255); // azul - 0z
+        vertex(startX, startY, startZ - 100);
+        vertex(startX, startY, startZ + 100);
+        vertex(endX, endY, endZ - 100);
+        vertex(endX, endY, endZ + 100);
+        endShape(LINES);
+        stroke(0);
     }
 
     private void rotateCamera() {
@@ -155,7 +158,7 @@ public class RotacionandoPrototype extends PApplet {
         rotateZ(cameraRotZ);
         translate(cameraX, cameraY, cameraZ);
     }
-    
+
     @Override
     public void keyPressed() {
 
@@ -185,9 +188,9 @@ public class RotacionandoPrototype extends PApplet {
         if (key == 'o')
             cameraY += -5;
     }
-    
+
     public static void main(String[] args) {
-        
+
         PApplet.main(new String[] { "br.usp.libras.sandbox.RotacionandoPrototype" });
 
     }
