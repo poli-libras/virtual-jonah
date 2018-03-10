@@ -1,9 +1,5 @@
 package br.usp.libras.sandbox;
 
-import static processing.core.PApplet.map;
-import static processing.core.PConstants.PI;
-import static processing.core.PConstants.TWO_PI;
-
 import br.usp.libras.sign.transition.Path;
 import processing.core.PApplet;
 
@@ -14,7 +10,7 @@ public class RotacionandoPrototype extends PApplet {
     ////////////////////////
     // Ajustes aqui para variar a demonstração
     private static final float ALPHA_STEP = 0.05f;
-    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
+    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
     //////////////////////
     
     float startX = 0, startY = 0, startZ = 0;
@@ -61,10 +57,10 @@ public class RotacionandoPrototype extends PApplet {
         
         if (path.planoYZ()) {
             startX = 0;
-            startY = 0;
+            startY = -50;
             startZ = 0;
             endX = -30;
-            endY = 0;
+            endY = -10;
             endZ = 100; // x final desalinhado com x inicial
         }
 
@@ -100,8 +96,7 @@ public class RotacionandoPrototype extends PApplet {
             }
             translate(centerX, centerY, shiftZ);
             float alinhamento = atan(startY / startX);
-            rotateZ(alinhamento);
-            rotateZ(alpha * sentido);
+            rotateZ(alinhamento + alpha * sentido);
             translate(-raio, 0, 0);
         }
 
@@ -114,9 +109,21 @@ public class RotacionandoPrototype extends PApplet {
             }
             translate(centerX, shiftY, centerZ);
             float alinhamento = atan(startX / startZ);
-            rotateY(alinhamento);
-            rotateY(alpha * sentido);
+            rotateY(alinhamento + alpha * sentido);
             translate(0, 0, raio);
+        }
+        
+        if (path.planoYZ()) {
+            float shiftX = 0;
+            if (alpha < PI) {
+                shiftX = map(alpha, 0, PI, startX, endX);
+            } else {
+                shiftX = map(alpha, PI, TWO_PI, endX, startX);
+            }
+            translate(shiftX, centerY, centerZ);
+            float alinhamento = atan((startZ-centerZ) / (startY-centerY));
+            rotateX(alinhamento + alpha * sentido);
+            translate(0, -raio, 0);
         }
 
         // draw box
