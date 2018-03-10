@@ -1,5 +1,9 @@
 package br.usp.libras.sandbox;
 
+import static processing.core.PApplet.map;
+import static processing.core.PConstants.PI;
+import static processing.core.PConstants.TWO_PI;
+
 import br.usp.libras.sign.transition.Path;
 import processing.core.PApplet;
 
@@ -23,8 +27,8 @@ public class RotacionandoPrototype extends PApplet {
 //    float endX = -180, endY = -50, endZ = 0; // y final desalinhado com y inicial
 //    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XZ;
 
-    float startX = -180, startY = 0, startZ = 0;
-    float endX = 180, endY = 0, endZ = -30; // z final desalinhado com z inicial 
+    float startX = -180, startY = -10, startZ = 0;
+    float endX = 180, endY = 10, endZ = -30; // z final desalinhado com z inicial 
     Path path = Path.CIRCULAR_ANTI_HORARIO_EM_XY;
 
 //    float startX = 0, startY = 0, startZ = 0;
@@ -49,34 +53,32 @@ public class RotacionandoPrototype extends PApplet {
 
         drawAxes();
         
-        fill(255, 0, 0);
-        pushMatrix();
-        translate(startX, startY, startZ);
-        sphere(5);
-        popMatrix();
+        drawStart();
 
-        fill(0, 255, 0);
-        pushMatrix();
-        translate(endX, endY, endZ);
-        sphere(5);
-        popMatrix();
+        drawEnd();
 
-        fill(0, 0, 255);
         float centerX = (endX + startX) / 2;
         float centerY = (endY + startY) / 2;
         float centerZ = (endZ + startZ) / 2;
-        pushMatrix();
-        translate(centerX, centerY, centerZ);
-        sphere(5);
-        popMatrix();
+        drawCenter(centerX, centerY, centerZ);
 
         float raio = PApplet.dist(startX, startY, startZ, endX, endY, endZ) / 2;
+
+        float shiftZ = 0;
+        if (alpha < PI) {
+            shiftZ = PApplet.map(alpha, 0, PI, startZ, endZ);
+        } else {
+            shiftZ = PApplet.map(alpha, PI, TWO_PI, endZ, startZ);
+        }
         
-        translate(centerX, centerY, centerZ);
+        translate(centerX, centerY, 0);
         float alinhamento = atan(startY / startX);
         rotateZ(alinhamento);
         rotateZ(alpha);
-        translate(raio, 0, 0);
+        translate(-raio, 0, 0);
+        translate(0, 0, shiftZ);
+        
+        // draw box
         fill(0);
         stroke(255);
         box(10);
@@ -86,6 +88,30 @@ public class RotacionandoPrototype extends PApplet {
             alpha = 0;
         }
 
+    }
+
+    private void drawCenter(float centerX, float centerY, float centerZ) {
+        fill(0, 0, 255);
+        pushMatrix();
+        translate(centerX, centerY, centerZ);
+        sphere(5);
+        popMatrix();
+    }
+
+    private void drawEnd() {
+        fill(0, 255, 0);
+        pushMatrix();
+        translate(endX, endY, endZ);
+        sphere(5);
+        popMatrix();
+    }
+
+    private void drawStart() {
+        fill(255, 0, 0);
+        pushMatrix();
+        translate(startX, startY, startZ);
+        sphere(5);
+        popMatrix();
     }
     
     private void drawAxes() {
