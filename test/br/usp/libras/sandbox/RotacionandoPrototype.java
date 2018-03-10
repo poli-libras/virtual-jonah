@@ -10,7 +10,7 @@ public class RotacionandoPrototype extends PApplet {
     ////////////////////////
     // Ajustes aqui para variar a demonstração
     private static final float ALPHA_STEP = 0.05f;
-    Path path = Path.CIRCULAR_ANTI_HORARIO_EM_YZ;
+    Path path = Path.CIRCULAR_HORARIO_EM_XY;
     //////////////////////
     
     float startX = 0, startY = 0, startZ = 0;
@@ -36,20 +36,19 @@ public class RotacionandoPrototype extends PApplet {
 
     private void setStartAndEndPoints() {
 
-
         if (path.planoXY()) {
             startX = -180;
-            startY = -10;
+            startY = -60;
             startZ = 0;
-            endX = 180;
+            endX = 100;
             endY = 10;
             endZ = -30; // z final desalinhado com z inicial
         }
 
         if (path.planoXZ()) {
-            startX = 180;
+            startX = 150;
             startY = 0;
-            startZ = 0;
+            startZ = 10;
             endX = -180;
             endY = -50;
             endZ = 0; // y final desalinhado com y inicial
@@ -95,7 +94,7 @@ public class RotacionandoPrototype extends PApplet {
                 shiftZ = map(alpha, PI, TWO_PI, endZ, startZ);
             }
             translate(centerX, centerY, shiftZ);
-            float alinhamento = atan(startY / startX);
+            float alinhamento = atan((startY-centerY) / (startX-centerX));
             rotateZ(alinhamento + alpha * sentido);
             translate(-raio, 0, 0);
         }
@@ -108,7 +107,7 @@ public class RotacionandoPrototype extends PApplet {
                 shiftY = map(alpha, PI, TWO_PI, endY, startY);
             }
             translate(centerX, shiftY, centerZ);
-            float alinhamento = atan(startX / startZ);
+            float alinhamento = atan((startX-centerX) / (startZ-centerZ));
             rotateY(alinhamento + alpha * sentido);
             translate(0, 0, raio);
         }
