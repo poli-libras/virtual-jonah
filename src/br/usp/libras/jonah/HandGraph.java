@@ -24,7 +24,7 @@ import processing.core.PVector;
  */
 public class HandGraph {
 
-    private static final float DEFAULT_INTERPOLATION_PASS = 0.01f;
+    private static final float DEFAULT_INTERPOLATION_PASS = 0.05f;
 
     private Hand currentHand, nextHand;
 
@@ -151,9 +151,6 @@ public class HandGraph {
                 Point targetPoint = point(target.x, target.y, target.z);
                 CircularInterpolation interpolation = new CircularInterpolation(originPoint, targetPoint, path);
                 float alpha = PApplet.map(interpolationTime, 0, 1, 0, PApplet.PI);
-                if (alpha < PApplet.PI) {
-                    System.out.println("alpha=" + alpha);
-                }
                 Point nextPoint = interpolation.interpolate(alpha);
                 x = nextPoint.x;
                 y = nextPoint.y;

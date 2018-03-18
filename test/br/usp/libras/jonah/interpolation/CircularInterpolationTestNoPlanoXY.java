@@ -6,9 +6,6 @@ import static processing.core.PConstants.PI;
 
 import org.junit.Test;
 
-import br.usp.libras.jonah.interpolation.CircularInterpolation;
-import br.usp.libras.jonah.interpolation.Point;
-import br.usp.libras.sign.symbol.Location;
 import br.usp.libras.sign.transition.Path;
 
 public class CircularInterpolationTestNoPlanoXY {
@@ -154,17 +151,8 @@ public class CircularInterpolationTestNoPlanoXY {
         Point p = interpolation.interpolate(0);
         assertPontosProximos(start, p);
         p = interpolation.interpolate(0.03f);
-        System.out.println(p);
-        
-        
     }
     
-    /**
-     * Parece que isso vai ajudar a resolver:
-     * https://forum.processing.org/one/topic/rotate-around-point.html
-     * Pergunta certa:
-     * processing rotate around given point
-     */
     @Test
     public void should_interpolar_no_plano_xy_horario_com_centro_fora_da_origem() {
         Point start = new Point(c,-c,0);
@@ -175,7 +163,6 @@ public class CircularInterpolationTestNoPlanoXY {
         Point zero = new Point(0,0,0);
         Point farEast = new Point(2*c, 0, 0);
         assertCaminhoInterpoladoEh(start, zero, end, farEast);
-        
     }
     
 }
