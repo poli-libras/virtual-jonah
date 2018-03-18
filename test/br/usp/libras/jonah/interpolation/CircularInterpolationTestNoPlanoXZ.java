@@ -144,4 +144,15 @@ public class CircularInterpolationTestNoPlanoXZ {
         assertCaminhoInterpoladoEh(start, SUDOESTE, end, NORDESTE);
     }
 
+    @Test
+    public void should_interpolar_no_plano_xz_horario_com_centro_fora_da_origem() {
+        Point start = new Point(c, 0, -c);
+        Point end = new Point(c, 0, c); 
+        Path path = Path.CIRCULAR_HORARIO_EM_XZ;
+        interpolation = new CircularInterpolation(start, end, path);
+        
+        Point zero = new Point(0,0,0);
+        Point farEast = new Point(2*c, 0, 0);
+        assertCaminhoInterpoladoEh(start, farEast, end, zero);
+    }
 }

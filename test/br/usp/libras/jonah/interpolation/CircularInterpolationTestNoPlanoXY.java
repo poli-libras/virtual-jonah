@@ -155,7 +155,7 @@ public class CircularInterpolationTestNoPlanoXY {
     
     @Test
     public void should_interpolar_no_plano_xy_horario_com_centro_fora_da_origem() {
-        Point start = new Point(c,-c,0);
+        Point start = new Point(c, -c, 0);
         Point end = new Point(c, c, 0); 
         Path path = Path.CIRCULAR_HORARIO_EM_XY;
         interpolation = new CircularInterpolation(start, end, path);
